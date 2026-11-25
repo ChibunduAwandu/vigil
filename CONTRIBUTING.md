@@ -38,6 +38,24 @@ VIGIL_TEST_NETWORK=1 .venv/bin/pytest -m network -ra
 The tests clear public-chain environment variables and use local development
 chains. `.env` is not loaded automatically.
 
+## Optional GitHub Actions setup
+
+The workflow template is [docs/ci.yml](docs/ci.yml). It is not currently active:
+the credentials used to publish this repository did not have workflow-write
+permission. To enable it with credentials that do:
+
+```bash
+mkdir -p .github/workflows
+cp docs/ci.yml .github/workflows/ci.yml
+git add .github/workflows/ci.yml
+git commit -m "Enable GitHub Actions checks"
+git push
+```
+
+The template includes a Python 3.11–3.13 matrix and local Kafka, live-exchange, and
+Solidity checks. Those hosted jobs have not yet run. The current verification
+record is from local Python 3.12 runs.
+
 ## Make a change reviewable
 
 - Keep exchange source outside the publication. Use `VIGIL_RTG_HOME` to test a

@@ -1,6 +1,5 @@
 # Vigil — Trade Surveillance & Compliance
 
-[![CI](https://github.com/ChibunduAwandu/vigil/actions/workflows/ci.yml/badge.svg)](https://github.com/ChibunduAwandu/vigil/actions/workflows/ci.yml)
 ![Python 3.11–3.13](https://img.shields.io/badge/Python-3.11%E2%80%933.13-3776AB)
 ![Solidity 0.8.28](https://img.shields.io/badge/Solidity-0.8.28-363636)
 
@@ -197,9 +196,13 @@ make contract                     # Solidity tests; requires Foundry from make t
 VIGIL_TEST_LIVE=1 .venv/bin/pytest  # also run the actual exchange integration tests
 ```
 
-[CI](.github/workflows/ci.yml) checks Python 3.11–3.13, the example, Kafka/live-exchange integration,
-and the Solidity contract. Public API tests are opt-in so service availability does not determine CI.
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow.
+Local verification on Python 3.12: **245 Python tests passed** across the main suite and the Kafka
+integration run, plus **30 Solidity tests** (including fuzz tests). The three public API tests were
+not run. Ruff and Solidity formatting checks passed. See the [verification record](docs/VERIFICATION.md).
+
+An optional [GitHub Actions workflow](docs/ci.yml) covers Python 3.11–3.13, the example,
+Kafka/live-exchange integration, and Solidity. Hosted CI is not enabled yet; publishing the workflow
+requires workflow-write permission. See [CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow.
 
 By **Chibundu Awandu**. This project is independent of Optiver. No open-source license has been selected
 for Vigil's own code; see [NOTICE.md](NOTICE.md) for external dependency licenses and attribution.
