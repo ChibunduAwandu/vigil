@@ -487,9 +487,9 @@ def _unreadable(record: MatchRecord) -> str | None:
     damaged or tampered with. Checked here so that nothing downstream has to
     wonder whether a field is there.
     """
-    if not isinstance(record.time, (int, float)) or not math.isfinite(record.time) or record.time < 0:
+    if type(record.time) not in (int, float) or not 0 <= record.time <= 1e15 or not math.isfinite(record.time):
         return "it has no time"
-    if not isinstance(record.order_id, int) or not isinstance(record.competitor, str):
+    if type(record.order_id) is not int or not 0 <= record.order_id < 2**63 or not isinstance(record.competitor, str):
         return "it has no order number or no owner"
     op = record.op
     if op in (CANCEL, AMEND):
@@ -500,7 +500,7 @@ def _unreadable(record: MatchRecord) -> str | None:
         return "it names no instrument or no side"
     if not isinstance(record.volume, int) or record.volume <= 0:
         return "it has no volume"
-    if not isinstance(record.price, (int, float)) or not math.isfinite(record.price) or record.price <= 0:
+    if type(record.price) not in (int, float) or not 0 < record.price <= 1e15 or not math.isfinite(record.price):
         return "it has no price"
     if op == INSERT and (record.lifespan not in ("F", "G") or record.price != int(record.price)):
         return "it has no lifespan or a price that is not a whole number of cents"

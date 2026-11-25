@@ -32,6 +32,7 @@ from vigil.ml.train import session_key
 from vigil.paths import REPO_ROOT, artifacts_dir, rtg_home
 from vigil.rtg.events import CSV_HEADER, MatchHeader, MatchRecord
 from vigil.rtg.marketdata import file_sha256
+from vigil.storage import artifact_path
 from vigil.strategies.badactors import BAD_ACTORS
 from vigil.strategies.challengers import STRATEGIES
 from vigil.surveillance.engine import header_for
@@ -233,7 +234,7 @@ class LiveMatch:
         self.hud = hud
         self._display: subprocess.Popen | None = None
         # Absolute: the exchange and the traders run with this directory as their working directory.
-        self.run_dir = (Path(run_dir) if run_dir else artifacts_dir() / "runs" / match_id).resolve()
+        self.run_dir = (Path(run_dir) if run_dir else artifact_path(artifacts_dir() / "runs", match_id)).resolve()
         self.port = _free_port()
         self.deadline: float | None = None  # monotonic time by which the match must be over
         self._exchange: subprocess.Popen | None = None

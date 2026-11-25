@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vigil"
-version = "0.1.0"
+version = "0.2.0"
 description = "Compliance monitoring for trades executed on Optiver's Ready Trader Go exchange simulator"
 authors = [{name = "Chibundu Awandu"}]
 readme = "README.md"
@@ -18,9 +18,10 @@ dependencies = [
 [project.optional-dependencies]
 kafka = ["confluent-kafka>=2.5"]
 chain = ["web3>=7.0"]
+signing = ["cryptography>=44.0"]
 dev = ["pytest>=8.0", "ruff>=0.6", "scikit-learn>=1.4"]
 hud = ["PySide6>=6.5"]  # Ready Trader Go's own display (vigil live --hud, vigil replay); over a gigabyte, so not in "all"
-all = ["vigil[kafka,chain,dev]"]
+all = ["vigil[kafka,chain,dev,signing]"]
 
 [project.scripts]
 vigil = "vigil.cli:main"
@@ -33,12 +34,13 @@ Documentation = "https://github.com/ChibunduAwandu/vigil#readme"
 where = ["src"]
 
 [tool.setuptools.package-data]
-vigil = ["chain/artifacts/*.json", "data/*.yaml", "data/*.json"]
+vigil = ["chain/artifacts/*.json", "data/*.yaml", "data/*.json", "reports/*.html"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
 markers = [
+    "kafka_faults: isolated broker fault injection (VIGIL_TEST_KAFKA_FAULTS=1)",
     "kafka: needs a Kafka broker on 127.0.0.1:9092 (or VIGIL_TEST_KAFKA=host:port)",
     "chain: needs the Foundry toolchain (anvil) in .tools/ or on PATH",
     "network: talks to a public API over the internet (set VIGIL_TEST_NETWORK=1)",

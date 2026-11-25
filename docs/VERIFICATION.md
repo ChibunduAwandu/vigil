@@ -1,43 +1,48 @@
-# Publication verification
+# Version 0.2 verification
 
-Verified locally on **2026-11-24**, macOS ARM64, Python **3.12**, using a fresh
-download of the exchange dependency pinned in `config/rtg-source.json`.
+Verified locally on **2026-11-25**, macOS ARM64 and Python **3.12.9**, against the separately downloaded,
+checksummed exchange. Python dependencies are recorded in `uv.lock`.
 
-| Check | Result |
+| Check | Observed result |
 | --- | --- |
-| Full Python suite with `VIGIL_TEST_LIVE=1` | 244 passed, 4 skipped. This included local Anvil integration and actual exchange processes. |
-| Kafka test with the local broker running | 1 passed. This was the Kafka test skipped in the full run. |
-| Captured-exchange replay and fixture checks after excluding upstream input data | 24 passed. The input excerpt is regenerated from the external dependency. |
-| Foundry contract suite | 30 passed; four fuzz tests each ran 512 cases. |
-| Ruff and Solidity formatting | Passed. |
-| README simulation | 66 alerts; 1,393 reported trades reconciled; six abusive traders flagged and three baseline traders clean. |
-| README captured-match audit | 0 alerts; all 36 reported trades reconciled. |
-| Example report | Canonical JSON validated; report and alert Merkle root are internally consistent. |
-| Publication checks | Local Markdown targets exist; no local `.env` values found in staged files; original exchange CSV bytes preserved in Git. |
+| Main suite with actual exchange and local Anvil (`VIGIL_TEST_LIVE=1`, excluding Kafka/fault/network markers) | 283 passed. |
+| Final focused CLI, validation, verifier and review regression run | 52 passed, including one additional deeply nested Kafka JSON case; other cases overlap the main suite. |
+| Real Kafka round-trip | 1 passed. |
+| Isolated Kafka fault suite | 5 passed: process kill, disk-write failure, output/commit boundary, broker restart, live rebalance. |
+| Distinct Python cases across these runs | **290 passed**; three public API tests were not enabled. |
+| Solidity | **30 passed**, including four fuzz tests with 512 runs each; formatting passed. |
+| Ruff | Passed for `src`, `tests`, `scripts`, and `tools`. |
+| README simulation | 66 alerts, 1,393 trade reports reconciled; the baseline participants remained unflagged. |
+| Captured-match reproduction | Zero alerts; 36 trade reports reconciled; expected bytes recorded in the reproduction manifest. |
+| Independent verifier | Version 1 and 2, canonical encoding, expected hashes, event hashes, Ed25519 signatures, and unbalanced/tampered Merkle proofs checked. |
+| Offline viewer | Browser-tested filtering, finding selection, threshold details, event timeline and before/after books; payload-escaping and hash-mismatch tests pass. |
+| Repeated-match retention | 1,000 matches / 106,000 events, zero retained reports and zero active matches at completion; allocation samples in the soak artifact. |
 
-There are **245 distinct passing Python tests** across the full suite and Kafka
-run. The three remaining tests use public APIs and were not enabled. The 24-test
-fixture check reruns tests already counted in that total.
+[GitHub Actions](https://github.com/ChibunduAwandu/vigil/actions/workflows/ci.yml) runs Python 3.11–3.13,
+captured-match hash reproduction, the README simulation, Kafka fault injection, live exchange, and Solidity.
+Use the run linked to a particular commit to assess hosted status; the table above records local evidence.
 
-The Kafka cleanup test covers a terminal delivery failure even when the producer's
-queue is empty. The monitor regression verifies that a failed report delivery does
-not commit the match's input offsets, allowing a restart from its original header.
-
-The GitHub Actions template is in [ci.yml](ci.yml). Hosted CI and the Python
-3.11/3.13 matrix have not run: the available publishing credentials lacked the
-permission to upload Actions workflows. These are local verification results,
-not a hosted CI status or a production certification.
-
-To reproduce the Python checks with the optional toolchains installed:
+## Reproduce
 
 ```bash
+uv sync --frozen --extra all
+source .venv/bin/activate
+python scripts/bootstrap_rtg.py
+make tools
+VIGIL_TEST_LIVE=1 pytest -m 'not kafka and not kafka_faults and not network' -ra
+VIGIL_TEST_KAFKA_FAULTS=1 pytest tests/test_kafka_faults.py -v
 make services
-VIGIL_TEST_LIVE=1 .venv/bin/pytest -ra
-make lint
-make contract
+pytest -m kafka
 make stop
+make lint-python
+make contract
+vigil reproduce --check docs/results/reproduction.json
 ```
 
-Public API checks are independently opt-in with `VIGIL_TEST_NETWORK=1`. Re-running
-the historical trading experiments is outside this verification; their recorded
-methodology and limitations are in [RESULTS.md](RESULTS.md).
+Public API checks are independently opt-in with `VIGIL_TEST_NETWORK=1`. Historical trading experiments were
+not regenerated; their original methodology and limitations remain in [RESULTS.md](RESULTS.md).
+
+The new [challenge evaluation](EVALUATION.md), [benchmark](results/benchmark.json),
+[retention soak](results/soak.json), and [reproduction manifest](results/reproduction.json) identify their
+inputs and software. They do not establish production readiness, externally validated detector accuracy,
+legal compliance, or an independent security audit.

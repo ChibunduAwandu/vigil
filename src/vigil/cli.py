@@ -13,6 +13,7 @@ from typing import Any
 
 from vigil.net import ApiError, redact
 from vigil.paths import REPO_ROOT, all_market_data_files, artifacts_dir, market_data_file
+from vigil.storage import artifact_path, atomic_write
 
 RESULTS_DIR = REPO_ROOT / "docs" / "results"
 EXPLORER_CHAINS = {1: "Ethereum mainnet", 11155111: "Sepolia"}  # where Etherscan can give a second opinion
@@ -144,7 +145,7 @@ def _finish(audit, args: argparse.Namespace, *, simulation=None) -> int:
     """Write the report, anchor it if asked, and print the outcome. Returns the process exit code."""
     from vigil.reports.render import render_markdown
     report = audit.report
-    out = Path(args.out) if getattr(args, "out", None) else artifacts_dir() / "reports" / report.report_id
+    out = Path(args.out) if getattr(args, "out", None) else artifact_path(artifacts_dir() / "reports", report.report_id)
     out.mkdir(parents=True, exist_ok=True)
     path = report.save(out / "report.json")
     if simulation is not None:
@@ -154,7 +155,7 @@ def _finish(audit, args: argparse.Namespace, *, simulation=None) -> int:
     failed = False
     if getattr(args, "anchor", False):
         receipt, failed = _anchor(report, path, getattr(args, "uri", None) or "")
-    (out / "report.md").write_text(render_markdown(report, receipt))
+    atomic_write(out / "report.md", render_markdown(report, receipt).encode())
 
     summary = report.document["summary"]
     _say(f"\nreport {report.report_id}: {summary['alerts']} alerts"
@@ -362,7 +363,7 @@ def cmd_simulate(args: argparse.Namespace) -> int:
         _say(f"published {count:,} events to {topics.EVENTS}")
         # A monitor reports on what it receives in artifacts/reports/<id>. The report made here, from
         # the match itself, is kept out of its way, with the match's files, as a live match's is.
-        args.out = args.out or str(artifacts_dir() / "runs" / audit.report.report_id)
+        args.out = args.out or str(artifact_path(artifacts_dir() / "runs", audit.report.report_id))
     return _finish(audit, args, simulation=audit.simulation)
 
 
@@ -459,7 +460,10 @@ def cmd_produce(args: argparse.Namespace) -> int:
 
 def cmd_monitor(args: argparse.Namespace) -> int:
     from vigil.bus import connect, topics
+    from vigil.bus.context import ReplayContexts
     from vigil.bus.services import Monitor
+    from vigil.observability import Metrics
+    from vigil.reports.canonical import canonical_json
     from vigil.reports.render import render_markdown
     bus = connect(args.bus)
     if hasattr(bus, "ensure_topics"):
@@ -467,27 +471,50 @@ def cmd_monitor(args: argparse.Namespace) -> int:
 
     def on_report(audit) -> dict[str, Any] | None:
         report = audit.report
-        out = artifacts_dir() / "reports" / report.report_id
+        out = artifact_path(artifacts_dir() / "reports", report.report_id)
         out.mkdir(parents=True, exist_ok=True)
         path = report.save(out / "report.json")
         receipt = None
         if args.anchor:
             # A monitor must not die because the chain is away: the report is on disk either way.
-            receipt, _ = _anchor(report, path, args.uri or "")
-        (out / "report.md").write_text(render_markdown(report, receipt))
+            receipt, failed = _anchor(report, path, args.uri or "")
+            metrics.counts["anchor_failures"] += int(failed)
+        atomic_write(out / "report.md", render_markdown(report, receipt).encode())
         summary = report.document["summary"]
         _say(f"match {report.report_id}: {summary['alerts']} alerts, flagged: "
              f"{', '.join(summary['participants_flagged']) or 'nobody'}; report {path}"
              + (f"; anchored as entry {receipt['sequence']}" if receipt else ""))
         return receipt
 
-    monitor = Monitor(bus, group=args.group, on_report=on_report, regulatory_watch=lambda: _regulatory_watch(args))
+    contexts = ReplayContexts(artifacts_dir() / "monitor-contexts.sqlite3")
+    metrics = Metrics()
+    metrics_path = Path(args.metrics) if args.metrics else Path(str(artifact_path(artifacts_dir() / "metrics", args.group)) + ".json")
+
+    def quarantine(rejection):
+        identity = canonical_json({k: rejection[k] for k in ("topic", "partition", "offset", "sha256")})
+        import hashlib
+        target = artifacts_dir() / "quarantine" / (hashlib.sha256(identity).hexdigest() + ".json")
+        atomic_write(target, canonical_json(rejection))
+
+    def telemetry(current, active):
+        if hasattr(bus, "lag"):
+            try:
+                current.lag = bus.lag(args.group)
+            except Exception:
+                current.counts["lag_poll_failures"] += 1
+        current.save(metrics_path, active)
+
+    monitor = Monitor(bus, group=args.group, on_report=on_report, regulatory_watch=lambda: _regulatory_watch(args),
+                      on_reject=quarantine, contexts=contexts, metrics=metrics, on_tick=telemetry,
+                      stale_after=args.stale_after, max_active=args.max_active, max_events=args.max_events)
     _say(f"monitoring {topics.EVENTS} as consumer group {args.group!r}" + (" (one match, then exit)" if args.once else ""))
     try:
-        monitor.run(idle_timeout=args.idle, max_matches=1 if args.once else None)
+        monitor.run(idle_timeout=args.idle, max_matches=1 if args.once else None, retain_reports=0)
     except KeyboardInterrupt:
         pass
     finally:
+        contexts.close()
+        telemetry(metrics, len(monitor._matches))
         bus.close()
     return 0
 
@@ -830,6 +857,10 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_argument("--group", default="vigil-surveillance", help="consumer group")
     sub.add_argument("--once", action="store_true", help="exit after one match")
     sub.add_argument("--idle", type=float, help="exit after this many seconds without a message")
+    sub.add_argument("--stale-after", type=float, default=300.0, help="expire an unfinished match after idle seconds")
+    sub.add_argument("--max-active", type=int, default=16, help="maximum simultaneous matches before backpressure")
+    sub.add_argument("--max-events", type=int, default=1_000_000, help="stop surveillance beyond this per-match event budget")
+    sub.add_argument("--metrics", help="JSON metrics file; a Prometheus .prom file is also written")
     sub.add_argument("--anchor", action="store_true", help="anchor each report's fingerprint on chain")
     sub.add_argument("--uri", help=uri_help)
     sub.add_argument("--no-regulatory", action="store_true", help="leave the regulatory watch out of the reports")
@@ -863,6 +894,8 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_argument("report")
 
     add("calibrate", cmd_calibrate, "Run every scenario on every session and tabulate what the controls catch.")
+    from vigil.review import register_commands
+    register_commands(add)
     return parser
 
 
@@ -876,12 +909,17 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit("vigil chain about needs the match_events.csv of a match, or a report.json on it")
     if args.command == "chain" and args.action == "proof" and not args.alert:
         raise SystemExit("vigil chain proof needs a report.json and an alert id")
-    import requests
-    from web3.exceptions import Web3Exception
+    optional_errors = ()
+    try:
+        import requests
+        from web3.exceptions import Web3Exception
+        optional_errors = (requests.RequestException, Web3Exception)
+    except ImportError:
+        pass
     try:
         return args.run(args)
-    except (ApiError, ConnectionError, FileNotFoundError, LookupError, TimeoutError, ValueError,
-            requests.RequestException, Web3Exception) as error:
+    except (ApiError, ConnectionError, ImportError, OSError, LookupError, TimeoutError, ValueError,
+            *optional_errors) as error:
         if args.verbose:
             raise
         # Never echo a node's full address: a hosted provider's carries the API key.

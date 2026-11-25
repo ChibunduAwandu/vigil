@@ -6,7 +6,7 @@ import time
 from collections.abc import Iterator, Mapping, Sequence
 from typing import Any
 
-from vigil.bus.base import Message
+from vigil.bus.base import Idle, Message
 
 
 class MemoryBus:
@@ -25,21 +25,26 @@ class MemoryBus:
     def flush(self) -> None:
         pass
 
-    def consume(self, topics: Sequence[str], group: str, *, idle_timeout: float | None = None) -> Iterator[Message]:
+    def consume(self, topics: Sequence[str], group: str, *, idle_timeout: float | None = None,
+                poll_interval: float | None = None) -> Iterator[Message | Idle]:
         for topic in topics:
             self._position[(group, topic)] = self._committed.get((group, topic), 0)
+        idle_since = time.monotonic()
         while True:
             with self._lock:
                 message = self._next(topics, group)
                 if message is None:
-                    deadline = None if idle_timeout is None else time.monotonic() + idle_timeout
-                    while message is None:
-                        remaining = None if deadline is None else deadline - time.monotonic()
-                        if remaining is not None and remaining <= 0:
-                            return
-                        self._lock.wait(remaining)
-                        message = self._next(topics, group)
-            yield message
+                    remaining = None if idle_timeout is None else idle_timeout - (time.monotonic() - idle_since)
+                    if remaining is not None and remaining <= 0:
+                        return
+                    timeout = remaining if poll_interval is None else min(remaining or poll_interval, poll_interval)
+                    self._lock.wait(timeout)
+                    message = self._next(topics, group)
+            if message is not None:
+                idle_since = time.monotonic()
+                yield message
+            elif poll_interval is not None:
+                yield Idle()
 
     def _next(self, topics: Sequence[str], group: str) -> Message | None:
         for topic in topics:

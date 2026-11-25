@@ -1,3 +1,5 @@
+> For version 0.2 report schemas, signatures, metrics, fault tests and locked replay, see [OPERATIONS.md](OPERATIONS.md).
+
 # CLI workflows
 
 Start with the [README quick start](../README.md#quick-start). Commands below assume
@@ -47,9 +49,10 @@ vigil produce tests/fixtures/live_capture/match_events.csv \
 ```
 
 The publisher's report is in `artifacts/runs/<match-id>/`; the monitor's report is
-in `artifacts/reports/<match-id>/`. The monitor adds delivery diagnostics, so the
-reports need not have identical file hashes. Compare alert IDs and alert Merkle
-roots, and check `match.transit.complete` in the monitor's JSON.
+in `artifacts/reports/<match-id>/`. Simulation reports can additionally contain exchange
+outcomes, so their hashes need not equal monitor reports. Compare alert IDs and alert
+Merkle roots, and check `match.coverage.complete`. Delivery counters now live separately
+in `report.delivery.json` and do not change the version-2 report hash.
 
 A new consumer group starts at the earliest retained event. `--once` exits after
 the first completed match, which may be an older one on an existing broker. Reuse
@@ -60,8 +63,8 @@ Offsets are committed after reporting and flushing output, held back to the head
 of the oldest unfinished match on each partition. Restarts may publish alerts and
 report receipts again. Consumers should use stable identifiers to deduplicate.
 Recovery requires that Kafka still retains the original header and events. Use
-one monitor process per group for this prototype; partition-rebalance recovery is
-not implemented.
+workers on the same host with shared durable context storage; partition-rebalance replay
+is tested. Multi-host coordination is not implemented. See [OPERATIONS.md](OPERATIONS.md).
 
 ```bash
 scripts/kafka_local.sh stop
@@ -168,4 +171,4 @@ states which trader versions each comparison used.
   relevant local service before using `--publish` or `--anchor`.
 - **Tests skipped:** `pytest -ra` gives the missing dependency or opt-in variable.
 - **Different report hash:** keep the software, model, match ID/header, rulebook,
-  regulatory snapshot, and delivery diagnostics fixed when comparing a replay.
+  regulatory snapshot and software fixed when comparing a replay.

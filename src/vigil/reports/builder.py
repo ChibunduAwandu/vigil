@@ -17,21 +17,25 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-import vigil
 from vigil.chain.merkle import inclusion_proof, leaf_hash, root_of
+from vigil.provenance import software
 from vigil.reports.canonical import canonical_json, parse_strict, sha256_hex
 from vigil.sim.result import MatchResult
+from vigil.storage import atomic_write
 from vigil.surveillance.alerts import Alert, Severity
 from vigil.surveillance.engine import SurveillanceResult
 from vigil.surveillance.rulebook import Rulebook
 
-SCHEMA = "vigil.compliance-report/1"
+SCHEMA = "vigil.compliance-report/2"
+LEGACY_SCHEMA = "vigil.compliance-report/1"
 
 
 @dataclass(frozen=True)
 class ComplianceReport:
     document: dict[str, Any]
     raw: bytes | None = None  # the bytes of the file it was read from, when it was read from one
+
+    delivery: dict[str, Any] | None = None  # attempt diagnostics, deliberately outside the anchored document
 
     # -- identity ------------------------------------------------------------------------------
 
@@ -89,7 +93,7 @@ class ComplianceReport:
         document, found = self.document, []
         if not self.in_canonical_form:
             found.append("the file is not in the canonical layout a report is written in")
-        if document.get("schema") != SCHEMA:
+        if document.get("schema") not in (SCHEMA, LEGACY_SCHEMA):
             found.append(f"its schema is {document.get('schema')!r}, not {SCHEMA!r}")
         alerts = document["alerts"]
         if document["alerts_merkle_root"] != alerts_merkle_root(alerts):
@@ -131,7 +135,15 @@ class ComplianceReport:
     def save(self, path: str | os.PathLike) -> Path:
         path = Path(path)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(self.canonical)
+        if path.is_symlink() or (path.parent / "versions").is_symlink():
+            raise ValueError("report storage must not use symlinks")
+        if path.is_file() and path.read_bytes() != self.canonical:
+            previous = path.read_bytes()
+            atomic_write(path.parent / "versions" / (sha256_hex(previous) + ".json"), previous)
+        atomic_write(path, self.canonical)
+        if self.delivery is not None:
+            atomic_write(path.with_suffix(".delivery.json"), canonical_json({
+                "schema": "vigil.delivery/1", "report_sha256": sha256_hex(self.canonical), "transit": self.delivery}))
         return path
 
     @classmethod
@@ -143,7 +155,16 @@ class ComplianceReport:
             _require_shape(document)
         except ValueError as error:
             raise ValueError(f"{path} cannot be read as a report: {error}") from None
-        return cls(document, raw)
+        delivery = None
+        sidecar = Path(path).with_suffix(".delivery.json")
+        if sidecar.is_file():
+            try:
+                attempt = parse_strict(sidecar.read_bytes())
+                if isinstance(attempt, dict) and attempt.get("report_sha256") == sha256_hex(raw):
+                    delivery = attempt.get("transit")
+            except ValueError:
+                pass  # attempt diagnostics are not part of report verification
+        return cls(document, raw, delivery)
 
 
 def _is_sha256(value: Any) -> bool:
@@ -222,7 +243,10 @@ def build_report(result: SurveillanceResult, rulebook: Rulebook, *, events_sha25
             "market_data_sha256": header.market_data_sha256,
             "events": result.market["events"],
             "events_sha256": events_sha256,
-            "transit": transit,
+            "coverage": {
+                "complete": transit["complete"] if transit else result.integrity["stopped_after_sequence"] is None,
+                "stopped_after_sequence": result.integrity["stopped_after_sequence"],
+            },
             "duration_seconds": result.market["duration"],
             "limits": header.limits,
             "fees": header.fees,
@@ -248,9 +272,9 @@ def build_report(result: SurveillanceResult, rulebook: Rulebook, *, events_sha25
         "alerts_merkle_root": alerts_merkle_root(alerts),
         "regulations_cited": {key: rulebook.regulations[key].to_dict() for key in cited},
         "regulatory_watch": regulatory_watch,
-        "software": {"vigil": vigil.__version__},
+        "software": software(),
     }
-    return ComplianceReport(document)
+    return ComplianceReport(document, delivery=transit)
 
 
 def outcomes_from_simulation(result: MatchResult) -> dict[str, dict[str, Any]]:

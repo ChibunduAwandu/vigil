@@ -52,12 +52,16 @@ def render_markdown(report: ComplianceReport, anchor: dict[str, Any] | None = No
     if integrity.get("stopped_after_sequence") is not None:
         lines.append(f"**Surveillance stopped after event {integrity['stopped_after_sequence']:,}**, where the "
                      "stream has a hole. Nothing after that point has been examined.")
-    transit = match.get("transit")
+    transit = report.delivery or match.get("transit")
     if transit and not transit["complete"]:
         declared = transit["events_declared"]
         lines.append(f"**The event stream arrived incomplete:** {transit['events_received']:,} events"
                      + (f" of {declared:,}" if declared is not None else ", and no end marker")
                      + f"; {transit['missing']:,} missing.")
+    if match.get("coverage", {}).get("complete") is False:
+        lines.append("**Evidence coverage is incomplete.** The findings cover only the verified portion of the stream.")
+    if report.delivery:
+        lines.append("Delivery counts are unanchored execution diagnostics; they are not part of the audit fingerprint.")
     lines.append("")
 
     lines += ["## The match", ""]

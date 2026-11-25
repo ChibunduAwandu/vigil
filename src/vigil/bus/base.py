@@ -16,9 +16,25 @@ from typing import Any, Protocol
 class Message:
     topic: str
     key: str | None
-    value: dict[str, Any]
+    value: Any
     partition: int = 0
     offset: int = -1
+    raw: bytes | None = None
+    error: str | None = None
+    raw_key: bytes | None = None
+
+
+@dataclass(frozen=True, slots=True)
+class Idle:
+    """A polling heartbeat, so services can expire work even on an idle topic."""
+
+
+@dataclass(frozen=True, slots=True)
+class Assignment:
+    """Partition ownership changed. In-flight state must not survive revocation."""
+
+    action: str
+    partitions: tuple[tuple[str, int], ...]
 
 
 class Bus(Protocol):
@@ -28,7 +44,8 @@ class Bus(Protocol):
     def flush(self) -> None:
         """Block until everything published has been handed to the broker."""
 
-    def consume(self, topics: Sequence[str], group: str, *, idle_timeout: float | None = None) -> Iterator[Message]:
+    def consume(self, topics: Sequence[str], group: str, *, idle_timeout: float | None = None,
+                poll_interval: float | None = None) -> Iterator[Message | Idle | Assignment]:
         """Yield messages for ``group``, from where it last committed (or the beginning).
 
         The iterator ends after ``idle_timeout`` seconds without a message;

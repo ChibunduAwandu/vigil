@@ -1,6 +1,7 @@
 """Topics and the messages that travel on them."""
 from __future__ import annotations
 
+import os
 from typing import Any
 
 from vigil.rtg.events import MatchHeader, MatchRecord
@@ -9,10 +10,15 @@ EVENTS = "rtg.match-events"  # header, events and end marker of every match, key
 ALERTS = "rtg.alerts"  # one message per alert, keyed by participant
 REPORTS = "compliance.reports"  # one message per finished report: its fingerprint and where it is anchored
 REGULATORY = "regulatory.updates"  # one message per new or changed regulatory document
+REJECTED = "rtg.rejected"  # source offsets, reasons and hashes; raw payloads are stored locally
+
+PREFIX = os.environ.get("VIGIL_TOPIC_PREFIX", "")
+EVENTS, ALERTS, REPORTS, REGULATORY, REJECTED = (PREFIX + name for name in
+                                              (EVENTS, ALERTS, REPORTS, REGULATORY, REJECTED))
 
 # Partitions per topic. A match's messages share a key, so they stay in order on one partition
 # while different matches spread across partitions (and across the consumers of a group).
-PARTITIONS = {EVENTS: 3, ALERTS: 1, REPORTS: 1, REGULATORY: 1}
+PARTITIONS = {EVENTS: 3, ALERTS: 1, REPORTS: 1, REGULATORY: 1, REJECTED: 1}
 
 _FIELDS = ("seq", "time", "competitor", "op", "order_id", "instrument", "side", "volume", "price", "lifespan",
            "fee")

@@ -1,5 +1,6 @@
 # Vigil — Trade Surveillance & Compliance
 
+[![CI](https://github.com/ChibunduAwandu/vigil/actions/workflows/ci.yml/badge.svg)](https://github.com/ChibunduAwandu/vigil/actions/workflows/ci.yml)
 ![Python 3.11–3.13](https://img.shields.io/badge/Python-3.11%E2%80%933.13-3776AB)
 ![Solidity 0.8.28](https://img.shields.io/badge/Solidity-0.8.28-363636)
 
@@ -13,6 +14,9 @@ can be anchored to a Solidity registry with Merkle proofs for individual alerts.
 
 **Start here:** [Run the example](#quick-start) · [Review the implementation](#code-review-guide) ·
 [Controls](docs/CONTROLS.md) · [Architecture](docs/ARCHITECTURE.md) · [CLI workflows](docs/USAGE.md)
+
+**Version 0.2:** [Reproduce a report](docs/OPERATIONS.md) · [Challenge evaluation](docs/EVALUATION.md) ·
+[Threat model](docs/THREAT_MODEL.md) · [Release notes](CHANGELOG.md)
 
 ## What the project demonstrates
 
@@ -171,16 +175,20 @@ alert proofs, and the full demo.
 - **At-least-once delivery:** a restarted monitor replays from retained match headers. Alert consumers
   must deduplicate by alert ID. This is not Kafka transactional exactly-once processing.
 - **Deterministic reports:** identical inputs and software produce identical bytes. Inputs include the
-  match header, event stream, rulebook, optional regulatory snapshot, and delivery diagnostics. A changed
-  snapshot or different duplicate/missing-event counts can change the report hash.
+  match header, event stream, rulebook, frozen regulatory snapshot, software and coverage. Version 2 keeps
+  delivery-attempt counters in a separate sidecar, so discarded duplicates do not change the report hash.
 - **Missing events:** the monitor records gaps and stops surveillance beyond the first gap instead of
   continuing with an incorrect book. Kafka retention must keep the events needed for recovery.
-- **Prototype operations:** state is held in memory and recovery replays a match. Production operation
-  would require partition-rebalance handling, bounded state, monitoring, and deployment hardening.
+- **Recovery and operations:** real-broker tests cover process death, disk-write failure, the output/commit
+  boundary, broker restart, and rebalances. Active matches and event counts have configurable bounds; the CLI
+  retains no completed reports in memory. Multi-host coordination and production deployment hardening remain
+  outside this single-host prototype. [Operational behavior](docs/OPERATIONS.md).
 - **Detection evidence:** the recorded evaluation covers 36 simulated matches. All eight abusive
   scenarios were flagged in each of four sessions, with no alerts against baseline traders in that
   evaluation. The scenarios and thresholds were developed together; this is not an independent measure
-  of real-market detection accuracy. [Methods and recorded results](docs/RESULTS.md#surveillance).
+  of real-market detection accuracy. [Historical methods](docs/RESULTS.md#surveillance). A newer
+  [frozen synthetic challenge](docs/EVALUATION.md) reports per-control precision/recall, detection delays,
+  false-alert rates and threshold sensitivity, including a reciprocal-trading false positive.
 
 The repository also includes a deterministic simulator, market-making strategies, and forecasting
 experiments used to generate and compare trading behavior. Their historical results and caveats are
@@ -196,13 +204,22 @@ make contract                     # Solidity tests; requires Foundry from make t
 VIGIL_TEST_LIVE=1 .venv/bin/pytest  # also run the actual exchange integration tests
 ```
 
-Local verification on Python 3.12: **245 Python tests passed** across the main suite and the Kafka
-integration run, plus **30 Solidity tests** (including fuzz tests). The three public API tests were
-not run. Ruff and Solidity formatting checks passed. See the [verification record](docs/VERIFICATION.md).
+The [verification record](docs/VERIFICATION.md) covers Python, real Kafka failure injection, actual exchange
+processes, and 30 Solidity tests. [GitHub Actions](https://github.com/ChibunduAwandu/vigil/actions/workflows/ci.yml)
+runs a locked Python 3.11–3.13 matrix and service integrations. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-An optional [GitHub Actions workflow](docs/ci.yml) covers Python 3.11–3.13, the example,
-Kafka/live-exchange integration, and Solidity. Hosted CI is not enabled yet; publishing the workflow
-requires workflow-write permission. See [CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow.
+For exact replay, use the locked setup and captured-match manifest in [OPERATIONS.md](docs/OPERATIONS.md).
+For interactive review, generate an offline evidence browser:
+
+```bash
+vigil view artifacts/reports/quickstart/report.json \
+  --events artifacts/reports/quickstart/match_events.csv --out artifacts/evidence.html
+python -I tools/verify_report.py artifacts/reports/quickstart/report.json
+```
+
+Open `artifacts/evidence.html` to filter findings and inspect thresholds, cited events, and before/after books.
+The standalone verifier needs no Vigil installation for report/proof checks. Optional Ed25519 signatures offer
+a simple off-chain authenticity baseline; [compare the trust assumptions](docs/THREAT_MODEL.md).
 
 By **Chibundu Awandu**. This project is independent of Optiver. No open-source license has been selected
 for Vigil's own code; see [NOTICE.md](NOTICE.md) for external dependency licenses and attribution.

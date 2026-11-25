@@ -157,7 +157,7 @@ def test_report_file_round_trip(audits, tmp_path):
 def test_report_contents(audits, rulebook):
     audit = audits("wash", 200.0)
     document = audit.report.document
-    assert document["schema"] == "vigil.compliance-report/1"
+    assert document["schema"] == "vigil.compliance-report/2"
     assert document["summary"]["alerts"] == len(audit.alerts) > 0
     assert document["summary"]["participants_flagged"] == ["WashA", "WashB"]
     assert document["summary"]["by_control"] == {"MKT-02": len(audit.alerts)}

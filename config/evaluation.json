@@ -1,0 +1,12 @@
+{
+  "schema": "vigil.evaluation-protocol/1",
+  "rulebook_sha256": "b880315e61d29a9c77444d4de5762b66e528b81aab04d5f828eb73d65e272b4b",
+  "development_seeds": [11],
+  "evaluation_seeds": [67, 101, 211, 307, 401, 503, 601, 701],
+  "duration_seconds": 180,
+  "sensitivity_factors": [0.8, 1.0, 1.2],
+  "bootstrap_seed": 9127,
+  "bootstrap_repetitions": 1000,
+  "cases": ["flash_bursts", "slow_churn", "off_market", "repricing", "large_cancels", "reciprocal", "exposure", "position", "layering", "close"],
+  "scope": "Synthetic behavioral challenge. New generators and evaluation seeds; not independent of control design, not exchange rejection emulation, not externally labeled real-market data. Labels are declared review expectations, not legal conclusions."
+}

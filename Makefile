@@ -27,7 +27,7 @@ test-all: services  ## everything, including the public APIs and a match on the 
 	cd contracts && ../.tools/foundry/forge test
 
 lint-python:
-	$(BIN)/ruff check src tests scripts
+	$(BIN)/ruff check src tests scripts tools
 
 lint: lint-python
 	cd contracts && ../.tools/foundry/forge fmt --check && ../.tools/foundry/forge lint
@@ -60,3 +60,13 @@ demo: services  ## the whole pipeline end to end (about three minutes)
 
 clean:  ## remove generated reports, runs and caches (keeps the toolchains and the virtualenv)
 	rm -rf artifacts .pytest_cache .ruff_cache contracts/out contracts/cache
+
+setup-locked:  ## use the release dependency lock (requires uv)
+	uv sync --frozen --extra all
+	$(BIN)/python scripts/bootstrap_rtg.py
+
+faults:  ## isolated real-broker fault tests (requires tools and Java)
+	VIGIL_TEST_KAFKA_FAULTS=1 $(BIN)/pytest tests/test_kafka_faults.py
+
+reproduce:  ## verify the captured-match release fingerprint
+	$(BIN)/vigil reproduce --check docs/results/reproduction.json

@@ -38,23 +38,23 @@ VIGIL_TEST_NETWORK=1 .venv/bin/pytest -m network -ra
 The tests clear public-chain environment variables and use local development
 chains. `.env` is not loaded automatically.
 
-## Optional GitHub Actions setup
+## Reproducible checks and CI
 
-The workflow template is [docs/ci.yml](docs/ci.yml). It is not currently active:
-the credentials used to publish this repository did not have workflow-write
-permission. To enable it with credentials that do:
+The active workflow is [.github/workflows/ci.yml](.github/workflows/ci.yml). Use the same locked dependencies:
 
 ```bash
-mkdir -p .github/workflows
-cp docs/ci.yml .github/workflows/ci.yml
-git add .github/workflows/ci.yml
-git commit -m "Enable GitHub Actions checks"
-git push
+uv sync --frozen --extra all
+source .venv/bin/activate
+python scripts/bootstrap_rtg.py
+pytest -m 'not chain and not kafka and not kafka_faults and not network and not live'
+VIGIL_TEST_KAFKA_FAULTS=1 pytest tests/test_kafka_faults.py
+vigil reproduce --check docs/results/reproduction.json
 ```
 
-The template includes a Python 3.11–3.13 matrix and local Kafka, live-exchange, and
-Solidity checks. Those hosted jobs have not yet run. The current verification
-record is from local Python 3.12 runs.
+The last check is tied to the release's source fingerprint. Intentional source changes require a newly reviewed
+manifest, not silently changing the expected hash to make CI green. The fault suite starts a private broker;
+install the tools and Java first. Public API tests remain opt-in. New behavioral evaluations use
+`config/evaluation.json`; record threshold/protocol changes explicitly and do not tune against evaluation seeds.
 
 ## Make a change reviewable
 
@@ -79,6 +79,7 @@ record is from local Python 3.12 runs.
 | --- | --- |
 | `test_surveillance.py`, `test_exchange_rules.py` | Detectors, malformed records, and reconciliation against exchange behavior. |
 | `test_bus.py`, `test_kafka_adapter.py` | Deduplication, restart offsets, interleaved matches, and delivery failures. |
+| `test_hardening.py`, `test_kafka_faults.py`, `test_review.py` | Input/storage boundaries, real process/broker failures, evaluation and viewer checks. |
 | `test_reports.py`, `test_chain.py` | Canonical reports, tampering, inclusion proofs, and registry integration. |
 | `test_sim.py`, `test_live.py`, `test_live_tailer.py` | Deterministic replay and actual exchange execution. |
 | `test_regulatory.py` | Incremental regulatory ingestion, deduplication, and API failure handling. |

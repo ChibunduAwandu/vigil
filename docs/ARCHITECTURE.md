@@ -407,18 +407,22 @@ Delivery is at least once, and everything downstream is arranged so that once mo
   fetched). If it dies mid-match it starts that match again from its header.
 - The price of that is repetition: matches that ended after the oldest unfinished one began are read
   and reported a second time. Alert identifiers depend only on the alert's content. Report hashes
-  also depend on the rulebook, regulatory snapshot, delivery diagnostics, and software version;
+  also depend on the rulebook, frozen regulatory snapshot, coverage, and software/exchange fingerprints;
   these must stay fixed for byte-identical replay. The registry refuses a second filing under the
   same identifier. Whoever consumes alerts should key on the identifier.
-- Stale matches are checked whenever a message arrives. A match silent for five minutes with no
-  end marker is reported as incomplete at the next check. A completely idle consumer does not
-  currently run a separate expiry timer.
-- A message that is not a match message at all, or an event that cannot be read, is counted and
-  skipped. One bad message does not stop the service.
+- Idle polls drive expiry even without incoming messages. A match silent for five minutes without an
+  end marker is reported as incomplete; the limit is configurable.
+- Malformed records are quarantined with their bytes, key, offsets and reason. Affected coverage is
+  invalidated before input commits. Delivery failures and persistence failures stop the monitor for replay.
+- Revoked partitions lose their in-memory state without a partial report. The new owner replays the
+  retained header. SQLite freezes regulatory context and verifies software, dependency runtime and rules.
+- The CLI retains no completed reports in memory. Active-match and per-match event budgets bound state
+  growth; exceeded event budgets stop reconstruction and mark the report incomplete.
 
-This is a single-monitor prototype. Kafka can partition messages by match, but the monitor does not
-yet checkpoint or rebuild its in-flight state on a consumer-group rebalance. Use one monitor per
-group. Recovery also requires enough topic retention to replay from the oldest unfinished header.
+This is a single-host prototype with real rebalance tests. Workers must share durable context/artifact
+storage and the same environment. There are no distributed checkpoints or multi-host coordination.
+Recovery requires enough topic retention to replay from the oldest unfinished header. Disk history has
+an explicit archival/retention requirement; see [OPERATIONS.md](OPERATIONS.md).
 
 ## Reports and anchoring (`reports/`, `chain/`, `contracts/`)
 

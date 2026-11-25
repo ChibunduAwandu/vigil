@@ -8,6 +8,7 @@ import uuid
 import pytest
 
 from vigil.bus import MemoryBus, connect, topics
+from vigil.bus.base import Message
 from vigil.bus.services import MatchPublisher, Monitor, publish_match
 
 # -- the in-memory bus keeps Kafka's promises ---------------------------------------------------------
@@ -63,7 +64,7 @@ def test_a_match_monitored_over_the_bus_matches_the_direct_audit(audits):
     (audit,) = monitor.run(idle_timeout=0)
     assert [a.alert_id for a in audit.alerts] == [a.alert_id for a in direct.alerts]
     assert audit.report.alerts_root == direct.report.alerts_root
-    assert audit.report.document["match"]["transit"] == {
+    assert audit.report.delivery == {
         "ended": True, "events_declared": count, "events_received": count, "sha256_declared": digest,
         "duplicates_discarded": 0, "late": 0, "missing": 0, "unreadable": 0, "conflicting_headers": 0,
         "complete": True}
@@ -89,18 +90,18 @@ def test_monitor_discards_redelivered_events_and_notices_lost_ones(audits):
         publisher.event(record)
     publisher.end()
     (audit,) = Monitor(bus).run(idle_timeout=0)
-    transit = audit.report.document["match"]["transit"]
+    transit = audit.report.delivery
     assert transit["duplicates_discarded"] == 100 and transit["complete"] is True
     assert audit.report.alerts_root == direct.report.alerts_root
 
     # Now lose a stretch of events in transit.
     bus = MemoryBus()
-    bus.publish(topics.EVENTS, topics.header_message(direct.header), key="m")
+    bus.publish(topics.EVENTS, topics.header_message(direct.header), key=direct.header.match_id)
     for record in records[:5000] + records[5050:]:
-        bus.publish(topics.EVENTS, topics.event_message(direct.header.match_id, record), key="m")
-    bus.publish(topics.EVENTS, topics.end_message(direct.header.match_id, len(records), "f" * 64), key="m")
+        bus.publish(topics.EVENTS, topics.event_message(direct.header.match_id, record), key=direct.header.match_id)
+    bus.publish(topics.EVENTS, topics.end_message(direct.header.match_id, len(records), "f" * 64), key=direct.header.match_id)
     (audit,) = Monitor(bus).run(idle_timeout=0)
-    transit = audit.report.document["match"]["transit"]
+    transit = audit.report.delivery
     assert transit == {**transit, "missing": 50, "complete": False, "events_received": len(records) - 50}
     assert (bus.log(topics.REPORTS)[0].value["stream_complete"]) is False
 
@@ -151,7 +152,7 @@ def test_surveillance_over_the_bus_stops_at_a_hole_and_says_so(audits):
     bus.publish(topics.EVENTS, topics.end_message(match_id, len(records), "f" * 64), key=match_id)
     (audit,) = Monitor(bus).run(idle_timeout=0)
 
-    transit = audit.report.document["match"]["transit"]
+    transit = audit.report.delivery
     assert (transit["missing"], transit["late"], transit["duplicates_discarded"]) == (300, 300, 0)
     assert transit["complete"] is False and transit["events_received"] == len(records) - 300
     integrity = audit.report.document["summary"]["integrity"]
@@ -175,7 +176,7 @@ def test_events_lost_off_the_end_of_a_stream_are_counted(audits):
         bus.publish(topics.EVENTS, topics.event_message(match_id, record), key=match_id)
     bus.publish(topics.EVENTS, topics.end_message(match_id, len(records), "f" * 64), key=match_id)
     (audit,) = Monitor(bus).run(idle_timeout=0)
-    transit = audit.report.document["match"]["transit"]
+    transit = audit.report.delivery
     assert transit["missing"] == 500 and transit["complete"] is False
     assert audit.report.document["summary"]["integrity"]["stopped_after_sequence"] == records[-501].seq
     assert [m.value["metrics"]["kind"] for m in bus.log(topics.ALERTS) if m.value["control"] == "REC-01"] == ["gap"]
@@ -199,9 +200,9 @@ def test_a_header_delivered_twice_does_not_restart_the_match(audits):
         publisher.event(record)
     publisher.end()
     (audit,) = Monitor(bus).run(idle_timeout=0)
-    transit = audit.report.document["match"]["transit"]
-    assert (transit["duplicates_discarded"], transit["conflicting_headers"], transit["complete"]) == (100, 1, True)
-    assert audit.report.alerts_root == direct.report.alerts_root
+    transit = audit.report.delivery
+    assert (transit["duplicates_discarded"], transit["conflicting_headers"], transit["complete"]) == (100, 1, False)
+    assert audit.result.integrity["stopped_after_sequence"] is not None
     assert audit.report.document["match"]["teams"] == sorted(direct.header.teams)
 
 
@@ -241,9 +242,9 @@ def test_a_match_that_goes_quiet_is_reported_as_it_stands(audits):
     monitor = Monitor(bus, group="g", stale_after=300.0, clock=lambda: float(next(seconds)))
     reported = monitor.run(idle_timeout=0)
     assert [audit.report.report_id for audit in reported] == ["stuck", one.header.match_id]
-    transit = reported[0].report.document["match"]["transit"]
+    transit = reported[0].report.delivery
     assert transit["ended"] is False and transit["complete"] is False and transit["events_received"] == 10
-    assert reported[1].report.document["match"]["transit"]["complete"] is True
+    assert reported[1].report.delivery["complete"] is True
     # With nothing left in flight, nothing is held back: a restart has nothing to do.
     assert monitor.restart_points() == {} and Monitor(bus, group="g").run(idle_timeout=0) == []
 
@@ -266,11 +267,11 @@ def test_messages_that_are_not_match_messages_do_not_stop_the_monitor(audits):
     publisher.end()
     monitor = Monitor(bus)
     (audit,) = monitor.run(idle_timeout=0)
-    assert monitor.unreadable == 3
-    transit = audit.report.document["match"]["transit"]
-    assert transit["unreadable"] == 2 and transit["complete"] is True
-    assert audit.report.alerts_root == direct.report.alerts_root
-    assert audit.result.integrity["discrepancies"] == 0
+    assert monitor.unreadable == 5
+    transit = audit.report.delivery
+    assert transit["unreadable"] == 2 and transit["complete"] is False
+    assert audit.result.integrity["stopped_after_sequence"] is not None
+    assert audit.result.integrity["discrepancies"] > 0
 
 
 # -- the real broker ---------------------------------------------------------------------------------
@@ -304,14 +305,14 @@ def test_kafka_round_trip(audits, kafka_address):
         found = None
         monitor = Monitor(bus, group=group)
         for message in bus.consume([topics.EVENTS], group, idle_timeout=15.0):
-            if message.value["match"] != header.match_id:
+            if not isinstance(message, Message) or message.value["match"] != header.match_id:
                 continue  # other matches left on the topic by earlier runs
             audit = monitor.handle(message.value)
             if audit is not None:
                 found = audit
                 break
         assert found is not None
-        assert found.report.document["match"]["transit"]["complete"] is True
+        assert found.report.delivery["complete"] is True
         assert found.report.document["match"]["events_sha256"] == digest
         assert [a.control for a in found.alerts] == [a.control for a in direct.alerts]
         bus.commit(group)

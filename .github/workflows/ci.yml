@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    name: Python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.22"
+      - run: uv sync --frozen --extra all --python "${{ matrix.python }}"
+      - run: echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
+      - name: Install and verify external exchange
+        run: python scripts/bootstrap_rtg.py
+      - run: ruff check src tests scripts tools
+      - name: Python tests without external services
+        run: pytest -m 'not chain and not kafka and not network and not live and not kafka_faults' -ra
+      - name: Reproduce captured match
+        run: vigil reproduce --check docs/results/reproduction.json
+      - name: Independent verification
+        run: python -I tools/verify_report.py artifacts/reproduction/report.json --events tests/fixtures/live_capture/match_events.csv
+      - name: README quick start
+        run: vigil simulate --session 2 --scenario rogues --match-id quickstart --no-regulatory
+
+  integration:
+    name: Kafka, exchange, and Solidity
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.22"
+      - run: uv sync --frozen --extra all
+      - run: echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
+      - run: python scripts/bootstrap_rtg.py
+      - run: bash scripts/bootstrap_tools.sh
+      - run: bash scripts/kafka_local.sh start
+      - name: Kafka, local chain, and live exchange tests
+        env:
+          VIGIL_TEST_LIVE: '1'
+        run: pytest -m 'chain or kafka or live' -ra
+      - name: Isolated Kafka failure tests
+        env:
+          VIGIL_TEST_KAFKA_FAULTS: "1"
+        run: pytest tests/test_kafka_faults.py --junitxml=artifacts/kafka-faults.xml
+      - name: Upload fault-test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kafka-fault-results
+          path: artifacts/kafka-faults.xml
+      - name: Solidity tests and formatting
+        working-directory: contracts
+        run: |
+          ../.tools/foundry/forge fmt --check
+          ../.tools/foundry/forge test
+      - name: Stop broker
+        if: always()
+        run: bash scripts/kafka_local.sh stop
