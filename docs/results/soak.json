@@ -1,0 +1,47 @@
+{
+  "schema": "vigil.soak/1",
+  "matches": 1000,
+  "events_per_match": 106,
+  "retained_reports": 0,
+  "active_matches_at_end": 0,
+  "elapsed_seconds": 7.10264995903708,
+  "samples": [
+    {
+      "matches": 10,
+      "current_python_bytes": 236465,
+      "peak_python_bytes": 463894
+    },
+    {
+      "matches": 500,
+      "current_python_bytes": 235451,
+      "peak_python_bytes": 1146421
+    },
+    {
+      "matches": 1000,
+      "current_python_bytes": 235763,
+      "peak_python_bytes": 1146421
+    }
+  ],
+  "environment": {
+    "software": {
+      "vigil": "0.2.0",
+      "source_sha256": "ae54c54e1c5a71f627e999358ba33c2cbda7403ac099c929720e4a182f064862",
+      "exchange_sha256": "ded6db430688b8a3e13ece7757e9e1b23a1b5cd824eb151bc32a54826d65bc97"
+    },
+    "git_commit": "6756d1fbc205abc4beaf651c05b0a4a5be12023a",
+    "working_tree_dirty": false,
+    "python": "3.12.9",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "dependencies": {
+      "numpy": "2.5.5",
+      "PyYAML": "6.0.4",
+      "httpx": "0.28.1",
+      "confluent-kafka": "2.16.2",
+      "web3": "8.0.0",
+      "cryptography": "50.0.2",
+      "pytest": "9.2.0"
+    },
+    "dependencies_sha256": "b6e39dd28508350656d8aac6f7d08481ce96312d93ce7f931dededf19703344e"
+  },
+  "scope": "Repeated finite matches through Monitor with a streaming test transport. Tracemalloc enabled; no Kafka, filesystem, context-history or native-client memory. This tests lifecycle retention, not long-running production resource use."
+}

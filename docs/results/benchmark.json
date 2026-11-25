@@ -1,0 +1,68 @@
+{
+  "schema": "vigil.benchmark/1",
+  "events": 10215,
+  "input_sha256": "cb9dce8436c6b18da160518cca320d8c39129d62b93df86a8831c7f902eefef8",
+  "software": {
+    "vigil": "0.2.0",
+    "source_sha256": "ae54c54e1c5a71f627e999358ba33c2cbda7403ac099c929720e4a182f064862",
+    "exchange_sha256": "ded6db430688b8a3e13ece7757e9e1b23a1b5cd824eb151bc32a54826d65bc97"
+  },
+  "environment": {
+    "software": {
+      "vigil": "0.2.0",
+      "source_sha256": "ae54c54e1c5a71f627e999358ba33c2cbda7403ac099c929720e4a182f064862",
+      "exchange_sha256": "ded6db430688b8a3e13ece7757e9e1b23a1b5cd824eb151bc32a54826d65bc97"
+    },
+    "git_commit": "6756d1fbc205abc4beaf651c05b0a4a5be12023a",
+    "working_tree_dirty": false,
+    "python": "3.12.9",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "dependencies": {
+      "numpy": "2.5.5",
+      "PyYAML": "6.0.4",
+      "httpx": "0.28.1",
+      "confluent-kafka": "2.16.2",
+      "web3": "8.0.0",
+      "cryptography": "50.0.2",
+      "pytest": "9.2.0"
+    },
+    "dependencies_sha256": "b6e39dd28508350656d8aac6f7d08481ce96312d93ce7f931dededf19703344e"
+  },
+  "runs": [
+    {
+      "seconds": 0.021029207855463028,
+      "events_per_second": 485752.9617952926,
+      "handler_microseconds": {
+        "p50": 1.667,
+        "p95": 3.833,
+        "p99": 9.25
+      }
+    },
+    {
+      "seconds": 0.0212114998139441,
+      "events_per_second": 481578.39330554183,
+      "handler_microseconds": {
+        "p50": 1.709,
+        "p95": 3.958,
+        "p99": 8.792
+      }
+    },
+    {
+      "seconds": 0.022966250078752637,
+      "events_per_second": 444783.10411896405,
+      "handler_microseconds": {
+        "p50": 1.75,
+        "p95": 4.375,
+        "p99": 9.875
+      }
+    }
+  ],
+  "median_events_per_second": 481578.39330554183,
+  "peak_traced_engine_bytes": 286384,
+  "attestation": {
+    "sha256_microseconds": 3.4175000619143248,
+    "ed25519_sign_microseconds": 28.0968330334872,
+    "ed25519_verify_microseconds": 78.46233388409019
+  },
+  "method": "In-process replay, input preloaded, handler timing includes clock overhead; finalization included in throughput. Separate tracemalloc pass excludes preloaded input and native allocations. Signing excludes file IO. These are local microbenchmarks, not Kafka capacity estimates."
+}

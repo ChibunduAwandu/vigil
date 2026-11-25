@@ -1,0 +1,4978 @@
+{
+  "schema": "vigil.evaluation/1",
+  "protocol_sha256": "5d25448354e4aabf46f735f9f568ae6fb0989e7ee5ffc6e2cea0cbb17f0d8b39",
+  "rulebook_sha256": "b880315e61d29a9c77444d4de5762b66e528b81aab04d5f828eb73d65e272b4b",
+  "generator_sha256": "5a426364b22e773d3310c4739e6ba72e2bb7b8ebbd54efb8933ae05241e8ca2b",
+  "software": {
+    "vigil": "0.2.0",
+    "source_sha256": "ae54c54e1c5a71f627e999358ba33c2cbda7403ac099c929720e4a182f064862",
+    "exchange_sha256": "ded6db430688b8a3e13ece7757e9e1b23a1b5cd824eb151bc32a54826d65bc97"
+  },
+  "scope": "Synthetic behavioral challenge. New generators and evaluation seeds; not independent of control design, not exchange rejection emulation, not externally labeled real-market data. Labels are declared review expectations, not legal conclusions.",
+  "episodes": [
+    {
+      "id": "challenge-67-flash_bursts",
+      "seed": 67,
+      "case": "flash_bursts",
+      "corrupted": false,
+      "source_events_sha256": "9893778626720930e1b8a5b6b6dc5c8b4a5004a75dc415c7f20a5c02e15b2ff0",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.88390667910875,
+        0.28899967910873325,
+        20.168999679108733
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-67-flash_bursts-gap",
+      "seed": 67,
+      "case": "flash_bursts",
+      "corrupted": true,
+      "source_events_sha256": "9893778626720930e1b8a5b6b6dc5c8b4a5004a75dc415c7f20a5c02e15b2ff0",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-67-slow_churn",
+      "seed": 67,
+      "case": "slow_churn",
+      "corrupted": false,
+      "source_events_sha256": "1c281de0e53715556710b60124b6ef56c94c58aed8de7bc633fe5f7d19d5ec89",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.88390667910875
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-67-slow_churn-gap",
+      "seed": 67,
+      "case": "slow_churn",
+      "corrupted": true,
+      "source_events_sha256": "1c281de0e53715556710b60124b6ef56c94c58aed8de7bc633fe5f7d19d5ec89",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-67-off_market",
+      "seed": 67,
+      "case": "off_market",
+      "corrupted": false,
+      "source_events_sha256": "d6bc417357ab0c7f2ec13105f807b41da09fdd18e73db4ab1463311c90b8e75f",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "detection_delays_seconds": [
+        0.0
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-67-off_market-gap",
+      "seed": 67,
+      "case": "off_market",
+      "corrupted": true,
+      "source_events_sha256": "d6bc417357ab0c7f2ec13105f807b41da09fdd18e73db4ab1463311c90b8e75f",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-67-repricing",
+      "seed": 67,
+      "case": "repricing",
+      "corrupted": false,
+      "source_events_sha256": "c7d0acf88e4fe84ad367d9f113c670b50836691effe409ddcb278ff416c45bb2",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-67-repricing-gap",
+      "seed": 67,
+      "case": "repricing",
+      "corrupted": true,
+      "source_events_sha256": "c7d0acf88e4fe84ad367d9f113c670b50836691effe409ddcb278ff416c45bb2",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-67-large_cancels",
+      "seed": 67,
+      "case": "large_cancels",
+      "corrupted": false,
+      "source_events_sha256": "3cb4eb51a11e57f0d33b38b19ede8c1bd2a740f5bc353f77f6c7ba427073ac21",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-67-large_cancels-gap",
+      "seed": 67,
+      "case": "large_cancels",
+      "corrupted": true,
+      "source_events_sha256": "3cb4eb51a11e57f0d33b38b19ede8c1bd2a740f5bc353f77f6c7ba427073ac21",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-67-reciprocal",
+      "seed": 67,
+      "case": "reciprocal",
+      "corrupted": false,
+      "source_events_sha256": "c1eeefc9284ef0940dc1834faf4145b4fa5f38539a9082f496ad027e3b94c294",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [
+        [
+          "Peer",
+          "MKT-02"
+        ],
+        [
+          "Subject",
+          "MKT-02"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 16,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-67-reciprocal-gap",
+      "seed": 67,
+      "case": "reciprocal",
+      "corrupted": true,
+      "source_events_sha256": "c1eeefc9284ef0940dc1834faf4145b4fa5f38539a9082f496ad027e3b94c294",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-67-exposure",
+      "seed": 67,
+      "case": "exposure",
+      "corrupted": false,
+      "source_events_sha256": "31086bdc4f2e4ae56b719b496c5d043ec7f72db0a051326974ec3993b6b82dc5",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.88390667910875
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-67-exposure-gap",
+      "seed": 67,
+      "case": "exposure",
+      "corrupted": true,
+      "source_events_sha256": "31086bdc4f2e4ae56b719b496c5d043ec7f72db0a051326974ec3993b6b82dc5",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-67-position",
+      "seed": 67,
+      "case": "position",
+      "corrupted": false,
+      "source_events_sha256": "6b56a1d1a737dd4c3207eed273fd7b5843e1847e9def7425311a3f95f8e1fe51",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.88390667910875,
+        0.0
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-67-position-gap",
+      "seed": 67,
+      "case": "position",
+      "corrupted": true,
+      "source_events_sha256": "6b56a1d1a737dd4c3207eed273fd7b5843e1847e9def7425311a3f95f8e1fe51",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-67-layering",
+      "seed": 67,
+      "case": "layering",
+      "corrupted": false,
+      "source_events_sha256": "4005d6f305714b42b7abbd6a655f193111ed967883cde9f010a21f63e1fefeb0",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "detection_delays_seconds": [
+        35.99999967910873
+      ],
+      "integrity": {
+        "trade_reports_checked": 6,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-67-layering-gap",
+      "seed": 67,
+      "case": "layering",
+      "corrupted": true,
+      "source_events_sha256": "4005d6f305714b42b7abbd6a655f193111ed967883cde9f010a21f63e1fefeb0",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-67-close",
+      "seed": 67,
+      "case": "close",
+      "corrupted": false,
+      "source_events_sha256": "ec352621327975be2ef2cd44f4bed337b028d4ad2ed0e0d6147a6ebf2c71effb",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.88390667910875
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-67-close-gap",
+      "seed": 67,
+      "case": "close",
+      "corrupted": true,
+      "source_events_sha256": "ec352621327975be2ef2cd44f4bed337b028d4ad2ed0e0d6147a6ebf2c71effb",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-101-flash_bursts",
+      "seed": 101,
+      "case": "flash_bursts",
+      "corrupted": false,
+      "source_events_sha256": "dab94e3c40e521c2103dc38feca89a447757fa769d74638df152376263d546ea",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.15288238082263,
+        0.28900038082264023,
+        20.169000380822638
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-101-flash_bursts-gap",
+      "seed": 101,
+      "case": "flash_bursts",
+      "corrupted": true,
+      "source_events_sha256": "dab94e3c40e521c2103dc38feca89a447757fa769d74638df152376263d546ea",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-101-slow_churn",
+      "seed": 101,
+      "case": "slow_churn",
+      "corrupted": false,
+      "source_events_sha256": "019b8a34bd3bb787429b302fd60f7052f3b72889e724205ee055a863f01049d8",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.15288238082263
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-101-slow_churn-gap",
+      "seed": 101,
+      "case": "slow_churn",
+      "corrupted": true,
+      "source_events_sha256": "019b8a34bd3bb787429b302fd60f7052f3b72889e724205ee055a863f01049d8",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-101-off_market",
+      "seed": 101,
+      "case": "off_market",
+      "corrupted": false,
+      "source_events_sha256": "2c6c60729700b31dc75ca773fb857c27769be1fc8de9d07caee936b5bc646c60",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "detection_delays_seconds": [
+        3.8082264008920674e-07
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-101-off_market-gap",
+      "seed": 101,
+      "case": "off_market",
+      "corrupted": true,
+      "source_events_sha256": "2c6c60729700b31dc75ca773fb857c27769be1fc8de9d07caee936b5bc646c60",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-101-repricing",
+      "seed": 101,
+      "case": "repricing",
+      "corrupted": false,
+      "source_events_sha256": "5a962b7a1b604ca719b8bc8647d4f95bfe59823d30b480f6dc7a12be17040e15",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-101-repricing-gap",
+      "seed": 101,
+      "case": "repricing",
+      "corrupted": true,
+      "source_events_sha256": "5a962b7a1b604ca719b8bc8647d4f95bfe59823d30b480f6dc7a12be17040e15",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-101-large_cancels",
+      "seed": 101,
+      "case": "large_cancels",
+      "corrupted": false,
+      "source_events_sha256": "f06bacceae182c13b765f48f008e411180ba3ef6301190d6324a7893687c9664",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-101-large_cancels-gap",
+      "seed": 101,
+      "case": "large_cancels",
+      "corrupted": true,
+      "source_events_sha256": "f06bacceae182c13b765f48f008e411180ba3ef6301190d6324a7893687c9664",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-101-reciprocal",
+      "seed": 101,
+      "case": "reciprocal",
+      "corrupted": false,
+      "source_events_sha256": "49e2eada923204d88aab6a7cd404a28af05e60a213c7bb064b5eb3feb114bf94",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [
+        [
+          "Peer",
+          "MKT-02"
+        ],
+        [
+          "Subject",
+          "MKT-02"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 16,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-101-reciprocal-gap",
+      "seed": 101,
+      "case": "reciprocal",
+      "corrupted": true,
+      "source_events_sha256": "49e2eada923204d88aab6a7cd404a28af05e60a213c7bb064b5eb3feb114bf94",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-101-exposure",
+      "seed": 101,
+      "case": "exposure",
+      "corrupted": false,
+      "source_events_sha256": "3dfe9ca3cd13cb699d2bd3e170b47e2063ec8bfd560af91c8bdeabb4dd86913d",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.15288238082263
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-101-exposure-gap",
+      "seed": 101,
+      "case": "exposure",
+      "corrupted": true,
+      "source_events_sha256": "3dfe9ca3cd13cb699d2bd3e170b47e2063ec8bfd560af91c8bdeabb4dd86913d",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-101-position",
+      "seed": 101,
+      "case": "position",
+      "corrupted": false,
+      "source_events_sha256": "48ccd8193c91166cd029854ed4c2071a695d289f6e6fdb2dd1483bee7435f973",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.15288238082263,
+        3.8082264008920674e-07
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-101-position-gap",
+      "seed": 101,
+      "case": "position",
+      "corrupted": true,
+      "source_events_sha256": "48ccd8193c91166cd029854ed4c2071a695d289f6e6fdb2dd1483bee7435f973",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-101-layering",
+      "seed": 101,
+      "case": "layering",
+      "corrupted": false,
+      "source_events_sha256": "c4f234b051d01f3f1ae74e9735fbebf061b4f2e9fbfd759e8284ddb62d8de969",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "detection_delays_seconds": [
+        36.00000038082264
+      ],
+      "integrity": {
+        "trade_reports_checked": 6,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-101-layering-gap",
+      "seed": 101,
+      "case": "layering",
+      "corrupted": true,
+      "source_events_sha256": "c4f234b051d01f3f1ae74e9735fbebf061b4f2e9fbfd759e8284ddb62d8de969",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-101-close",
+      "seed": 101,
+      "case": "close",
+      "corrupted": false,
+      "source_events_sha256": "ac15eaebb9571601c03ed14c466d61e15aad47c2e11f4a429af6b49f69b2a476",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.15288238082263
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-101-close-gap",
+      "seed": 101,
+      "case": "close",
+      "corrupted": true,
+      "source_events_sha256": "ac15eaebb9571601c03ed14c466d61e15aad47c2e11f4a429af6b49f69b2a476",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-211-flash_bursts",
+      "seed": 211,
+      "case": "flash_bursts",
+      "corrupted": false,
+      "source_events_sha256": "c006467d57783d30f41c722325d2413e9430dccabd7c47f1231579e88a4add07",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.64263118996635,
+        0.28900018996635035,
+        20.16900018996635
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-211-flash_bursts-gap",
+      "seed": 211,
+      "case": "flash_bursts",
+      "corrupted": true,
+      "source_events_sha256": "c006467d57783d30f41c722325d2413e9430dccabd7c47f1231579e88a4add07",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-211-slow_churn",
+      "seed": 211,
+      "case": "slow_churn",
+      "corrupted": false,
+      "source_events_sha256": "6fa3964a204bf391686b13160c7639680d1683815c4acc61356cfcbaa0fe4c5c",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.64263118996635
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-211-slow_churn-gap",
+      "seed": 211,
+      "case": "slow_churn",
+      "corrupted": true,
+      "source_events_sha256": "6fa3964a204bf391686b13160c7639680d1683815c4acc61356cfcbaa0fe4c5c",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-211-off_market",
+      "seed": 211,
+      "case": "off_market",
+      "corrupted": false,
+      "source_events_sha256": "52cd6b7800f66631ac13a58e3137b0dba785509a46fb19bd25e69f22894fab6d",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "detection_delays_seconds": [
+        1.8996635042789478e-07
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-211-off_market-gap",
+      "seed": 211,
+      "case": "off_market",
+      "corrupted": true,
+      "source_events_sha256": "52cd6b7800f66631ac13a58e3137b0dba785509a46fb19bd25e69f22894fab6d",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-211-repricing",
+      "seed": 211,
+      "case": "repricing",
+      "corrupted": false,
+      "source_events_sha256": "49732e09e58936d84866a7aa3c33bf67402f83f1a12db0e7fda34060868059b5",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-211-repricing-gap",
+      "seed": 211,
+      "case": "repricing",
+      "corrupted": true,
+      "source_events_sha256": "49732e09e58936d84866a7aa3c33bf67402f83f1a12db0e7fda34060868059b5",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-211-large_cancels",
+      "seed": 211,
+      "case": "large_cancels",
+      "corrupted": false,
+      "source_events_sha256": "7d8f4d0d55b5815f0994f853bc072051a5fd90c2a8e617072e18b1d264256109",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-211-large_cancels-gap",
+      "seed": 211,
+      "case": "large_cancels",
+      "corrupted": true,
+      "source_events_sha256": "7d8f4d0d55b5815f0994f853bc072051a5fd90c2a8e617072e18b1d264256109",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-211-reciprocal",
+      "seed": 211,
+      "case": "reciprocal",
+      "corrupted": false,
+      "source_events_sha256": "a0b3e64bc8d1a5d9a9a43057fbe98086ee5a9929a5e86dc4b1c6aaaf1ce66f48",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [
+        [
+          "Peer",
+          "MKT-02"
+        ],
+        [
+          "Subject",
+          "MKT-02"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 16,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-211-reciprocal-gap",
+      "seed": 211,
+      "case": "reciprocal",
+      "corrupted": true,
+      "source_events_sha256": "a0b3e64bc8d1a5d9a9a43057fbe98086ee5a9929a5e86dc4b1c6aaaf1ce66f48",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-211-exposure",
+      "seed": 211,
+      "case": "exposure",
+      "corrupted": false,
+      "source_events_sha256": "7e98a785a4427acd94ceb151206f231e290108216ba6086f447dba6cb3849aa3",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.64263118996635
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-211-exposure-gap",
+      "seed": 211,
+      "case": "exposure",
+      "corrupted": true,
+      "source_events_sha256": "7e98a785a4427acd94ceb151206f231e290108216ba6086f447dba6cb3849aa3",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-211-position",
+      "seed": 211,
+      "case": "position",
+      "corrupted": false,
+      "source_events_sha256": "9bc1dded0c3c1706b54be9564494a3bb887486c8b2256003b311432fc4f5b715",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.64263118996635,
+        1.8996635042789478e-07
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-211-position-gap",
+      "seed": 211,
+      "case": "position",
+      "corrupted": true,
+      "source_events_sha256": "9bc1dded0c3c1706b54be9564494a3bb887486c8b2256003b311432fc4f5b715",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-211-layering",
+      "seed": 211,
+      "case": "layering",
+      "corrupted": false,
+      "source_events_sha256": "054ab451166bd00e5809b4ab1e8ec57fafe9f55fd0ce7f32cbe3e58cf1ee5308",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "detection_delays_seconds": [
+        36.00000018996635
+      ],
+      "integrity": {
+        "trade_reports_checked": 6,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-211-layering-gap",
+      "seed": 211,
+      "case": "layering",
+      "corrupted": true,
+      "source_events_sha256": "054ab451166bd00e5809b4ab1e8ec57fafe9f55fd0ce7f32cbe3e58cf1ee5308",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-211-close",
+      "seed": 211,
+      "case": "close",
+      "corrupted": false,
+      "source_events_sha256": "0af9d4f69476f8ff22d007adf8b0df66b59faf6413d9057fe740946a839911a9",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.64263118996635
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-211-close-gap",
+      "seed": 211,
+      "case": "close",
+      "corrupted": true,
+      "source_events_sha256": "0af9d4f69476f8ff22d007adf8b0df66b59faf6413d9057fe740946a839911a9",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-307-flash_bursts",
+      "seed": 307,
+      "case": "flash_bursts",
+      "corrupted": false,
+      "source_events_sha256": "293483e6df65810a2683145870b56cbd86961fc82f257e11f7ddc4a7b3f281f6",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.4892827846064,
+        0.2889997846063945,
+        20.168999784606395
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-307-flash_bursts-gap",
+      "seed": 307,
+      "case": "flash_bursts",
+      "corrupted": true,
+      "source_events_sha256": "293483e6df65810a2683145870b56cbd86961fc82f257e11f7ddc4a7b3f281f6",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-307-slow_churn",
+      "seed": 307,
+      "case": "slow_churn",
+      "corrupted": false,
+      "source_events_sha256": "6cc61ca02e16f3b70962c3bc9cf9c62df470c05711cb2d0ce4f66d32af9db144",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.4892827846064
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-307-slow_churn-gap",
+      "seed": 307,
+      "case": "slow_churn",
+      "corrupted": true,
+      "source_events_sha256": "6cc61ca02e16f3b70962c3bc9cf9c62df470c05711cb2d0ce4f66d32af9db144",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-307-off_market",
+      "seed": 307,
+      "case": "off_market",
+      "corrupted": false,
+      "source_events_sha256": "91dff9c58ac1c689ba51763e3d823e4899c64c687c5e8ea3fd06121263383212",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "detection_delays_seconds": [
+        0.0
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-307-off_market-gap",
+      "seed": 307,
+      "case": "off_market",
+      "corrupted": true,
+      "source_events_sha256": "91dff9c58ac1c689ba51763e3d823e4899c64c687c5e8ea3fd06121263383212",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-307-repricing",
+      "seed": 307,
+      "case": "repricing",
+      "corrupted": false,
+      "source_events_sha256": "849d3c2ea2bed96c50c840fc488db3cee72f2fe33e77e499f54fe29bcac0e0f7",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-307-repricing-gap",
+      "seed": 307,
+      "case": "repricing",
+      "corrupted": true,
+      "source_events_sha256": "849d3c2ea2bed96c50c840fc488db3cee72f2fe33e77e499f54fe29bcac0e0f7",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-307-large_cancels",
+      "seed": 307,
+      "case": "large_cancels",
+      "corrupted": false,
+      "source_events_sha256": "a132ea0267df179abf67d95dafeea9dfd5f17650aab4f4c1e13d4fd27995abfb",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-307-large_cancels-gap",
+      "seed": 307,
+      "case": "large_cancels",
+      "corrupted": true,
+      "source_events_sha256": "a132ea0267df179abf67d95dafeea9dfd5f17650aab4f4c1e13d4fd27995abfb",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-307-reciprocal",
+      "seed": 307,
+      "case": "reciprocal",
+      "corrupted": false,
+      "source_events_sha256": "662aa81926f4b94bd07cf6329f399e16f27859db235dd02a02f46f99c38b4ff4",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [
+        [
+          "Peer",
+          "MKT-02"
+        ],
+        [
+          "Subject",
+          "MKT-02"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 16,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-307-reciprocal-gap",
+      "seed": 307,
+      "case": "reciprocal",
+      "corrupted": true,
+      "source_events_sha256": "662aa81926f4b94bd07cf6329f399e16f27859db235dd02a02f46f99c38b4ff4",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-307-exposure",
+      "seed": 307,
+      "case": "exposure",
+      "corrupted": false,
+      "source_events_sha256": "135f102772702c17f27e99b386c686c4d47f919ebdd089ddbb24059b40ad1655",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.4892827846064
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-307-exposure-gap",
+      "seed": 307,
+      "case": "exposure",
+      "corrupted": true,
+      "source_events_sha256": "135f102772702c17f27e99b386c686c4d47f919ebdd089ddbb24059b40ad1655",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-307-position",
+      "seed": 307,
+      "case": "position",
+      "corrupted": false,
+      "source_events_sha256": "9bc24a524cd78361ca12fbbc09c39ac79492f8dbec8f16dddee5e708172bf746",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.4892827846064,
+        0.0
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-307-position-gap",
+      "seed": 307,
+      "case": "position",
+      "corrupted": true,
+      "source_events_sha256": "9bc24a524cd78361ca12fbbc09c39ac79492f8dbec8f16dddee5e708172bf746",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-307-layering",
+      "seed": 307,
+      "case": "layering",
+      "corrupted": false,
+      "source_events_sha256": "de574bd2059181b7c7266d374dae48c9f96f0e975ac2fab2a406890b43a7b090",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "detection_delays_seconds": [
+        35.999999784606395
+      ],
+      "integrity": {
+        "trade_reports_checked": 6,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-307-layering-gap",
+      "seed": 307,
+      "case": "layering",
+      "corrupted": true,
+      "source_events_sha256": "de574bd2059181b7c7266d374dae48c9f96f0e975ac2fab2a406890b43a7b090",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-307-close",
+      "seed": 307,
+      "case": "close",
+      "corrupted": false,
+      "source_events_sha256": "665631f8c097867f251d374b465251db2d3bf1bc9261012d3a858b55f70c7b38",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.4892827846064
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-307-close-gap",
+      "seed": 307,
+      "case": "close",
+      "corrupted": true,
+      "source_events_sha256": "665631f8c097867f251d374b465251db2d3bf1bc9261012d3a858b55f70c7b38",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-401-flash_bursts",
+      "seed": 401,
+      "case": "flash_bursts",
+      "corrupted": false,
+      "source_events_sha256": "c49b6fa09e7bb42eb619cbd5cb29c1bf8013f809c804614be361caac62f3ea1d",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.89867128858205,
+        0.2890002885820442,
+        20.169000288582044
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-401-flash_bursts-gap",
+      "seed": 401,
+      "case": "flash_bursts",
+      "corrupted": true,
+      "source_events_sha256": "c49b6fa09e7bb42eb619cbd5cb29c1bf8013f809c804614be361caac62f3ea1d",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-401-slow_churn",
+      "seed": 401,
+      "case": "slow_churn",
+      "corrupted": false,
+      "source_events_sha256": "64126dcad28c56fffa1a3e1c0b2dc961384ec6bc2a73aba374b0935b1930fda1",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.89867128858205
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-401-slow_churn-gap",
+      "seed": 401,
+      "case": "slow_churn",
+      "corrupted": true,
+      "source_events_sha256": "64126dcad28c56fffa1a3e1c0b2dc961384ec6bc2a73aba374b0935b1930fda1",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-401-off_market",
+      "seed": 401,
+      "case": "off_market",
+      "corrupted": false,
+      "source_events_sha256": "3ef29c3056eebc714706b3a2ec4bfc4cc20180d1c8e4b475e7e5a8a77b417cf5",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "detection_delays_seconds": [
+        2.885820442610765e-07
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-401-off_market-gap",
+      "seed": 401,
+      "case": "off_market",
+      "corrupted": true,
+      "source_events_sha256": "3ef29c3056eebc714706b3a2ec4bfc4cc20180d1c8e4b475e7e5a8a77b417cf5",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-401-repricing",
+      "seed": 401,
+      "case": "repricing",
+      "corrupted": false,
+      "source_events_sha256": "bd4b89c3def73a3d5003c9fc4fbf3b4f2933de9b44ee45f36bc37a6f3f18b535",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-401-repricing-gap",
+      "seed": 401,
+      "case": "repricing",
+      "corrupted": true,
+      "source_events_sha256": "bd4b89c3def73a3d5003c9fc4fbf3b4f2933de9b44ee45f36bc37a6f3f18b535",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-401-large_cancels",
+      "seed": 401,
+      "case": "large_cancels",
+      "corrupted": false,
+      "source_events_sha256": "193e8a1384da42a85a103ab4bcb5f25cd3e05a4f5e3d0a9f43c773d510af6f16",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-401-large_cancels-gap",
+      "seed": 401,
+      "case": "large_cancels",
+      "corrupted": true,
+      "source_events_sha256": "193e8a1384da42a85a103ab4bcb5f25cd3e05a4f5e3d0a9f43c773d510af6f16",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-401-reciprocal",
+      "seed": 401,
+      "case": "reciprocal",
+      "corrupted": false,
+      "source_events_sha256": "eb22de18a91760c8713e17fb5dcc87450c71d15660d39694cbef47e4b36e0534",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [
+        [
+          "Peer",
+          "MKT-02"
+        ],
+        [
+          "Subject",
+          "MKT-02"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 16,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-401-reciprocal-gap",
+      "seed": 401,
+      "case": "reciprocal",
+      "corrupted": true,
+      "source_events_sha256": "eb22de18a91760c8713e17fb5dcc87450c71d15660d39694cbef47e4b36e0534",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-401-exposure",
+      "seed": 401,
+      "case": "exposure",
+      "corrupted": false,
+      "source_events_sha256": "a7182083ab8ed8ee1a0e9ef6c24d1aac8da22accad4ec721c440af5ad70f4941",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.89867128858205
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-401-exposure-gap",
+      "seed": 401,
+      "case": "exposure",
+      "corrupted": true,
+      "source_events_sha256": "a7182083ab8ed8ee1a0e9ef6c24d1aac8da22accad4ec721c440af5ad70f4941",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-401-position",
+      "seed": 401,
+      "case": "position",
+      "corrupted": false,
+      "source_events_sha256": "fab26dc3b09d5f0c17182902bbc04cd4af2c78bddd2f3ff46318842c10416eb9",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.89867128858205,
+        2.885820442610765e-07
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-401-position-gap",
+      "seed": 401,
+      "case": "position",
+      "corrupted": true,
+      "source_events_sha256": "fab26dc3b09d5f0c17182902bbc04cd4af2c78bddd2f3ff46318842c10416eb9",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-401-layering",
+      "seed": 401,
+      "case": "layering",
+      "corrupted": false,
+      "source_events_sha256": "b23721a74c1f4c108b67874b138f34ca0cace20a76474702998afbea13125c8d",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "detection_delays_seconds": [
+        36.000000288582044
+      ],
+      "integrity": {
+        "trade_reports_checked": 6,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-401-layering-gap",
+      "seed": 401,
+      "case": "layering",
+      "corrupted": true,
+      "source_events_sha256": "b23721a74c1f4c108b67874b138f34ca0cace20a76474702998afbea13125c8d",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-401-close",
+      "seed": 401,
+      "case": "close",
+      "corrupted": false,
+      "source_events_sha256": "c8ff3f8c078c9ea424cdf5a6ef3d2eeb835f107f99330c77dff34c350bdb9d69",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.89867128858205
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-401-close-gap",
+      "seed": 401,
+      "case": "close",
+      "corrupted": true,
+      "source_events_sha256": "c8ff3f8c078c9ea424cdf5a6ef3d2eeb835f107f99330c77dff34c350bdb9d69",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-503-flash_bursts",
+      "seed": 503,
+      "case": "flash_bursts",
+      "corrupted": false,
+      "source_events_sha256": "a4917dbe7dd6eb238e9ea607f97af330b8a872f548bb0a735c112624bb52f4f8",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.8482471454594,
+        0.2890001454593989,
+        20.1690001454594
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-503-flash_bursts-gap",
+      "seed": 503,
+      "case": "flash_bursts",
+      "corrupted": true,
+      "source_events_sha256": "a4917dbe7dd6eb238e9ea607f97af330b8a872f548bb0a735c112624bb52f4f8",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-503-slow_churn",
+      "seed": 503,
+      "case": "slow_churn",
+      "corrupted": false,
+      "source_events_sha256": "5355ffd15300a79da9e58e090a772c67b7931ef3a1b4307f05a9222287a58566",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.8482471454594
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-503-slow_churn-gap",
+      "seed": 503,
+      "case": "slow_churn",
+      "corrupted": true,
+      "source_events_sha256": "5355ffd15300a79da9e58e090a772c67b7931ef3a1b4307f05a9222287a58566",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-503-off_market",
+      "seed": 503,
+      "case": "off_market",
+      "corrupted": false,
+      "source_events_sha256": "986b53ad40bd46ca7abfd470f4189ded578a3bc243386265696640b9cf00133d",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "detection_delays_seconds": [
+        1.4545939897026017e-07
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-503-off_market-gap",
+      "seed": 503,
+      "case": "off_market",
+      "corrupted": true,
+      "source_events_sha256": "986b53ad40bd46ca7abfd470f4189ded578a3bc243386265696640b9cf00133d",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-503-repricing",
+      "seed": 503,
+      "case": "repricing",
+      "corrupted": false,
+      "source_events_sha256": "cd96704b20e24976671203480cfba5400976a4c79ff30a30461d5aaf18cd291a",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-503-repricing-gap",
+      "seed": 503,
+      "case": "repricing",
+      "corrupted": true,
+      "source_events_sha256": "cd96704b20e24976671203480cfba5400976a4c79ff30a30461d5aaf18cd291a",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-503-large_cancels",
+      "seed": 503,
+      "case": "large_cancels",
+      "corrupted": false,
+      "source_events_sha256": "5a9d8588e0faa73c894dff0a7fbac30aa36e5bd9dcbfa3192f9a8b69e6607587",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-503-large_cancels-gap",
+      "seed": 503,
+      "case": "large_cancels",
+      "corrupted": true,
+      "source_events_sha256": "5a9d8588e0faa73c894dff0a7fbac30aa36e5bd9dcbfa3192f9a8b69e6607587",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-503-reciprocal",
+      "seed": 503,
+      "case": "reciprocal",
+      "corrupted": false,
+      "source_events_sha256": "19c52183777b639b7c87c060f697752e0bcc22bdcb86b5673b423c90ecf1f3e3",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [
+        [
+          "Peer",
+          "MKT-02"
+        ],
+        [
+          "Subject",
+          "MKT-02"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 16,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-503-reciprocal-gap",
+      "seed": 503,
+      "case": "reciprocal",
+      "corrupted": true,
+      "source_events_sha256": "19c52183777b639b7c87c060f697752e0bcc22bdcb86b5673b423c90ecf1f3e3",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-503-exposure",
+      "seed": 503,
+      "case": "exposure",
+      "corrupted": false,
+      "source_events_sha256": "28b99ce70d5d4a5779dd2dc1e2538b7e424e3b57f6f31cb05f004a46a83a1db1",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.8482471454594
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-503-exposure-gap",
+      "seed": 503,
+      "case": "exposure",
+      "corrupted": true,
+      "source_events_sha256": "28b99ce70d5d4a5779dd2dc1e2538b7e424e3b57f6f31cb05f004a46a83a1db1",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-503-position",
+      "seed": 503,
+      "case": "position",
+      "corrupted": false,
+      "source_events_sha256": "ed2cfebe02b10de2baf6ba868ae3f4e4b1dd6092e6bffc4f42c7d82bd993f06a",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.8482471454594,
+        1.4545939897026017e-07
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-503-position-gap",
+      "seed": 503,
+      "case": "position",
+      "corrupted": true,
+      "source_events_sha256": "ed2cfebe02b10de2baf6ba868ae3f4e4b1dd6092e6bffc4f42c7d82bd993f06a",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-503-layering",
+      "seed": 503,
+      "case": "layering",
+      "corrupted": false,
+      "source_events_sha256": "60c8af7d48e52975fa8f33ce04641105cb06342d345b0ebf18d87ef69c4f85c2",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "detection_delays_seconds": [
+        36.000000145459396
+      ],
+      "integrity": {
+        "trade_reports_checked": 6,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-503-layering-gap",
+      "seed": 503,
+      "case": "layering",
+      "corrupted": true,
+      "source_events_sha256": "60c8af7d48e52975fa8f33ce04641105cb06342d345b0ebf18d87ef69c4f85c2",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-503-close",
+      "seed": 503,
+      "case": "close",
+      "corrupted": false,
+      "source_events_sha256": "73e3a875ece27aaaa504d42ff2befd7fc4113b199e8ba27ce898b50cc8be2f15",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.8482471454594
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-503-close-gap",
+      "seed": 503,
+      "case": "close",
+      "corrupted": true,
+      "source_events_sha256": "73e3a875ece27aaaa504d42ff2befd7fc4113b199e8ba27ce898b50cc8be2f15",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-601-flash_bursts",
+      "seed": 601,
+      "case": "flash_bursts",
+      "corrupted": false,
+      "source_events_sha256": "ada823c063e08e76acfc393f9f46ba9f7439ac75ebf8906109af2ef517d35462",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.31462076628773,
+        0.28899976628774326,
+        20.168999766287744
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-601-flash_bursts-gap",
+      "seed": 601,
+      "case": "flash_bursts",
+      "corrupted": true,
+      "source_events_sha256": "ada823c063e08e76acfc393f9f46ba9f7439ac75ebf8906109af2ef517d35462",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-601-slow_churn",
+      "seed": 601,
+      "case": "slow_churn",
+      "corrupted": false,
+      "source_events_sha256": "a0e9087f920f134a9409eb26c362ae951fc44fa0084d1e564d949bcaeffdbcc1",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.31462076628773
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-601-slow_churn-gap",
+      "seed": 601,
+      "case": "slow_churn",
+      "corrupted": true,
+      "source_events_sha256": "a0e9087f920f134a9409eb26c362ae951fc44fa0084d1e564d949bcaeffdbcc1",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-601-off_market",
+      "seed": 601,
+      "case": "off_market",
+      "corrupted": false,
+      "source_events_sha256": "89024a0dcabaa2cc8719de0b1e35c6e14c225d9146384704f3d625bda04c6c2b",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "detection_delays_seconds": [
+        0.0
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-601-off_market-gap",
+      "seed": 601,
+      "case": "off_market",
+      "corrupted": true,
+      "source_events_sha256": "89024a0dcabaa2cc8719de0b1e35c6e14c225d9146384704f3d625bda04c6c2b",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-601-repricing",
+      "seed": 601,
+      "case": "repricing",
+      "corrupted": false,
+      "source_events_sha256": "563142068884ff6f46054664049ed051b74e63fb268c0d7cefdf55b3cec9f7d2",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-601-repricing-gap",
+      "seed": 601,
+      "case": "repricing",
+      "corrupted": true,
+      "source_events_sha256": "563142068884ff6f46054664049ed051b74e63fb268c0d7cefdf55b3cec9f7d2",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-601-large_cancels",
+      "seed": 601,
+      "case": "large_cancels",
+      "corrupted": false,
+      "source_events_sha256": "5b75104f690ca87be0adb5e4815f84a3b06cab3b7686bff3f30bd6d0333a0328",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-601-large_cancels-gap",
+      "seed": 601,
+      "case": "large_cancels",
+      "corrupted": true,
+      "source_events_sha256": "5b75104f690ca87be0adb5e4815f84a3b06cab3b7686bff3f30bd6d0333a0328",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-601-reciprocal",
+      "seed": 601,
+      "case": "reciprocal",
+      "corrupted": false,
+      "source_events_sha256": "6f338f1af91b980dc057a1ee5d60f980faaf61f8e2d0a01f8c378241625fb6a8",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [
+        [
+          "Peer",
+          "MKT-02"
+        ],
+        [
+          "Subject",
+          "MKT-02"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 16,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-601-reciprocal-gap",
+      "seed": 601,
+      "case": "reciprocal",
+      "corrupted": true,
+      "source_events_sha256": "6f338f1af91b980dc057a1ee5d60f980faaf61f8e2d0a01f8c378241625fb6a8",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-601-exposure",
+      "seed": 601,
+      "case": "exposure",
+      "corrupted": false,
+      "source_events_sha256": "7feb7a02f59080982327036532efcaea6cd875d02648dc64e18db22a368fb9db",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.31462076628773
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-601-exposure-gap",
+      "seed": 601,
+      "case": "exposure",
+      "corrupted": true,
+      "source_events_sha256": "7feb7a02f59080982327036532efcaea6cd875d02648dc64e18db22a368fb9db",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-601-position",
+      "seed": 601,
+      "case": "position",
+      "corrupted": false,
+      "source_events_sha256": "b1b7aa6ea5dba67eb07cea7230f8c4f3c695c2970153f2c8843361c2253fc1f4",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.31462076628773,
+        0.0
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-601-position-gap",
+      "seed": 601,
+      "case": "position",
+      "corrupted": true,
+      "source_events_sha256": "b1b7aa6ea5dba67eb07cea7230f8c4f3c695c2970153f2c8843361c2253fc1f4",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-601-layering",
+      "seed": 601,
+      "case": "layering",
+      "corrupted": false,
+      "source_events_sha256": "10c5d6d88f20fcedb893787521b57a9ac9cb44a988ee61a8d4f2aeb92237fb8c",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "detection_delays_seconds": [
+        35.99999976628774
+      ],
+      "integrity": {
+        "trade_reports_checked": 6,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-601-layering-gap",
+      "seed": 601,
+      "case": "layering",
+      "corrupted": true,
+      "source_events_sha256": "10c5d6d88f20fcedb893787521b57a9ac9cb44a988ee61a8d4f2aeb92237fb8c",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-601-close",
+      "seed": 601,
+      "case": "close",
+      "corrupted": false,
+      "source_events_sha256": "95420abe746384a6eb07526a5854b0b4bc6252e7dea14cc656bf94718d58b9b9",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.31462076628773
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-601-close-gap",
+      "seed": 601,
+      "case": "close",
+      "corrupted": true,
+      "source_events_sha256": "95420abe746384a6eb07526a5854b0b4bc6252e7dea14cc656bf94718d58b9b9",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-701-flash_bursts",
+      "seed": 701,
+      "case": "flash_bursts",
+      "corrupted": false,
+      "source_events_sha256": "4fe771e529950578569aa574cfecfc7cb20f8941b1738ba21575cf95b2160671",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-03"
+        ],
+        [
+          "Subject",
+          "MKT-03"
+        ],
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.50064160597893,
+        0.2889996059789184,
+        20.168999605978918
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-701-flash_bursts-gap",
+      "seed": 701,
+      "case": "flash_bursts",
+      "corrupted": true,
+      "source_events_sha256": "4fe771e529950578569aa574cfecfc7cb20f8941b1738ba21575cf95b2160671",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-701-slow_churn",
+      "seed": 701,
+      "case": "slow_churn",
+      "corrupted": false,
+      "source_events_sha256": "850051548010027dec973acf237cc2b437abc0733b5c8e884fc890ffc5ad1a3e",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-05"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.50064160597893
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-701-slow_churn-gap",
+      "seed": 701,
+      "case": "slow_churn",
+      "corrupted": true,
+      "source_events_sha256": "850051548010027dec973acf237cc2b437abc0733b5c8e884fc890ffc5ad1a3e",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-701-off_market",
+      "seed": 701,
+      "case": "off_market",
+      "corrupted": false,
+      "source_events_sha256": "850398e7c3c3501276b62e8e01c216aa207dd5319364bd4d30f950c240705fc0",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-06"
+        ]
+      ],
+      "detection_delays_seconds": [
+        0.0
+      ],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-701-off_market-gap",
+      "seed": 701,
+      "case": "off_market",
+      "corrupted": true,
+      "source_events_sha256": "850398e7c3c3501276b62e8e01c216aa207dd5319364bd4d30f950c240705fc0",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-701-repricing",
+      "seed": 701,
+      "case": "repricing",
+      "corrupted": false,
+      "source_events_sha256": "96d5964ae3988482c36f2372df5a4d5f2dbcc73dc879ee2c95aea46bb51ed4c5",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-701-repricing-gap",
+      "seed": 701,
+      "case": "repricing",
+      "corrupted": true,
+      "source_events_sha256": "96d5964ae3988482c36f2372df5a4d5f2dbcc73dc879ee2c95aea46bb51ed4c5",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-701-large_cancels",
+      "seed": 701,
+      "case": "large_cancels",
+      "corrupted": false,
+      "source_events_sha256": "b79effc73f81bf10884c9415526bb34821b908d03fa355938ce874c10ef98155",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-701-large_cancels-gap",
+      "seed": 701,
+      "case": "large_cancels",
+      "corrupted": true,
+      "source_events_sha256": "b79effc73f81bf10884c9415526bb34821b908d03fa355938ce874c10ef98155",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-701-reciprocal",
+      "seed": 701,
+      "case": "reciprocal",
+      "corrupted": false,
+      "source_events_sha256": "a614b4c325cc97e4bd4b82c1da792aef2363a251e0f89ad26fd72893758de8b6",
+      "dropped_seq": null,
+      "expected": [],
+      "observed": [
+        [
+          "Peer",
+          "MKT-02"
+        ],
+        [
+          "Subject",
+          "MKT-02"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 16,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-701-reciprocal-gap",
+      "seed": 701,
+      "case": "reciprocal",
+      "corrupted": true,
+      "source_events_sha256": "a614b4c325cc97e4bd4b82c1da792aef2363a251e0f89ad26fd72893758de8b6",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-701-exposure",
+      "seed": 701,
+      "case": "exposure",
+      "corrupted": false,
+      "source_events_sha256": "286b4fe7bae05fc7e9ef57fdd7a4817de060b4542806255ccdd2f740d2bebde2",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.50064160597893
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-701-exposure-gap",
+      "seed": 701,
+      "case": "exposure",
+      "corrupted": true,
+      "source_events_sha256": "286b4fe7bae05fc7e9ef57fdd7a4817de060b4542806255ccdd2f740d2bebde2",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-701-position",
+      "seed": 701,
+      "case": "position",
+      "corrupted": false,
+      "source_events_sha256": "c3d7eef08ce1d2f37b9de4eecac947e22e7c07d26dff5a0362a40fa014d3e9d7",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "LIM-01"
+        ],
+        [
+          "Subject",
+          "LIM-02"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.50064160597893,
+        0.0
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-701-position-gap",
+      "seed": 701,
+      "case": "position",
+      "corrupted": true,
+      "source_events_sha256": "c3d7eef08ce1d2f37b9de4eecac947e22e7c07d26dff5a0362a40fa014d3e9d7",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-701-layering",
+      "seed": 701,
+      "case": "layering",
+      "corrupted": false,
+      "source_events_sha256": "6ace9e01583182d44ce837bef62686312a76fdd0ac73e834d7b4dc564537fedf",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-01"
+        ]
+      ],
+      "detection_delays_seconds": [
+        35.99999960597892
+      ],
+      "integrity": {
+        "trade_reports_checked": 6,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-701-layering-gap",
+      "seed": 701,
+      "case": "layering",
+      "corrupted": true,
+      "source_events_sha256": "6ace9e01583182d44ce837bef62686312a76fdd0ac73e834d7b4dc564537fedf",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    },
+    {
+      "id": "challenge-701-close",
+      "seed": 701,
+      "case": "close",
+      "corrupted": false,
+      "source_events_sha256": "8a6d7eb354b145e51bed011a7b763c510eb0e12457a15af9bc0aa7d922b38b6a",
+      "dropped_seq": null,
+      "expected": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "observed": [
+        [
+          "Subject",
+          "MKT-04"
+        ]
+      ],
+      "detection_delays_seconds": [
+        178.50064160597893
+      ],
+      "integrity": {
+        "trade_reports_checked": 1,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 0,
+        "stopped_after_sequence": null
+      }
+    },
+    {
+      "id": "challenge-701-close-gap",
+      "seed": 701,
+      "case": "close",
+      "corrupted": true,
+      "source_events_sha256": "8a6d7eb354b145e51bed011a7b763c510eb0e12457a15af9bc0aa7d922b38b6a",
+      "dropped_seq": 5,
+      "expected": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "observed": [
+        [
+          "__stream__",
+          "REC-01"
+        ]
+      ],
+      "detection_delays_seconds": [],
+      "integrity": {
+        "trade_reports_checked": 0,
+        "hedges_checked": 0,
+        "scores_checked": 0,
+        "discrepancies": 1,
+        "stopped_after_sequence": 4
+      }
+    }
+  ],
+  "sensitivity": [
+    {
+      "factor": 0.8,
+      "overall": {
+        "tp": 160,
+        "fp": 16,
+        "fn": 0,
+        "tn": 1504,
+        "precision": 0.9090909090909091,
+        "recall": 1.0
+      },
+      "per_control": {
+        "LIM-01": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "LIM-02": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "tn": 152,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "LIM-03": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-01": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-02": {
+          "tp": 0,
+          "fp": 16,
+          "fn": 0,
+          "tn": 152,
+          "precision": 0.0,
+          "recall": null
+        },
+        "MKT-03": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-04": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-05": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "tn": 152,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-06": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "REC-01": {
+          "tp": 80,
+          "fp": 0,
+          "fn": 0,
+          "tn": 88,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "seed_bootstrap_95_percent": {
+        "precision": [
+          0.9090909090909091,
+          0.9090909090909091
+        ],
+        "recall": [
+          1.0,
+          1.0
+        ]
+      },
+      "false_alerts": 16,
+      "participant_hours": 4.399999999999994,
+      "false_alerts_per_participant_hour": 3.636363636363641,
+      "median_detection_seconds": 178.15288238082263
+    },
+    {
+      "factor": 1.0,
+      "overall": {
+        "tp": 160,
+        "fp": 16,
+        "fn": 0,
+        "tn": 1504,
+        "precision": 0.9090909090909091,
+        "recall": 1.0
+      },
+      "per_control": {
+        "LIM-01": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "LIM-02": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "tn": 152,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "LIM-03": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-01": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-02": {
+          "tp": 0,
+          "fp": 16,
+          "fn": 0,
+          "tn": 152,
+          "precision": 0.0,
+          "recall": null
+        },
+        "MKT-03": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-04": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-05": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "tn": 152,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-06": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "REC-01": {
+          "tp": 80,
+          "fp": 0,
+          "fn": 0,
+          "tn": 88,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "seed_bootstrap_95_percent": {
+        "precision": [
+          0.9090909090909091,
+          0.9090909090909091
+        ],
+        "recall": [
+          1.0,
+          1.0
+        ]
+      },
+      "false_alerts": 16,
+      "participant_hours": 4.399999999999994,
+      "false_alerts_per_participant_hour": 3.636363636363641,
+      "median_detection_seconds": 178.15288238082263
+    },
+    {
+      "factor": 1.2,
+      "overall": {
+        "tp": 160,
+        "fp": 16,
+        "fn": 0,
+        "tn": 1504,
+        "precision": 0.9090909090909091,
+        "recall": 1.0
+      },
+      "per_control": {
+        "LIM-01": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "LIM-02": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "tn": 152,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "LIM-03": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-01": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-02": {
+          "tp": 0,
+          "fp": 16,
+          "fn": 0,
+          "tn": 152,
+          "precision": 0.0,
+          "recall": null
+        },
+        "MKT-03": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-04": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-05": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "tn": 152,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "MKT-06": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "REC-01": {
+          "tp": 80,
+          "fp": 0,
+          "fn": 0,
+          "tn": 88,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "seed_bootstrap_95_percent": {
+        "precision": [
+          0.9090909090909091,
+          0.9090909090909091
+        ],
+        "recall": [
+          1.0,
+          1.0
+        ]
+      },
+      "false_alerts": 16,
+      "participant_hours": 4.399999999999994,
+      "false_alerts_per_participant_hour": 3.636363636363641,
+      "median_detection_seconds": 178.15288238082263
+    }
+  ],
+  "method": "Binary unit = (episode, participant, control); repeated alerts count once in precision/recall, but individually in false-alert rate. Gap episodes evaluate REC-01 only on a synthetic stream unit. Delay is first emission minus episode start; finalization-only findings use session end. 95% intervals resample seeds, retaining every scenario within a seed; they do not quantify real-market uncertainty. Sensitivity scales five documented thresholds without selecting a winner."
+}
