@@ -1,0 +1,1755 @@
+{
+ "full-live-s3": {
+  "match_id": "full-live-s3",
+  "market_data": "market_data3.csv",
+  "seconds": 899.731624,
+  "events": 467410,
+  "events_sha256": "003f5bbaa356216b4141107e6a43e09863b50766e047f1e9e3adf54465f7a14d",
+  "trade_reports_checked": 2397,
+  "hedges_checked": 2034,
+  "scores_checked": 4,
+  "discrepancies": 0,
+  "alerts": 0,
+  "simulator_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "played_with": null,
+  "simulated_with": null,
+  "simulated_as_played": false,
+  "note": "Played on a desktop machine with other applications running (load average 15 to 20 on its 12 cores).",
+  "teams": {
+   "Example": {
+    "entered_as": "example",
+    "status": "OK",
+    "exchange_pnl": -3894.73,
+    "audit_pnl": -3894.73,
+    "alerts": 0,
+    "etf_position": 9,
+    "future_position": -9,
+    "max_abs_unhedged": 20,
+    "longest_unhedged_seconds": 0.0,
+    "seconds_at_position_limit": 0.0,
+    "reaction": {
+     "median": 0.0005290000000286454,
+     "spread": 2.8999999997836312e-05,
+     "ticks": 2711,
+     "typical": 0.00046910116682078595,
+     "jitter": 0.0001366699999864096
+    },
+    "simulated_pnl": [
+     -4616.21,
+     -3733.08,
+     -4282.08,
+     -4043.45,
+     -3904.45,
+     -4125.51,
+     -4288.52,
+     -4067.64
+    ],
+    "simulated_pnl_without_reaction_times": [
+     -6608.84,
+     -6157.9,
+     -6687.05,
+     -6582.22,
+     -6290.06,
+     -6031.97,
+     -6477.55,
+     -6495.66
+    ]
+   },
+   "MeanRev": {
+    "entered_as": "preset:mean_reversion",
+    "status": "OK",
+    "exchange_pnl": 15857.4,
+    "audit_pnl": 15857.4,
+    "alerts": 0,
+    "etf_position": -7,
+    "future_position": 7,
+    "max_abs_unhedged": 134,
+    "longest_unhedged_seconds": 0.061,
+    "seconds_at_position_limit": 235.905,
+    "reaction": {
+     "median": 0.0007889999999406427,
+     "spread": 0.0001749799999939228,
+     "ticks": 1823,
+     "typical": 0.0007807725013017351,
+     "jitter": 0.0001366699999864096
+    },
+    "simulated_pnl": [
+     16826.88,
+     17589.57,
+     14922.22,
+     16644.81,
+     18015.96,
+     17981.05,
+     17112.3,
+     15884.6
+    ],
+    "simulated_pnl_without_reaction_times": [
+     12838.97,
+     14177.42,
+     14184.87,
+     13891.04,
+     15903.28,
+     16513.02,
+     15548.92,
+     14660.93
+    ]
+   },
+   "VigilFull": {
+    "entered_as": "preset:full",
+    "status": "OK",
+    "exchange_pnl": 12088.78,
+    "audit_pnl": 12088.78,
+    "alerts": 0,
+    "etf_position": -7,
+    "future_position": 7,
+    "max_abs_unhedged": 130,
+    "longest_unhedged_seconds": 30.09,
+    "seconds_at_position_limit": 225.564,
+    "reaction": {
+     "median": 0.0008430000000032578,
+     "spread": 0.0001741999999666177,
+     "ticks": 1896,
+     "typical": 0.0009212931278703275,
+     "jitter": 0.0001366699999864096
+    },
+    "simulated_pnl": [
+     11675.14,
+     10801.29,
+     8881.92,
+     9143.18,
+     9421.18,
+     8604.9,
+     9852.9,
+     11680.12
+    ],
+    "simulated_pnl_without_reaction_times": [
+     15819.32,
+     14559.35,
+     15263.76,
+     14715.9,
+     15685.77,
+     13531.24,
+     15097.8,
+     15600.71
+    ]
+   },
+   "VigilKelly": {
+    "entered_as": "preset:kelly",
+    "status": "OK",
+    "exchange_pnl": 17325.52,
+    "audit_pnl": 17325.52,
+    "alerts": 0,
+    "etf_position": 28,
+    "future_position": -28,
+    "max_abs_unhedged": 138,
+    "longest_unhedged_seconds": 27.613,
+    "seconds_at_position_limit": 234.295,
+    "reaction": {
+     "median": 0.0007969999999204447,
+     "spread": 0.00016849999998726163,
+     "ticks": 1879,
+     "typical": 0.000786833203900114,
+     "jitter": 0.0001366699999864096
+    },
+    "simulated_pnl": [
+     16195.29,
+     16144.84,
+     18397.87,
+     17621.44,
+     16830.73,
+     14972.24,
+     16972.66,
+     15926.55
+    ],
+    "simulated_pnl_without_reaction_times": [
+     16860.8,
+     17509.53,
+     16579.09,
+     15280.45,
+     14079.14,
+     14025.76,
+     15058.04,
+     15074.34
+    ]
+   }
+  }
+ },
+ "live-tournament-s3": {
+  "match_id": "live-tournament-s3",
+  "market_data": "market_data3.csv",
+  "seconds": 899.731624,
+  "events": 481605,
+  "events_sha256": "1d7d80cc4019d9624e46608bec5951677ca69bb3f84e65e6643da116763a1d35",
+  "trade_reports_checked": 2800,
+  "hedges_checked": 2522,
+  "scores_checked": 7,
+  "discrepancies": 0,
+  "alerts": 0,
+  "simulator_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "played_with": null,
+  "simulated_with": null,
+  "simulated_as_played": true,
+  "note": "Played on a desktop machine with other applications running (load average 30 to 38 on its 12 cores, the seven traders included: each polls the exchange's shared memory without pause). Audited as it ran, under the rulebook as it then stood, this match raised one alert against an honest team: the full strategy's order-to-trade ratio was 107 by volume against a limit of 80. The limit was moved afterwards (see control MKT-05), and the figures here are the audit under the rulebook as it stands now.",
+  "teams": {
+   "baseline": {
+    "entered_as": "preset:baseline",
+    "status": "OK",
+    "exchange_pnl": 10571.08,
+    "audit_pnl": 10571.08,
+    "alerts": 0,
+    "etf_position": 0,
+    "future_position": 0,
+    "max_abs_unhedged": 100,
+    "longest_unhedged_seconds": 0.065,
+    "seconds_at_position_limit": 596.75,
+    "reaction": {
+     "median": 0.0006615000000138593,
+     "spread": 0.00023739999996905668,
+     "ticks": 1366,
+     "typical": 0.000587378994116129,
+     "jitter": 0.00023229142856917763
+    },
+    "simulated_pnl": [
+     10619.59,
+     11647.51,
+     12424.54,
+     9659.35,
+     9201.39,
+     11539.59,
+     10646.86,
+     9930.25
+    ],
+    "simulated_pnl_without_reaction_times": [
+     8468.31,
+     7176.23,
+     6745.72,
+     8434.19,
+     6742.75,
+     7708.05,
+     7002.88,
+     5964.31
+    ]
+   },
+   "example": {
+    "entered_as": "example",
+    "status": "OK",
+    "exchange_pnl": -5099.04,
+    "audit_pnl": -5099.04,
+    "alerts": 0,
+    "etf_position": 1,
+    "future_position": -1,
+    "max_abs_unhedged": 20,
+    "longest_unhedged_seconds": 0.0,
+    "seconds_at_position_limit": 0.0,
+    "reaction": {
+     "median": 0.0006919999999865922,
+     "spread": 0.0002190000000013015,
+     "ticks": 2731,
+     "typical": 0.0007111917800964219,
+     "jitter": 0.00023229142856917763
+    },
+    "simulated_pnl": [
+     -4879.11,
+     -4653.95,
+     -5394.21,
+     -5410.06,
+     -4870.75,
+     -5429.64,
+     -5265.61,
+     -4942.65
+    ],
+    "simulated_pnl_without_reaction_times": [
+     -6881.03,
+     -5813.8,
+     -6419.08,
+     -6764.69,
+     -6441.39,
+     -6256.54,
+     -6307.89,
+     -6024.01
+    ]
+   },
+   "full": {
+    "entered_as": "preset:full",
+    "status": "OK",
+    "exchange_pnl": 5621.27,
+    "audit_pnl": 5621.27,
+    "alerts": 0,
+    "etf_position": 89,
+    "future_position": -89,
+    "max_abs_unhedged": 112,
+    "longest_unhedged_seconds": 30.06,
+    "seconds_at_position_limit": 148.466,
+    "reaction": {
+     "median": 0.0010399999999890497,
+     "spread": 0.0002360800000292329,
+     "ticks": 1950,
+     "typical": 0.0011814774507778946,
+     "jitter": 0.00023229142856917763
+    },
+    "simulated_pnl": [
+     4625.45,
+     2784.23,
+     3912.68,
+     4056.52,
+     3086.03,
+     2963.73,
+     4137.02,
+     5331.4
+    ],
+    "simulated_pnl_without_reaction_times": [
+     8599.41,
+     9783.86,
+     7677.98,
+     8649.28,
+     9676.01,
+     7801.16,
+     7428.32,
+     8145.75
+    ]
+   },
+   "inventory": {
+    "entered_as": "preset:inventory",
+    "status": "OK",
+    "exchange_pnl": 9612.99,
+    "audit_pnl": 9612.99,
+    "alerts": 0,
+    "etf_position": 39,
+    "future_position": -39,
+    "max_abs_unhedged": 100,
+    "longest_unhedged_seconds": 0.066,
+    "seconds_at_position_limit": 142.282,
+    "reaction": {
+     "median": 0.0006100000000230921,
+     "spread": 0.00021763999997006063,
+     "ticks": 1818,
+     "typical": 0.0005775358195375183,
+     "jitter": 0.00023229142856917763
+    },
+    "simulated_pnl": [
+     14276.41,
+     12638.64,
+     14329.09,
+     13505.12,
+     15842.69,
+     14899.91,
+     14658.35,
+     13317.85
+    ],
+    "simulated_pnl_without_reaction_times": [
+     9348.45,
+     7561.72,
+     9849.55,
+     7425.79,
+     9398.93,
+     9256.48,
+     10589.46,
+     11378.78
+    ]
+   },
+   "kelly": {
+    "entered_as": "preset:kelly",
+    "status": "OK",
+    "exchange_pnl": 8438.48,
+    "audit_pnl": 8438.48,
+    "alerts": 0,
+    "etf_position": -9,
+    "future_position": 9,
+    "max_abs_unhedged": 137,
+    "longest_unhedged_seconds": 29.999,
+    "seconds_at_position_limit": 140.579,
+    "reaction": {
+     "median": 0.0009569999999712309,
+     "spread": 0.0002322599999956765,
+     "ticks": 1929,
+     "typical": 0.0009428162844291223,
+     "jitter": 0.00023229142856917763
+    },
+    "simulated_pnl": [
+     7151.81,
+     7195.44,
+     7193.27,
+     4721.93,
+     5438.72,
+     6313.7,
+     5067.51,
+     6301.53
+    ],
+    "simulated_pnl_without_reaction_times": [
+     6601.87,
+     8233.06,
+     8618.52,
+     9155.4,
+     6786.49,
+     7227.07,
+     9194.92,
+     5265.26
+    ]
+   },
+   "mean_reversion": {
+    "entered_as": "preset:mean_reversion",
+    "status": "OK",
+    "exchange_pnl": 8347.05,
+    "audit_pnl": 8347.05,
+    "alerts": 0,
+    "etf_position": -9,
+    "future_position": 9,
+    "max_abs_unhedged": 134,
+    "longest_unhedged_seconds": 0.052,
+    "seconds_at_position_limit": 170.177,
+    "reaction": {
+     "median": 0.0009395000000154141,
+     "spread": 0.0002382000000139328,
+     "ticks": 1856,
+     "typical": 0.0009009730141364143,
+     "jitter": 0.00023229142856917763
+    },
+    "simulated_pnl": [
+     5578.21,
+     6665.27,
+     5246.33,
+     7982.16,
+     6685.95,
+     6173.39,
+     6339.12,
+     5125.52
+    ],
+    "simulated_pnl_without_reaction_times": [
+     8417.66,
+     8421.49,
+     8231.56,
+     6677.33,
+     6859.15,
+     8548.43,
+     9066.59,
+     9311.85
+    ]
+   },
+   "momentum": {
+    "entered_as": "preset:momentum",
+    "status": "OK",
+    "exchange_pnl": 8945.33,
+    "audit_pnl": 8945.33,
+    "alerts": 0,
+    "etf_position": 3,
+    "future_position": -3,
+    "max_abs_unhedged": 118,
+    "longest_unhedged_seconds": 25.866,
+    "seconds_at_position_limit": 155.321,
+    "reaction": {
+     "median": 0.0009390000000166765,
+     "spread": 0.0002454600000049822,
+     "ticks": 1964,
+     "typical": 0.0009376266569224154,
+     "jitter": 0.00023229142856917763
+    },
+    "simulated_pnl": [
+     7747.79,
+     6336.25,
+     5341.4,
+     6137.07,
+     6321.15,
+     5455.8,
+     6606.16,
+     7550.38
+    ],
+    "simulated_pnl_without_reaction_times": [
+     10892.03,
+     9350.85,
+     8092.34,
+     6462.76,
+     8113.13,
+     5855.94,
+     8250.35,
+     8566.0
+    ]
+   }
+  }
+ },
+ "live-tournament-s3-b": {
+  "match_id": "live-tournament-s3-b",
+  "market_data": "market_data3.csv",
+  "seconds": 899.731624,
+  "events": 480934,
+  "events_sha256": "8b9949080c47b7ff490e15da21015c2c4adc5f42be5c8278358c9c75b7f59a3e",
+  "trade_reports_checked": 3099,
+  "hedges_checked": 2576,
+  "scores_checked": 7,
+  "discrepancies": 0,
+  "alerts": 0,
+  "simulator_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "played_with": null,
+  "simulated_with": "9317bd3276cd29543ffd29eb2ee68ad020eb58ca50acdbb81b3dfc0febfea61d",
+  "simulated_as_played": true,
+  "note": "The same field on the same session and machine (load average 21 to 27) after the traders' handlers were reordered to send the orders that race before working out anything else.",
+  "teams": {
+   "baseline": {
+    "entered_as": "preset:baseline",
+    "status": "OK",
+    "exchange_pnl": 6270.09,
+    "audit_pnl": 6270.09,
+    "alerts": 0,
+    "etf_position": 100,
+    "future_position": -100,
+    "max_abs_unhedged": 100,
+    "longest_unhedged_seconds": 0.064,
+    "seconds_at_position_limit": 640.509,
+    "reaction": {
+     "median": 0.0007489999999279462,
+     "spread": 0.0002946399999950699,
+     "ticks": 1343,
+     "typical": 0.0006723333684104259,
+     "jitter": 0.0002850742857183519
+    },
+    "simulated_pnl": [
+     6476.84,
+     8287.44,
+     7588.06,
+     8342.63,
+     7383.52,
+     6340.47,
+     9183.37,
+     8128.46
+    ],
+    "simulated_pnl_without_reaction_times": [
+     6932.86,
+     6562.97,
+     6097.46,
+     7634.46,
+     6322.48,
+     7825.76,
+     6668.04,
+     7353.55
+    ]
+   },
+   "example": {
+    "entered_as": "example",
+    "status": "OK",
+    "exchange_pnl": -9033.33,
+    "audit_pnl": -9033.33,
+    "alerts": 0,
+    "etf_position": 12,
+    "future_position": -12,
+    "max_abs_unhedged": 20,
+    "longest_unhedged_seconds": 0.0,
+    "seconds_at_position_limit": 0.0,
+    "reaction": {
+     "median": 0.000906500000013466,
+     "spread": 0.00031130000000700875,
+     "ticks": 2716,
+     "typical": 0.001263820454713141,
+     "jitter": 0.0002850742857183519
+    },
+    "simulated_pnl": [
+     -10399.22,
+     -10036.0,
+     -10265.48,
+     -10575.65,
+     -10066.29,
+     -9724.73,
+     -10146.93,
+     -9425.73
+    ],
+    "simulated_pnl_without_reaction_times": [
+     -6731.41,
+     -6652.81,
+     -6474.58,
+     -6886.9,
+     -6516.16,
+     -5995.63,
+     -6327.37,
+     -5713.02
+    ]
+   },
+   "full": {
+    "entered_as": "preset:full",
+    "status": "OK",
+    "exchange_pnl": 8737.71,
+    "audit_pnl": 8737.71,
+    "alerts": 0,
+    "etf_position": 44,
+    "future_position": -44,
+    "max_abs_unhedged": 120,
+    "longest_unhedged_seconds": 30.051,
+    "seconds_at_position_limit": 142.751,
+    "reaction": {
+     "median": 0.0007719999999835636,
+     "spread": 0.00027629999999874145,
+     "ticks": 1891,
+     "typical": 0.0007221090307603597,
+     "jitter": 0.0002850742857183519
+    },
+    "simulated_pnl": [
+     7239.34,
+     8918.32,
+     9173.53,
+     7284.62,
+     8174.86,
+     9692.87,
+     6181.89,
+     5132.63
+    ],
+    "simulated_pnl_without_reaction_times": [
+     7613.25,
+     9895.74,
+     8478.82,
+     8961.95,
+     9704.53,
+     9044.74,
+     8882.64,
+     10104.32
+    ]
+   },
+   "inventory": {
+    "entered_as": "preset:inventory",
+    "status": "OK",
+    "exchange_pnl": 10091.85,
+    "audit_pnl": 10091.85,
+    "alerts": 0,
+    "etf_position": 5,
+    "future_position": -5,
+    "max_abs_unhedged": 100,
+    "longest_unhedged_seconds": 0.05,
+    "seconds_at_position_limit": 168.119,
+    "reaction": {
+     "median": 0.0006990000000541841,
+     "spread": 0.0002654600000118989,
+     "ticks": 1789,
+     "typical": 0.000632016060008215,
+     "jitter": 0.0002850742857183519
+    },
+    "simulated_pnl": [
+     14435.02,
+     9272.25,
+     9871.65,
+     9089.18,
+     13580.92,
+     12150.69,
+     12242.62,
+     9629.0
+    ],
+    "simulated_pnl_without_reaction_times": [
+     9812.75,
+     9992.55,
+     8239.33,
+     9682.5,
+     11028.92,
+     8829.1,
+     11543.07,
+     9158.77
+    ]
+   },
+   "kelly": {
+    "entered_as": "preset:kelly",
+    "status": "OK",
+    "exchange_pnl": 11008.4,
+    "audit_pnl": 11008.4,
+    "alerts": 0,
+    "etf_position": 76,
+    "future_position": -76,
+    "max_abs_unhedged": 136,
+    "longest_unhedged_seconds": 27.787,
+    "seconds_at_position_limit": 149.321,
+    "reaction": {
+     "median": 0.0008019999999824279,
+     "spread": 0.0002780199999943988,
+     "ticks": 1904,
+     "typical": 0.0007473569235329808,
+     "jitter": 0.0002850742857183519
+    },
+    "simulated_pnl": [
+     7071.82,
+     5122.38,
+     7145.05,
+     6822.73,
+     7146.9,
+     7310.26,
+     8640.74,
+     6838.35
+    ],
+    "simulated_pnl_without_reaction_times": [
+     9968.82,
+     10241.44,
+     8375.31,
+     7102.61,
+     8648.31,
+     8419.77,
+     6818.51,
+     5878.72
+    ]
+   },
+   "mean_reversion": {
+    "entered_as": "preset:mean_reversion",
+    "status": "OK",
+    "exchange_pnl": 7786.87,
+    "audit_pnl": 7786.87,
+    "alerts": 0,
+    "etf_position": 54,
+    "future_position": -54,
+    "max_abs_unhedged": 103,
+    "longest_unhedged_seconds": 0.058,
+    "seconds_at_position_limit": 162.52,
+    "reaction": {
+     "median": 0.0007809999999821571,
+     "spread": 0.0002938000000142437,
+     "ticks": 1816,
+     "typical": 0.0007357971854501299,
+     "jitter": 0.0002850742857183519
+    },
+    "simulated_pnl": [
+     8342.49,
+     7356.37,
+     6356.82,
+     7607.7,
+     7672.57,
+     8001.55,
+     7991.9,
+     7044.83
+    ],
+    "simulated_pnl_without_reaction_times": [
+     10017.65,
+     7198.57,
+     8733.81,
+     6700.03,
+     6985.87,
+     7449.38,
+     8649.2,
+     8221.88
+    ]
+   },
+   "momentum": {
+    "entered_as": "preset:momentum",
+    "status": "OK",
+    "exchange_pnl": 10276.22,
+    "audit_pnl": 10276.22,
+    "alerts": 0,
+    "etf_position": -28,
+    "future_position": 28,
+    "max_abs_unhedged": 143,
+    "longest_unhedged_seconds": 30.184,
+    "seconds_at_position_limit": 145.376,
+    "reaction": {
+     "median": 0.0007780000000252585,
+     "spread": 0.0002760000000071017,
+     "ticks": 1889,
+     "typical": 0.0007140669770937505,
+     "jitter": 0.0002850742857183519
+    },
+    "simulated_pnl": [
+     8902.79,
+     11501.04,
+     9124.41,
+     6897.06,
+     10166.12,
+     9007.78,
+     9094.73,
+     8957.79
+    ],
+    "simulated_pnl_without_reaction_times": [
+     9758.51,
+     5305.05,
+     12085.28,
+     6760.46,
+     10499.62,
+     7721.76,
+     9300.42,
+     7270.8
+    ]
+   }
+  }
+ },
+ "challengers-live-s4": {
+  "match_id": "challengers-live-s4",
+  "market_data": "market_data4.csv",
+  "seconds": 899.982702,
+  "events": 522054,
+  "events_sha256": "f18c433dd3fbd0e0545f48c75732c41e51e0ee421bf85fcf040193b71a36d6ec",
+  "trade_reports_checked": 3984,
+  "hedges_checked": 3007,
+  "scores_checked": 7,
+  "discrepancies": 0,
+  "alerts": 0,
+  "simulator_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "played_with": "9317bd3276cd29543ffd29eb2ee68ad020eb58ca50acdbb81b3dfc0febfea61d",
+  "simulated_with": "9317bd3276cd29543ffd29eb2ee68ad020eb58ca50acdbb81b3dfc0febfea61d",
+  "simulated_as_played": true,
+  "note": "Base Vigil, the five challengers and the example trader, on session 4, which no live match had used before; the same desktop machine, with other applications running (load average 8 to 14).",
+  "teams": {
+   "base": {
+    "entered_as": "preset:full",
+    "status": "OK",
+    "exchange_pnl": 7991.99,
+    "audit_pnl": 7991.99,
+    "alerts": 0,
+    "etf_position": -13,
+    "future_position": 13,
+    "max_abs_unhedged": 194,
+    "longest_unhedged_seconds": 30.073,
+    "seconds_at_position_limit": 212.207,
+    "reaction": {
+     "median": 0.0008140000000000924,
+     "spread": 0.00028800000000529736,
+     "ticks": 1713,
+     "typical": 0.0007071090714072948,
+     "jitter": 0.00030059999999642575,
+     "ahead_of": {
+      "example": 0.9147,
+      "glft": 0.471,
+      "hawkes": 0.5316,
+      "ou": 0.4551,
+      "rl": 0.8103,
+      "skew": 0.7641
+     }
+    },
+    "simulated_pnl": [
+     13124.66,
+     9476.9,
+     8652.49,
+     11408.68,
+     11468.05,
+     10061.8,
+     11935.92,
+     12315.78
+    ],
+    "simulated_pnl_without_reaction_times": [
+     9836.66,
+     7087.53,
+     6797.59,
+     7735.72,
+     7074.27,
+     7508.63,
+     8966.47,
+     8518.89
+    ]
+   },
+   "example": {
+    "entered_as": "example",
+    "status": "OK",
+    "exchange_pnl": -11934.9,
+    "audit_pnl": -11934.9,
+    "alerts": 0,
+    "etf_position": -7,
+    "future_position": 7,
+    "max_abs_unhedged": 20,
+    "longest_unhedged_seconds": 0.0,
+    "seconds_at_position_limit": 0.0,
+    "reaction": {
+     "median": 0.000978499999973792,
+     "spread": 0.00032294000001229504,
+     "ticks": 2742,
+     "typical": 0.0012729853088087586,
+     "jitter": 0.00030059999999642575,
+     "ahead_of": {
+      "base": 0.0853,
+      "glft": 0.0838,
+      "hawkes": 0.0894,
+      "ou": 0.0787,
+      "rl": 0.1287,
+      "skew": 0.5789
+     }
+    },
+    "simulated_pnl": [
+     -11691.15,
+     -11467.91,
+     -12011.43,
+     -12382.11,
+     -12280.2,
+     -12138.05,
+     -11934.34,
+     -12166.05
+    ],
+    "simulated_pnl_without_reaction_times": [
+     -8414.4,
+     -8260.54,
+     -8701.27,
+     -8808.72,
+     -7921.41,
+     -8927.26,
+     -8572.5,
+     -8263.02
+    ]
+   },
+   "glft": {
+    "entered_as": "preset:glft",
+    "status": "OK",
+    "exchange_pnl": 3297.11,
+    "audit_pnl": 3297.11,
+    "alerts": 0,
+    "etf_position": -25,
+    "future_position": 25,
+    "max_abs_unhedged": 79,
+    "longest_unhedged_seconds": 30.226,
+    "seconds_at_position_limit": 230.225,
+    "reaction": {
+     "median": 0.0007130000000188375,
+     "spread": 0.00025800000003073364,
+     "ticks": 2339,
+     "typical": 0.000687565389939742,
+     "jitter": 0.00030059999999642575,
+     "ahead_of": {
+      "base": 0.529,
+      "example": 0.9162,
+      "hawkes": 0.5515,
+      "ou": 0.4884,
+      "rl": 0.8141,
+      "skew": 0.778
+     }
+    },
+    "simulated_pnl": [
+     3944.09,
+     3848.4,
+     3977.74,
+     6079.01,
+     4891.95,
+     5684.38,
+     4350.72,
+     4686.06
+    ],
+    "simulated_pnl_without_reaction_times": [
+     3138.31,
+     2728.24,
+     2669.69,
+     4775.55,
+     3333.37,
+     3085.17,
+     3640.32,
+     3668.9
+    ]
+   },
+   "hawkes": {
+    "entered_as": "preset:hawkes",
+    "status": "OK",
+    "exchange_pnl": 10764.33,
+    "audit_pnl": 10764.33,
+    "alerts": 0,
+    "etf_position": -14,
+    "future_position": 14,
+    "max_abs_unhedged": 182,
+    "longest_unhedged_seconds": 30.073,
+    "seconds_at_position_limit": 185.346,
+    "reaction": {
+     "median": 0.0008339999999975589,
+     "spread": 0.00029779999999561817,
+     "ticks": 1716,
+     "typical": 0.0007340708232636302,
+     "jitter": 0.00030059999999642575,
+     "ahead_of": {
+      "base": 0.4684,
+      "example": 0.9106,
+      "glft": 0.4485,
+      "ou": 0.4346,
+      "rl": 0.7863,
+      "skew": 0.7429
+     }
+    },
+    "simulated_pnl": [
+     10832.22,
+     10537.6,
+     10756.74,
+     8230.8,
+     10205.8,
+     9982.49,
+     10017.52,
+     9891.32
+    ],
+    "simulated_pnl_without_reaction_times": [
+     8878.59,
+     10733.99,
+     9498.43,
+     8540.93,
+     6332.29,
+     7933.63,
+     9777.33,
+     7803.77
+    ]
+   },
+   "ou": {
+    "entered_as": "preset:ou",
+    "status": "OK",
+    "exchange_pnl": 9375.23,
+    "audit_pnl": 9375.23,
+    "alerts": 0,
+    "etf_position": -11,
+    "future_position": 11,
+    "max_abs_unhedged": 197,
+    "longest_unhedged_seconds": 30.326,
+    "seconds_at_position_limit": 206.716,
+    "reaction": {
+     "median": 0.0007879999999431675,
+     "spread": 0.0002865999999585255,
+     "ticks": 1666,
+     "typical": 0.0006755690941852073,
+     "jitter": 0.00030059999999642575,
+     "ahead_of": {
+      "base": 0.5449,
+      "example": 0.9213,
+      "glft": 0.5116,
+      "hawkes": 0.5654,
+      "rl": 0.8259,
+      "skew": 0.7655
+     }
+    },
+    "simulated_pnl": [
+     11503.42,
+     12117.55,
+     9801.35,
+     12285.13,
+     10171.31,
+     13568.98,
+     12867.08,
+     13911.42
+    ],
+    "simulated_pnl_without_reaction_times": [
+     8336.97,
+     9051.27,
+     7894.39,
+     5632.29,
+     7963.11,
+     11069.31,
+     8141.77,
+     8335.46
+    ]
+   },
+   "rl": {
+    "entered_as": "preset:rl",
+    "status": "OK",
+    "exchange_pnl": 6214.71,
+    "audit_pnl": 6214.71,
+    "alerts": 0,
+    "etf_position": -25,
+    "future_position": 25,
+    "max_abs_unhedged": 137,
+    "longest_unhedged_seconds": 30.234,
+    "seconds_at_position_limit": 225.599,
+    "reaction": {
+     "median": 0.0010090000000104737,
+     "spread": 0.0002922399999738445,
+     "ticks": 1673,
+     "typical": 0.0009958596165594135,
+     "jitter": 0.00030059999999642575,
+     "ahead_of": {
+      "base": 0.1897,
+      "example": 0.8713,
+      "glft": 0.1859,
+      "hawkes": 0.2137,
+      "ou": 0.1741,
+      "skew": 0.6767
+     }
+    },
+    "simulated_pnl": [
+     5808.42,
+     7526.94,
+     3974.26,
+     3470.99,
+     2834.65,
+     5003.99,
+     5489.73,
+     3809.54
+    ],
+    "simulated_pnl_without_reaction_times": [
+     7892.94,
+     6971.23,
+     6772.93,
+     8237.49,
+     7549.79,
+     8869.41,
+     9357.79,
+     7811.74
+    ]
+   },
+   "skew": {
+    "entered_as": "preset:skew",
+    "status": "OK",
+    "exchange_pnl": 6983.32,
+    "audit_pnl": 6983.32,
+    "alerts": 0,
+    "etf_position": -25,
+    "future_position": 25,
+    "max_abs_unhedged": 112,
+    "longest_unhedged_seconds": 30.022,
+    "seconds_at_position_limit": 222.452,
+    "reaction": {
+     "median": 0.0010390000000484179,
+     "spread": 0.0003586199999986661,
+     "ticks": 1787,
+     "typical": 0.0011023406958282898,
+     "jitter": 0.00030059999999642575,
+     "ahead_of": {
+      "base": 0.2359,
+      "example": 0.4211,
+      "glft": 0.222,
+      "hawkes": 0.2571,
+      "ou": 0.2345,
+      "rl": 0.3233
+     }
+    },
+    "simulated_pnl": [
+     5711.43,
+     2899.39,
+     4051.66,
+     4945.88,
+     4084.85,
+     5423.3,
+     4059.26,
+     4548.71
+    ],
+    "simulated_pnl_without_reaction_times": [
+     9601.0,
+     9807.29,
+     7648.69,
+     9933.92,
+     9106.37,
+     9795.47,
+     8433.23,
+     9516.28
+    ]
+   }
+  }
+ },
+ "control-live-s2": {
+  "match_id": "control-live-s2",
+  "market_data": "market_data2.csv",
+  "seconds": 899.997648,
+  "events": 650641,
+  "events_sha256": "2a34ffec876895c11a1294bdfdee8548d1e7f18c321b0ae8fa2916dab356db23",
+  "trade_reports_checked": 3550,
+  "hedges_checked": 2690,
+  "scores_checked": 5,
+  "discrepancies": 0,
+  "alerts": 0,
+  "simulator_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "played_with": "9317bd3276cd29543ffd29eb2ee68ad020eb58ca50acdbb81b3dfc0febfea61d",
+  "simulated_with": "9317bd3276cd29543ffd29eb2ee68ad020eb58ca50acdbb81b3dfc0febfea61d",
+  "simulated_as_played": true,
+  "note": "A control: two identical copies of base Vigil (base and copy) beside rl, skew and the example trader, on session 2, which no live match had used before. The copies answered the exchange equally fast, each ahead of the other on half the updates both answered, while rl and skew were behind base Vigil on four updates in five; the same desktop machine (load average 4 to 8).",
+  "teams": {
+   "base": {
+    "entered_as": "preset:full",
+    "status": "OK",
+    "exchange_pnl": 17873.91,
+    "audit_pnl": 17873.91,
+    "alerts": 0,
+    "etf_position": -5,
+    "future_position": 5,
+    "max_abs_unhedged": 153,
+    "longest_unhedged_seconds": 30.295,
+    "seconds_at_position_limit": 249.774,
+    "reaction": {
+     "median": 0.0006224999999915326,
+     "spread": 0.00021572000001924608,
+     "ticks": 2034,
+     "typical": 0.0005217294045430358,
+     "jitter": 0.0002520559999981627,
+     "ahead_of": {
+      "copy": 0.488,
+      "example": 0.9357,
+      "rl": 0.7987,
+      "skew": 0.8024
+     }
+    },
+    "simulated_pnl": [
+     21622.64,
+     17976.17,
+     20419.15,
+     23469.99,
+     18616.09,
+     17065.41,
+     16227.67,
+     19924.79
+    ],
+    "simulated_pnl_without_reaction_times": [
+     11627.3,
+     12629.66,
+     12501.9,
+     12913.94,
+     13298.64,
+     13354.92,
+     13350.94,
+     14749.33
+    ]
+   },
+   "copy": {
+    "entered_as": "preset:full",
+    "status": "OK",
+    "exchange_pnl": 15328.35,
+    "audit_pnl": 15328.35,
+    "alerts": 0,
+    "etf_position": -18,
+    "future_position": 18,
+    "max_abs_unhedged": 128,
+    "longest_unhedged_seconds": 30.072,
+    "seconds_at_position_limit": 245.57,
+    "reaction": {
+     "median": 0.0006240000000161672,
+     "spread": 0.0002113799999938234,
+     "ticks": 1992,
+     "typical": 0.0005036723812314146,
+     "jitter": 0.0002520559999981627,
+     "ahead_of": {
+      "base": 0.512,
+      "example": 0.9463,
+      "rl": 0.8124,
+      "skew": 0.8139
+     }
+    },
+    "simulated_pnl": [
+     18995.09,
+     21998.27,
+     21529.84,
+     19941.68,
+     20651.91,
+     17871.24,
+     19581.69,
+     21878.53
+    ],
+    "simulated_pnl_without_reaction_times": [
+     16241.96,
+     12571.72,
+     16390.29,
+     13783.73,
+     12065.25,
+     10277.32,
+     14890.87,
+     13341.71
+    ]
+   },
+   "example": {
+    "entered_as": "example",
+    "status": "OK",
+    "exchange_pnl": -12697.54,
+    "audit_pnl": -12697.54,
+    "alerts": 0,
+    "etf_position": -11,
+    "future_position": 11,
+    "max_abs_unhedged": 20,
+    "longest_unhedged_seconds": 0.0,
+    "seconds_at_position_limit": 0.0,
+    "reaction": {
+     "median": 0.0008219999999710126,
+     "spread": 0.0002851400000028545,
+     "ticks": 2940,
+     "typical": 0.0010333218477384665,
+     "jitter": 0.0002520559999981627,
+     "ahead_of": {
+      "base": 0.0643,
+      "copy": 0.0537,
+      "rl": 0.1215,
+      "skew": 0.6214
+     }
+    },
+    "simulated_pnl": [
+     -13014.75,
+     -12237.63,
+     -12526.22,
+     -12267.97,
+     -12333.89,
+     -13020.24,
+     -12118.95,
+     -12174.28
+    ],
+    "simulated_pnl_without_reaction_times": [
+     -7977.94,
+     -7674.03,
+     -8203.17,
+     -8101.81,
+     -8562.83,
+     -8323.04,
+     -8233.18,
+     -7862.13
+    ]
+   },
+   "rl": {
+    "entered_as": "preset:rl",
+    "status": "OK",
+    "exchange_pnl": 10256.0,
+    "audit_pnl": 10256.0,
+    "alerts": 0,
+    "etf_position": -44,
+    "future_position": 44,
+    "max_abs_unhedged": 136,
+    "longest_unhedged_seconds": 30.259,
+    "seconds_at_position_limit": 268.503,
+    "reaction": {
+     "median": 0.0007949999999823376,
+     "spread": 0.0002521399999631057,
+     "ticks": 1968,
+     "typical": 0.0007443208730216591,
+     "jitter": 0.0002520559999981627,
+     "ahead_of": {
+      "base": 0.2013,
+      "copy": 0.1876,
+      "example": 0.8785,
+      "skew": 0.7298
+     }
+    },
+    "simulated_pnl": [
+     6926.89,
+     5600.86,
+     9117.93,
+     8372.6,
+     7641.9,
+     8240.9,
+     9495.76,
+     8886.88
+    ],
+    "simulated_pnl_without_reaction_times": [
+     11328.54,
+     11055.56,
+     13719.66,
+     13929.93,
+     12633.2,
+     12607.8,
+     11795.09,
+     12035.18
+    ]
+   },
+   "skew": {
+    "entered_as": "preset:skew",
+    "status": "OK",
+    "exchange_pnl": 12502.27,
+    "audit_pnl": 12502.27,
+    "alerts": 0,
+    "etf_position": -5,
+    "future_position": 5,
+    "max_abs_unhedged": 141,
+    "longest_unhedged_seconds": 30.2,
+    "seconds_at_position_limit": 244.168,
+    "reaction": {
+     "median": 0.0008860000000190382,
+     "spread": 0.0002959000000117839,
+     "ticks": 2086,
+     "typical": 0.0009464554934455336,
+     "jitter": 0.0002520559999981627,
+     "ahead_of": {
+      "base": 0.1976,
+      "copy": 0.1861,
+      "example": 0.3786,
+      "rl": 0.2702
+     }
+    },
+    "simulated_pnl": [
+     7101.87,
+     6004.03,
+     6303.51,
+     7345.18,
+     7397.6,
+     5076.68,
+     5993.59,
+     6245.06
+    ],
+    "simulated_pnl_without_reaction_times": [
+     10307.63,
+     13069.54,
+     13985.94,
+     10941.71,
+     13797.45,
+     11349.93,
+     9553.12,
+     9581.33
+    ]
+   }
+  }
+ },
+ "fast-live-s1": {
+  "match_id": "fast-live-s1",
+  "market_data": "market_data1.csv",
+  "seconds": 900.003874,
+  "events": 504825,
+  "events_sha256": "1c6df459536a765659601b67c96f361b12790582acc945c37014dbe60daba9d2",
+  "trade_reports_checked": 3224,
+  "hedges_checked": 2597,
+  "scores_checked": 7,
+  "discrepancies": 0,
+  "alerts": 0,
+  "simulator_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "played_with": "1e9cb87ec8ecb599ebba4ae00e8c1015aed84bcf25d93bfc8761046662767684",
+  "simulated_with": "1e9cb87ec8ecb599ebba4ae00e8c1015aed84bcf25d93bfc8761046662767684",
+  "simulated_as_played": true,
+  "note": "rl_fast and skew_fast, rebuilt to send as quickly as base Vigil, beside the versions they replace, base Vigil, a second copy of base Vigil as a control and the example trader, on session 1, which no live match had used before. Both fast versions were ahead of base Vigil on about half the updates both answered, as the copy was; rl and skew on a quarter. The same desktop machine, busier than before (load average 15 to 26).",
+  "teams": {
+   "base": {
+    "entered_as": "preset:full",
+    "status": "OK",
+    "exchange_pnl": 10619.43,
+    "audit_pnl": 10619.43,
+    "alerts": 0,
+    "etf_position": -78,
+    "future_position": 78,
+    "max_abs_unhedged": 126,
+    "longest_unhedged_seconds": 30.187,
+    "seconds_at_position_limit": 291.963,
+    "reaction": {
+     "median": 0.0008949999999998681,
+     "spread": 0.00029792000003794775,
+     "ticks": 1827,
+     "typical": 0.0008029323190331863,
+     "jitter": 0.00030964857143030947,
+     "ahead_of": {
+      "copy": 0.508,
+      "example": 0.8633,
+      "rl": 0.7472,
+      "rl_fast": 0.5187,
+      "skew": 0.766,
+      "skew_fast": 0.5152
+     }
+    },
+    "simulated_pnl": [
+     14022.86,
+     14605.96,
+     18849.83,
+     16692.23,
+     16232.15,
+     12553.03,
+     12413.78,
+     15097.07
+    ],
+    "simulated_pnl_without_reaction_times": [
+     13824.51,
+     9542.98,
+     11281.99,
+     11785.05,
+     11552.29,
+     9726.48,
+     12134.8,
+     10154.13
+    ]
+   },
+   "copy": {
+    "entered_as": "preset:full",
+    "status": "OK",
+    "exchange_pnl": 12240.08,
+    "audit_pnl": 12240.08,
+    "alerts": 0,
+    "etf_position": -80,
+    "future_position": 80,
+    "max_abs_unhedged": 147,
+    "longest_unhedged_seconds": 30.237,
+    "seconds_at_position_limit": 327.224,
+    "reaction": {
+     "median": 0.00089900000000398,
+     "spread": 0.0002974999999736383,
+     "ticks": 1778,
+     "typical": 0.0008050858142762997,
+     "jitter": 0.00030964857143030947,
+     "ahead_of": {
+      "base": 0.492,
+      "example": 0.8616,
+      "rl": 0.7553,
+      "rl_fast": 0.527,
+      "skew": 0.7552,
+      "skew_fast": 0.5152
+     }
+    },
+    "simulated_pnl": [
+     11902.55,
+     13849.52,
+     11659.65,
+     14130.08,
+     11991.85,
+     15464.25,
+     14739.97,
+     13540.53
+    ],
+    "simulated_pnl_without_reaction_times": [
+     10482.17,
+     13142.87,
+     13094.15,
+     11719.07,
+     12750.44,
+     11850.02,
+     9984.94,
+     10140.0
+    ]
+   },
+   "example": {
+    "entered_as": "example",
+    "status": "OK",
+    "exchange_pnl": -10416.29,
+    "audit_pnl": -10416.29,
+    "alerts": 0,
+    "etf_position": -15,
+    "future_position": 15,
+    "max_abs_unhedged": 20,
+    "longest_unhedged_seconds": 0.0,
+    "seconds_at_position_limit": 0.0,
+    "reaction": {
+     "median": 0.0010479999999688516,
+     "spread": 0.00033123999997997084,
+     "ticks": 2748,
+     "typical": 0.0012768314243210164,
+     "jitter": 0.00030964857143030947,
+     "ahead_of": {
+      "base": 0.1367,
+      "copy": 0.1384,
+      "rl": 0.1733,
+      "rl_fast": 0.1453,
+      "skew": 0.6071,
+      "skew_fast": 0.1337
+     }
+    },
+    "simulated_pnl": [
+     -9805.21,
+     -9798.68,
+     -9678.53,
+     -10219.45,
+     -9673.95,
+     -10031.53,
+     -10014.83,
+     -9802.66
+    ],
+    "simulated_pnl_without_reaction_times": [
+     -7101.06,
+     -7194.13,
+     -6778.43,
+     -7230.75,
+     -6992.04,
+     -7020.22,
+     -7446.4,
+     -6899.28
+    ]
+   },
+   "rl": {
+    "entered_as": "preset:rl",
+    "status": "OK",
+    "exchange_pnl": 7391.74,
+    "audit_pnl": 7391.74,
+    "alerts": 0,
+    "etf_position": -52,
+    "future_position": 52,
+    "max_abs_unhedged": 94,
+    "longest_unhedged_seconds": 30.294,
+    "seconds_at_position_limit": 325.201,
+    "reaction": {
+     "median": 0.001059999999995398,
+     "spread": 0.00029903999998396095,
+     "ticks": 1779,
+     "typical": 0.0010381883450082763,
+     "jitter": 0.00030964857143030947,
+     "ahead_of": {
+      "base": 0.2528,
+      "copy": 0.2447,
+      "example": 0.8267,
+      "rl_fast": 0.2625,
+      "skew": 0.7039,
+      "skew_fast": 0.256
+     }
+    },
+    "simulated_pnl": [
+     9011.56,
+     8758.48,
+     8293.01,
+     6097.55,
+     8886.17,
+     6318.29,
+     7523.8,
+     7589.13
+    ],
+    "simulated_pnl_without_reaction_times": [
+     11510.41,
+     10081.4,
+     10834.73,
+     11964.03,
+     13353.65,
+     11206.54,
+     10923.59,
+     12517.98
+    ]
+   },
+   "rl_fast": {
+    "entered_as": "preset:rl_fast",
+    "status": "OK",
+    "exchange_pnl": 13281.51,
+    "audit_pnl": 13281.51,
+    "alerts": 0,
+    "etf_position": -80,
+    "future_position": 80,
+    "max_abs_unhedged": 128,
+    "longest_unhedged_seconds": 30.214,
+    "seconds_at_position_limit": 269.506,
+    "reaction": {
+     "median": 0.0009009999999989304,
+     "spread": 0.00030545999999617365,
+     "ticks": 1824,
+     "typical": 0.0008251658323978958,
+     "jitter": 0.00030964857143030947,
+     "ahead_of": {
+      "base": 0.4813,
+      "copy": 0.473,
+      "example": 0.8547,
+      "rl": 0.7375,
+      "skew": 0.756,
+      "skew_fast": 0.4872
+     }
+    },
+    "simulated_pnl": [
+     14496.9,
+     15188.38,
+     14574.58,
+     11854.33,
+     12796.94,
+     13482.97,
+     14579.95,
+     13136.32
+    ],
+    "simulated_pnl_without_reaction_times": [
+     11661.71,
+     10876.46,
+     11910.2,
+     11757.61,
+     9198.57,
+     8279.58,
+     14042.95,
+     14257.54
+    ]
+   },
+   "skew": {
+    "entered_as": "preset:skew",
+    "status": "OK",
+    "exchange_pnl": 13312.27,
+    "audit_pnl": 13312.27,
+    "alerts": 0,
+    "etf_position": -80,
+    "future_position": 80,
+    "max_abs_unhedged": 116,
+    "longest_unhedged_seconds": 30.268,
+    "seconds_at_position_limit": 258.024,
+    "reaction": {
+     "median": 0.0010730000000194195,
+     "spread": 0.0003438800000162701,
+     "ticks": 2190,
+     "typical": 0.001204996241179006,
+     "jitter": 0.00030964857143030947,
+     "ahead_of": {
+      "base": 0.234,
+      "copy": 0.2448,
+      "example": 0.3929,
+      "rl": 0.2961,
+      "rl_fast": 0.244,
+      "skew_fast": 0.2187
+     }
+    },
+    "simulated_pnl": [
+     6953.16,
+     6300.68,
+     5193.5,
+     8012.71,
+     8075.33,
+     7985.84,
+     5437.56,
+     10345.06
+    ],
+    "simulated_pnl_without_reaction_times": [
+     10647.63,
+     11959.13,
+     12436.02,
+     12084.44,
+     12395.13,
+     14471.47,
+     12609.15,
+     12821.15
+    ]
+   },
+   "skew_fast": {
+    "entered_as": "preset:skew_fast",
+    "status": "OK",
+    "exchange_pnl": 12905.59,
+    "audit_pnl": 12905.59,
+    "alerts": 0,
+    "etf_position": -66,
+    "future_position": 66,
+    "max_abs_unhedged": 125,
+    "longest_unhedged_seconds": 30.244,
+    "seconds_at_position_limit": 301.475,
+    "reaction": {
+     "median": 0.0008870000000058553,
+     "spread": 0.00029250000002420504,
+     "ticks": 1915,
+     "typical": 0.0008098000237766377,
+     "jitter": 0.00030964857143030947,
+     "ahead_of": {
+      "base": 0.4848,
+      "copy": 0.4848,
+      "example": 0.8663,
+      "rl": 0.744,
+      "rl_fast": 0.5128,
+      "skew": 0.7813
+     }
+    },
+    "simulated_pnl": [
+     16356.62,
+     12146.66,
+     15857.09,
+     16075.72,
+     15975.21,
+     14155.04,
+     17214.09,
+     15093.77
+    ],
+    "simulated_pnl_without_reaction_times": [
+     10715.02,
+     9922.43,
+     11492.65,
+     13802.29,
+     14255.6,
+     12992.75,
+     9504.02,
+     12116.7
+    ]
+   }
+  }
+ }
+}

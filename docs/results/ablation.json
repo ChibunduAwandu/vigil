@@ -1,0 +1,623 @@
+{
+ "sessions": [
+  "market_data1.csv",
+  "market_data2.csv",
+  "market_data3.csv",
+  "market_data4.csv"
+ ],
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "latency": 0.0,
+ "reaction_times": true,
+ "rows": [
+  {
+   "strategy": "baseline",
+   "pnl": [
+    31589.11,
+    37041.9,
+    38410.11,
+    33118.58
+   ],
+   "pnl_by_run": [
+    31978.61,
+    31301.55,
+    31487.16,
+    36647.53,
+    37483.24,
+    36994.92,
+    38867.27,
+    38719.84,
+    37643.23,
+    34378.74,
+    32929.47,
+    32047.53
+   ],
+   "mean_pnl": 35039.92,
+   "vs_baseline": null,
+   "vs_previous": null,
+   "breaches": 0,
+   "errors": 0,
+   "risk": {
+    "max_drawdown": 1758.1000000000022,
+    "pnl_std_per_update": 93.76292904268918,
+    "pnl_std_per_minute": 1030.69123380201,
+    "worst_minute": -200.0,
+    "sharpe_per_minute": 2.2664352502809546
+   },
+   "lots_per_session": {
+    "hedge_lots": 10904,
+    "quote_lots": 10904
+   }
+  },
+  {
+   "strategy": "inventory",
+   "pnl": [
+    32595.79,
+    38949.34,
+    37711.99,
+    33684.96
+   ],
+   "pnl_by_run": [
+    33364.37,
+    31965.02,
+    32457.97,
+    39055.22,
+    39172.96,
+    38619.84,
+    37763.09,
+    37519.87,
+    37853.01,
+    35620.44,
+    32417.32,
+    33017.11
+   ],
+   "mean_pnl": 35735.52,
+   "vs_baseline": {
+    "mean_difference": 695.5941666666681,
+    "standard_error": 732.0619426784926,
+    "t": 0.950184849278744,
+    "t_over_sessions": 1.283505971514245,
+    "sessions": 4,
+    "relative": 0.01985147465953662,
+    "runs_ahead": 9,
+    "runs": 12
+   },
+   "vs_previous": {
+    "mean_difference": 695.5941666666681,
+    "standard_error": 732.0619426784926,
+    "t": 0.950184849278744,
+    "t_over_sessions": 1.283505971514245,
+    "sessions": 4,
+    "relative": 0.01985147465953662,
+    "runs_ahead": 9,
+    "runs": 12
+   },
+   "breaches": 0,
+   "errors": 0,
+   "risk": {
+    "max_drawdown": 1630.550000000003,
+    "pnl_std_per_update": 82.68076153871172,
+    "pnl_std_per_minute": 941.3380792534111,
+    "worst_minute": 405.52000000000044,
+    "sharpe_per_minute": 2.5308313149069455
+   },
+   "lots_per_session": {
+    "hedge_lots": 12067,
+    "quote_lots": 12067
+   }
+  },
+  {
+   "strategy": "mean_reversion",
+   "pnl": [
+    33927.47,
+    42355.98,
+    41261.77,
+    35451.1
+   ],
+   "pnl_by_run": [
+    34619.39,
+    33688.59,
+    33474.44,
+    41398.94,
+    43318.53,
+    42350.47,
+    41506.79,
+    41413.04,
+    40865.48,
+    36304.22,
+    33749.18,
+    36299.89
+   ],
+   "mean_pnl": 38249.08,
+   "vs_baseline": {
+    "mean_difference": 3209.1558333333346,
+    "standard_error": 900.3190110352471,
+    "t": 3.56446525509134,
+    "t_over_sessions": 4.506512662367692,
+    "sessions": 4,
+    "relative": 0.09158569573578562,
+    "runs_ahead": 12,
+    "runs": 12
+   },
+   "vs_previous": {
+    "mean_difference": 2513.5616666666665,
+    "standard_error": 741.2176300792833,
+    "t": 3.391125041639669,
+    "t_over_sessions": 4.451045161183221,
+    "sessions": 4,
+    "relative": 0.07033790984142714,
+    "runs_ahead": 12,
+    "runs": 12
+   },
+   "breaches": 0,
+   "errors": 0,
+   "risk": {
+    "max_drawdown": 1577.0,
+    "pnl_std_per_update": 84.20836906365294,
+    "pnl_std_per_minute": 1033.474631869484,
+    "worst_minute": 315.7999999999993,
+    "sharpe_per_minute": 2.467345194583058
+   },
+   "lots_per_session": {
+    "hedge_lots": 15316,
+    "quote_lots": 10575,
+    "take_lots": 4742
+   }
+  },
+  {
+   "strategy": "kelly",
+   "pnl": [
+    46927.29,
+    52046.1,
+    45729.95,
+    38973.19
+   ],
+   "pnl_by_run": [
+    48575.27,
+    47103.09,
+    45103.52,
+    50651.5,
+    52269.68,
+    53217.12,
+    45751.22,
+    45193.9,
+    46244.73,
+    40200.54,
+    38095.77,
+    38623.26
+   ],
+   "mean_pnl": 45919.13,
+   "vs_baseline": {
+    "mean_difference": 10879.209166666667,
+    "standard_error": 1926.0463519733496,
+    "t": 5.648466951753402,
+    "t_over_sessions": 4.357096026035967,
+    "sessions": 4,
+    "relative": 0.3104803856001496,
+    "runs_ahead": 12,
+    "runs": 12
+   },
+   "vs_previous": {
+    "mean_difference": 7670.0533333333315,
+    "standard_error": 1685.294827854639,
+    "t": 4.5511641088326495,
+    "t_over_sessions": 3.431735466106976,
+    "sessions": 4,
+    "relative": 0.2005290933359268,
+    "runs_ahead": 12,
+    "runs": 12
+   },
+   "breaches": 0,
+   "errors": 0,
+   "risk": {
+    "max_drawdown": 1308.2700000000004,
+    "pnl_std_per_update": 95.80215027599915,
+    "pnl_std_per_minute": 1299.6590593880421,
+    "worst_minute": -65.96000000000276,
+    "sharpe_per_minute": 2.3554450941903093
+   },
+   "lots_per_session": {
+    "hedge_lots": 3512,
+    "quote_lots": 10591,
+    "take_lots": 5183
+   }
+  },
+  {
+   "strategy": "momentum",
+   "pnl": [
+    47548.98,
+    53639.3,
+    45747.46,
+    39715.55
+   ],
+   "pnl_by_run": [
+    49338.82,
+    47984.34,
+    45323.79,
+    51993.42,
+    53290.77,
+    55633.7,
+    45242.0,
+    45483.16,
+    46517.23,
+    40339.93,
+    39513.47,
+    39293.24
+   ],
+   "mean_pnl": 46662.82,
+   "vs_baseline": {
+    "mean_difference": 11622.898333333334,
+    "standard_error": 1996.7370931941748,
+    "t": 5.820945768448773,
+    "t_over_sessions": 4.312153725030288,
+    "sessions": 4,
+    "relative": 0.33170443743112177,
+    "runs_ahead": 12,
+    "runs": 12
+   },
+   "vs_previous": {
+    "mean_difference": 743.6891666666663,
+    "standard_error": 261.8345078833022,
+    "t": 2.8403023447089844,
+    "t_over_sessions": 2.291549134399346,
+    "sessions": 4,
+    "relative": 0.016195627240351514,
+    "runs_ahead": 11,
+    "runs": 12
+   },
+   "breaches": 0,
+   "errors": 0,
+   "risk": {
+    "max_drawdown": 1308.270000000004,
+    "pnl_std_per_update": 96.96347124738676,
+    "pnl_std_per_minute": 1309.9820202836574,
+    "worst_minute": -65.95999999999913,
+    "sharpe_per_minute": 2.3747309391771068
+   },
+   "lots_per_session": {
+    "deferred": 113,
+    "hedge_lots": 3309,
+    "quote_lots": 10606,
+    "take_lots": 5191
+   }
+  },
+  {
+   "strategy": "full",
+   "pnl": [
+    47487.53,
+    53329.05,
+    45894.35,
+    39675.17
+   ],
+   "pnl_by_run": [
+    49031.82,
+    47186.95,
+    46243.83,
+    51434.56,
+    53752.24,
+    54800.34,
+    45329.24,
+    45783.65,
+    46570.17,
+    40476.68,
+    39241.72,
+    39307.11
+   ],
+   "mean_pnl": 46596.53,
+   "vs_baseline": {
+    "mean_difference": 11556.601666666666,
+    "standard_error": 1961.9338447120956,
+    "t": 5.890413531432066,
+    "t_over_sessions": 4.3991570663181125,
+    "sessions": 4,
+    "relative": 0.3298124051781029,
+    "runs_ahead": 12,
+    "runs": 12
+   },
+   "vs_previous": {
+    "mean_difference": -66.2966666666671,
+    "standard_error": 152.9037752545695,
+    "t": -0.4335842365977542,
+    "t_over_sessions": -0.7065337809347205,
+    "sessions": 4,
+    "relative": -0.0014207598922389895,
+    "runs_ahead": 7,
+    "runs": 12
+   },
+   "breaches": 0,
+   "errors": 0,
+   "risk": {
+    "max_drawdown": 1308.270000000004,
+    "pnl_std_per_update": 96.73027680439264,
+    "pnl_std_per_minute": 1305.8978634471616,
+    "worst_minute": -65.95999999999913,
+    "sharpe_per_minute": 2.3787733654418726
+   },
+   "lots_per_session": {
+    "deferred": 70,
+    "hedge_lots": 3297,
+    "quote_lots": 10592,
+    "take_lots": 5174
+   }
+  }
+ ],
+ "sensitivity": [
+  {
+   "latency": 0.025,
+   "rows": [
+    {
+     "strategy": "baseline",
+     "mean_pnl": 34154.4,
+     "vs_baseline": null,
+     "vs_previous": null,
+     "breaches": 0
+    },
+    {
+     "strategy": "inventory",
+     "mean_pnl": 34759.07,
+     "vs_baseline": {
+      "mean_difference": 604.6691666666665,
+      "standard_error": 686.1005954167388,
+      "t": 0.8813126977384261,
+      "t_over_sessions": 1.3512619893149562,
+      "sessions": 4,
+      "relative": 0.017703988150869262,
+      "runs_ahead": 9,
+      "runs": 12
+     },
+     "vs_previous": {
+      "mean_difference": 604.6691666666665,
+      "standard_error": 686.1005954167388,
+      "t": 0.8813126977384261,
+      "t_over_sessions": 1.3512619893149562,
+      "sessions": 4,
+      "relative": 0.017703988150869262,
+      "runs_ahead": 9,
+      "runs": 12
+     },
+     "breaches": 0
+    },
+    {
+     "strategy": "mean_reversion",
+     "mean_pnl": 36775.5,
+     "vs_baseline": {
+      "mean_difference": 2621.098333333334,
+      "standard_error": 904.6169778374497,
+      "t": 2.8974675443293725,
+      "t_over_sessions": 4.783584306914061,
+      "sessions": 4,
+      "relative": 0.07674261628289276,
+      "runs_ahead": 12,
+      "runs": 12
+     },
+     "vs_previous": {
+      "mean_difference": 2016.4291666666675,
+      "standard_error": 712.0759822045784,
+      "t": 2.831761240456149,
+      "t_over_sessions": 2.83938860792638,
+      "sessions": 4,
+      "relative": 0.058011591601694036,
+      "runs_ahead": 12,
+      "runs": 12
+     },
+     "breaches": 0
+    },
+    {
+     "strategy": "kelly",
+     "mean_pnl": 44474.93,
+     "vs_baseline": {
+      "mean_difference": 10320.530833333332,
+      "standard_error": 1820.5334866252413,
+      "t": 5.668959625930696,
+      "t_over_sessions": 4.932573602747429,
+      "sessions": 4,
+      "relative": 0.302172767616475,
+      "runs_ahead": 12,
+      "runs": 12
+     },
+     "vs_previous": {
+      "mean_difference": 7699.432499999997,
+      "standard_error": 1593.40156990545,
+      "t": 4.832072871910669,
+      "t_over_sessions": 3.5720147690657438,
+      "sessions": 4,
+      "relative": 0.2093630807627985,
+      "runs_ahead": 12,
+      "runs": 12
+     },
+     "breaches": 0
+    },
+    {
+     "strategy": "momentum",
+     "mean_pnl": 44989.23,
+     "vs_baseline": {
+      "mean_difference": 10834.822499999998,
+      "standard_error": 1894.3791312705957,
+      "t": 5.7194583286677565,
+      "t_over_sessions": 4.555381849917126,
+      "sessions": 4,
+      "relative": 0.3172306109375596,
+      "runs_ahead": 12,
+      "runs": 12
+     },
+     "vs_previous": {
+      "mean_difference": 514.2916666666667,
+      "standard_error": 192.61179929494546,
+      "t": 2.670094296139846,
+      "t_over_sessions": 1.5383314838605606,
+      "sessions": 4,
+      "relative": 0.011563629416584122,
+      "runs_ahead": 8,
+      "runs": 12
+     },
+     "breaches": 0
+    },
+    {
+     "strategy": "full",
+     "mean_pnl": 44858.77,
+     "vs_baseline": {
+      "mean_difference": 10704.369999999999,
+      "standard_error": 1863.9383303283487,
+      "t": 5.7428777689840915,
+      "t_over_sessions": 4.777917271019634,
+      "sessions": 4,
+      "relative": 0.3134111181610668,
+      "runs_ahead": 12,
+      "runs": 12
+     },
+     "vs_previous": {
+      "mean_difference": -130.45250000000004,
+      "standard_error": 156.58880651393682,
+      "t": -0.8330895605133144,
+      "t_over_sessions": -0.7035626295014547,
+      "sessions": 4,
+      "relative": -0.002899638639413526,
+      "runs_ahead": 7,
+      "runs": 12
+     },
+     "breaches": 0
+    }
+   ]
+  },
+  {
+   "latency": 0.05,
+   "rows": [
+    {
+     "strategy": "baseline",
+     "mean_pnl": 32738.02,
+     "vs_baseline": null,
+     "vs_previous": null,
+     "breaches": 0
+    },
+    {
+     "strategy": "inventory",
+     "mean_pnl": 33321.56,
+     "vs_baseline": {
+      "mean_difference": 583.5366666666681,
+      "standard_error": 712.4156027741685,
+      "t": 0.8190958541536123,
+      "t_over_sessions": 1.2442455769301803,
+      "sessions": 4,
+      "relative": 0.017824433691062198,
+      "runs_ahead": 8,
+      "runs": 12
+     },
+     "vs_previous": {
+      "mean_difference": 583.5366666666681,
+      "standard_error": 712.4156027741685,
+      "t": 0.8190958541536123,
+      "t_over_sessions": 1.2442455769301803,
+      "sessions": 4,
+      "relative": 0.017824433691062198,
+      "runs_ahead": 8,
+      "runs": 12
+     },
+     "breaches": 0
+    },
+    {
+     "strategy": "mean_reversion",
+     "mean_pnl": 35159.97,
+     "vs_baseline": {
+      "mean_difference": 2421.9500000000007,
+      "standard_error": 983.948010704719,
+      "t": 2.4614613512611934,
+      "t_over_sessions": 3.3748960569357225,
+      "sessions": 4,
+      "relative": 0.07397973365524246,
+      "runs_ahead": 12,
+      "runs": 12
+     },
+     "vs_previous": {
+      "mean_difference": 1838.4133333333327,
+      "standard_error": 702.3649293132379,
+      "t": 2.6174617447526973,
+      "t_over_sessions": 3.715468001963901,
+      "sessions": 4,
+      "relative": 0.05517189222952468,
+      "runs_ahead": 12,
+      "runs": 12
+     },
+     "breaches": 0
+    },
+    {
+     "strategy": "kelly",
+     "mean_pnl": 42749.31,
+     "vs_baseline": {
+      "mean_difference": 10011.286666666667,
+      "standard_error": 1776.1646829853812,
+      "t": 5.636463083952146,
+      "t_over_sessions": 5.515223704438913,
+      "sessions": 4,
+      "relative": 0.3058000046021924,
+      "runs_ahead": 12,
+      "runs": 12
+     },
+     "vs_previous": {
+      "mean_difference": 7589.336666666665,
+      "standard_error": 1565.528859395925,
+      "t": 4.847778194006009,
+      "t_over_sessions": 4.189525151294218,
+      "sessions": 4,
+      "relative": 0.21585162520521675,
+      "runs_ahead": 12,
+      "runs": 12
+     },
+     "breaches": 0
+    },
+    {
+     "strategy": "momentum",
+     "mean_pnl": 43138.67,
+     "vs_baseline": {
+      "mean_difference": 10400.653333333332,
+      "standard_error": 1834.6061667127608,
+      "t": 5.669147701585009,
+      "t_over_sessions": 4.960164450159077,
+      "sessions": 4,
+      "relative": 0.31769341375359084,
+      "runs_ahead": 12,
+      "runs": 12
+     },
+     "vs_previous": {
+      "mean_difference": 389.3666666666668,
+      "standard_error": 164.88723524574874,
+      "t": 2.3614118223666787,
+      "t_over_sessions": 1.160308533962093,
+      "sessions": 4,
+      "relative": 0.009108139921489568,
+      "runs_ahead": 7,
+      "runs": 12
+     },
+     "breaches": 0
+    },
+    {
+     "strategy": "full",
+     "mean_pnl": 43124.39,
+     "vs_baseline": {
+      "mean_difference": 10386.366666666669,
+      "standard_error": 1834.8825246786228,
+      "t": 5.6605077038846545,
+      "t_over_sessions": 5.234223543028874,
+      "sessions": 4,
+      "relative": 0.31725702002340606,
+      "runs_ahead": 12,
+      "runs": 12
+     },
+     "vs_previous": {
+      "mean_difference": -14.286666666666274,
+      "standard_error": 123.61358911974808,
+      "t": -0.1155752111754183,
+      "t_over_sessions": -0.08920432558333935,
+      "sessions": 4,
+      "relative": -0.00033118001928972025,
+      "runs_ahead": 8,
+      "runs": 12
+     },
+     "breaches": 0
+    }
+   ]
+  }
+ ]
+}

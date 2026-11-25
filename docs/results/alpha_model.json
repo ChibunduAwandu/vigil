@@ -1,0 +1,734 @@
+{
+ "protocol": "leave-one-session-out; calibration cross-fitted inside each training set",
+ "horizon_updates": 1,
+ "n_rounds": 200,
+ "learning_rate": 0.2,
+ "sessions": [
+  "market_data1.csv",
+  "market_data2.csv",
+  "market_data3.csv",
+  "market_data4.csv"
+ ],
+ "summary": {
+  "adaboost": {
+   "accuracy": 0.5876346732114455,
+   "min": 0.569140625,
+   "max": 0.602628001812415,
+   "coverage": 1.0
+  },
+  "momentum: last 4 updates": {
+   "accuracy": 0.4829814218277865,
+   "min": 0.47391732283464566,
+   "max": 0.48857142857142855,
+   "coverage": 0.8792613384505001,
+   "adaboost_relative_gain": 0.21668173278303549,
+   "adaboost_point_gain": 0.104653251383659,
+   "adaboost_wins_sessions": 4
+  },
+  "momentum: above/below EMA16": {
+   "accuracy": 0.4705274043842812,
+   "min": 0.459375,
+   "max": 0.4813260595887537,
+   "coverage": 1.0,
+   "adaboost_relative_gain": 0.2488851185626637,
+   "adaboost_point_gain": 0.11710726882716427,
+   "adaboost_wins_sessions": 4
+  },
+  "mean reversion: fade last move": {
+   "accuracy": 0.5463539781141806,
+   "min": 0.5429769392033543,
+   "max": 0.5521844660194175,
+   "coverage": 0.68641641564008,
+   "adaboost_relative_gain": 0.07555668440403984,
+   "adaboost_point_gain": 0.04128069509726484,
+   "adaboost_wins_sessions": 4
+  },
+  "mean reversion: fade EMA16 gap": {
+   "accuracy": 0.5294725956157187,
+   "min": 0.5186739404112464,
+   "max": 0.540625,
+   "coverage": 1.0,
+   "adaboost_relative_gain": 0.10984908015511285,
+   "adaboost_point_gain": 0.05816207759572678,
+   "adaboost_wins_sessions": 4
+  },
+  "order-flow momentum: OFI EMA": {
+   "accuracy": 0.5059557882237953,
+   "min": 0.494921875,
+   "max": 0.5142487046632125,
+   "coverage": 1.0,
+   "adaboost_relative_gain": 0.16143482669580966,
+   "adaboost_point_gain": 0.08167888498765019,
+   "adaboost_wins_sessions": 4
+  },
+  "book imbalance: top level": {
+   "accuracy": 0.5790816065908299,
+   "min": 0.5605815831987075,
+   "max": 0.5928799634869922,
+   "coverage": 0.9684302116364175,
+   "adaboost_relative_gain": 0.014770054036026492,
+   "adaboost_point_gain": 0.008553066620615613,
+   "adaboost_wins_sessions": 4
+  }
+ },
+ "per_session": {
+  "market_data1.csv": {
+   "adaboost": {
+    "n": 3538,
+    "moved": 0.6735443753533069,
+    "accuracy": 0.5816198069660092,
+    "coverage": 1.0,
+    "log_loss": 0.6756789514763166,
+    "brier": 0.24138450445973447,
+    "expected_move_corr": 0.1277606178800567,
+    "when_confident": {
+     "0.55": {
+      "accuracy": 0.6050836949783013,
+      "coverage": 0.6768778850188838
+     },
+     "0.60": {
+      "accuracy": 0.6159574468085106,
+      "coverage": 0.39446076374318084
+     },
+     "0.65": {
+      "accuracy": 0.6675675675675675,
+      "coverage": 0.15526647083508183
+     }
+    },
+    "reliability": [
+     {
+      "band": "0.00-0.35",
+      "n": 173,
+      "predicted": 0.3196513203428858,
+      "observed": 0.2947976878612717
+     },
+     {
+      "band": "0.35-0.40",
+      "n": 345,
+      "predicted": 0.37707824541372525,
+      "observed": 0.42318840579710143
+     },
+     {
+      "band": "0.40-0.45",
+      "n": 389,
+      "predicted": 0.42467898678219995,
+      "observed": 0.40616966580976865
+     },
+     {
+      "band": "0.45-0.50",
+      "n": 408,
+      "predicted": 0.4747012994228557,
+      "observed": 0.4730392156862745
+     },
+     {
+      "band": "0.50-0.55",
+      "n": 362,
+      "predicted": 0.5254281766581189,
+      "observed": 0.5386740331491713
+     },
+     {
+      "band": "0.55-0.60",
+      "n": 284,
+      "predicted": 0.5739657552949643,
+      "observed": 0.5845070422535211
+     },
+     {
+      "band": "0.60-0.65",
+      "n": 225,
+      "predicted": 0.6237216172533422,
+      "observed": 0.5911111111111111
+     },
+     {
+      "band": "0.65-1.00",
+      "n": 197,
+      "predicted": 0.6828946129495966,
+      "observed": 0.6345177664974619
+     }
+    ],
+    "by_rounds": {
+     "1": 0.575744859420898,
+     "5": 0.5749055812001679,
+     "10": 0.5711288292068821,
+     "25": 0.5686109945446916,
+     "50": 0.5770037767519933,
+     "100": 0.5782626940830885,
+     "150": 0.5816198069660092,
+     "200": 0.5828787242971045
+    }
+   },
+   "momentum: last 4 updates": {
+    "accuracy": 0.48857142857142855,
+    "coverage": 0.8812421317666806
+   },
+   "momentum: above/below EMA16": {
+    "accuracy": 0.4813260595887537,
+    "coverage": 1.0
+   },
+   "mean reversion: fade last move": {
+    "accuracy": 0.5521844660194175,
+    "coverage": 0.6915652538816618
+   },
+   "mean reversion: fade EMA16 gap": {
+    "accuracy": 0.5186739404112464,
+    "coverage": 1.0
+   },
+   "order-flow momentum: OFI EMA": {
+    "accuracy": 0.5094418799832144,
+    "coverage": 1.0
+   },
+   "book imbalance: top level": {
+    "accuracy": 0.5740582191780822,
+    "coverage": 0.980276961812841
+   },
+   "hedge_timing": {
+    "adaboost": {
+     "gain_per_hedge": 0.04946297343131713,
+     "standard_error": 0.008777081211548618,
+     "waits": 0.3863764838892029,
+     "gain_when_waiting": 0.12801755669348938,
+     "half_spread": 0.9022046353872244
+    },
+    "book pressure (microprice)": {
+     "gain_per_hedge": 0.04903900508762012,
+     "standard_error": 0.009020954592890715,
+     "waits": 0.4077162238552855,
+     "gain_when_waiting": 0.12027729636048527,
+     "half_spread": 0.9022046353872244
+    },
+    "always wait": {
+     "gain_per_hedge": 0.0,
+     "standard_error": 0.014182657039781792,
+     "waits": 1.0,
+     "gain_when_waiting": 0.0,
+     "half_spread": 0.9022046353872244
+    }
+   }
+  },
+  "market_data2.csv": {
+   "adaboost": {
+    "n": 3538,
+    "moved": 0.7235726399095535,
+    "accuracy": 0.569140625,
+    "coverage": 1.0,
+    "log_loss": 0.676739239220356,
+    "brier": 0.24193167908642224,
+    "expected_move_corr": 0.13055376165049395,
+    "when_confident": {
+     "0.55": {
+      "accuracy": 0.6024590163934426,
+      "coverage": 0.6671875
+     },
+     "0.60": {
+      "accuracy": 0.6323377960865088,
+      "coverage": 0.379296875
+     },
+     "0.65": {
+      "accuracy": 0.6815642458100558,
+      "coverage": 0.13984375
+     }
+    },
+    "reliability": [
+     {
+      "band": "0.00-0.35",
+      "n": 142,
+      "predicted": 0.31840629173986273,
+      "observed": 0.30985915492957744
+     },
+     {
+      "band": "0.35-0.40",
+      "n": 223,
+      "predicted": 0.37844877107323216,
+      "observed": 0.3632286995515695
+     },
+     {
+      "band": "0.40-0.45",
+      "n": 342,
+      "predicted": 0.42618750757910345,
+      "observed": 0.4152046783625731
+     },
+     {
+      "band": "0.45-0.50",
+      "n": 389,
+      "predicted": 0.47604190919219874,
+      "observed": 0.46272493573264784
+     },
+     {
+      "band": "0.50-0.55",
+      "n": 463,
+      "predicted": 0.5250404770611433,
+      "observed": 0.47300215982721383
+     },
+     {
+      "band": "0.55-0.60",
+      "n": 395,
+      "predicted": 0.5735806167990486,
+      "observed": 0.5443037974683544
+     },
+     {
+      "band": "0.60-0.65",
+      "n": 390,
+      "predicted": 0.6254794770288199,
+      "observed": 0.5846153846153846
+     },
+     {
+      "band": "0.65-1.00",
+      "n": 216,
+      "predicted": 0.6755260677922502,
+      "observed": 0.6759259259259259
+     }
+    ],
+    "by_rounds": {
+     "1": 0.553125,
+     "5": 0.569140625,
+     "10": 0.56484375,
+     "25": 0.5703125,
+     "50": 0.57421875,
+     "100": 0.57109375,
+     "150": 0.57109375,
+     "200": 0.569140625
+    }
+   },
+   "momentum: last 4 updates": {
+    "accuracy": 0.4826086956521739,
+    "coverage": 0.8984375
+   },
+   "momentum: above/below EMA16": {
+    "accuracy": 0.459375,
+    "coverage": 1.0
+   },
+   "mean reversion: fade last move": {
+    "accuracy": 0.5435706695005313,
+    "coverage": 0.73515625
+   },
+   "mean reversion: fade EMA16 gap": {
+    "accuracy": 0.540625,
+    "coverage": 1.0
+   },
+   "order-flow momentum: OFI EMA": {
+    "accuracy": 0.494921875,
+    "coverage": 1.0
+   },
+   "book imbalance: top level": {
+    "accuracy": 0.5605815831987075,
+    "coverage": 0.9671875
+   },
+   "hedge_timing": {
+    "adaboost": {
+     "gain_per_hedge": 0.06006218202374223,
+     "standard_error": 0.009933063203718099,
+     "waits": 0.39330130016958736,
+     "gain_when_waiting": 0.15271289974847288,
+     "half_spread": 0.7535330695308083
+    },
+    "book pressure (microprice)": {
+     "gain_per_hedge": 0.06091011871113623,
+     "standard_error": 0.009982484344321781,
+     "waits": 0.3873657433578293,
+     "gain_when_waiting": 0.15724188252462604,
+     "half_spread": 0.7535330695308083
+    },
+    "always wait": {
+     "gain_per_hedge": 0.0,
+     "standard_error": 0.01590731543893155,
+     "waits": 1.0,
+     "gain_when_waiting": 0.0,
+     "half_spread": 0.7535330695308083
+    }
+   }
+  },
+  "market_data3.csv": {
+   "adaboost": {
+    "n": 3536,
+    "moved": 0.6549773755656109,
+    "accuracy": 0.5971502590673575,
+    "coverage": 1.0,
+    "log_loss": 0.6678578867800326,
+    "brier": 0.23753875599096227,
+    "expected_move_corr": 0.15984762480338285,
+    "when_confident": {
+     "0.55": {
+      "accuracy": 0.6382550335570469,
+      "coverage": 0.6433506044905009
+     },
+     "0.60": {
+      "accuracy": 0.6608344549125168,
+      "coverage": 0.32081174438687393
+     },
+     "0.65": {
+      "accuracy": 0.7191011235955056,
+      "coverage": 0.0768566493955095
+     }
+    },
+    "reliability": [
+     {
+      "band": "0.00-0.35",
+      "n": 144,
+      "predicted": 0.332602495611294,
+      "observed": 0.2777777777777778
+     },
+     {
+      "band": "0.35-0.40",
+      "n": 396,
+      "predicted": 0.3766243002716713,
+      "observed": 0.37626262626262624
+     },
+     {
+      "band": "0.40-0.45",
+      "n": 445,
+      "predicted": 0.4243771951120326,
+      "observed": 0.39325842696629215
+     },
+     {
+      "band": "0.45-0.50",
+      "n": 436,
+      "predicted": 0.4745568264248485,
+      "observed": 0.5045871559633027
+     },
+     {
+      "band": "0.50-0.55",
+      "n": 390,
+      "predicted": 0.5234519772663075,
+      "observed": 0.5538461538461539
+     },
+     {
+      "band": "0.55-0.60",
+      "n": 302,
+      "predicted": 0.5737320997384159,
+      "observed": 0.6291390728476821
+     },
+     {
+      "band": "0.60-0.65",
+      "n": 169,
+      "predicted": 0.6211671862102722,
+      "observed": 0.6863905325443787
+     },
+     {
+      "band": "0.65-1.00",
+      "n": 34,
+      "predicted": 0.6678062850063363,
+      "observed": 0.7058823529411765
+     }
+    ],
+    "by_rounds": {
+     "1": 0.5833333333333334,
+     "5": 0.5833333333333334,
+     "10": 0.5850604490500864,
+     "25": 0.5941278065630398,
+     "50": 0.5997409326424871,
+     "100": 0.5988773747841105,
+     "150": 0.5980138169257341,
+     "200": 0.5988773747841105
+    }
+   },
+   "momentum: last 4 updates": {
+    "accuracy": 0.47391732283464566,
+    "coverage": 0.8773747841105354
+   },
+   "momentum: above/below EMA16": {
+    "accuracy": 0.46157167530224524,
+    "coverage": 1.0
+   },
+   "mean reversion: fade last move": {
+    "accuracy": 0.5466838377334192,
+    "coverage": 0.6705526770293609
+   },
+   "mean reversion: fade EMA16 gap": {
+    "accuracy": 0.5384283246977547,
+    "coverage": 1.0
+   },
+   "order-flow momentum: OFI EMA": {
+    "accuracy": 0.5142487046632125,
+    "coverage": 1.0
+   },
+   "book imbalance: top level": {
+    "accuracy": 0.5888066604995374,
+    "coverage": 0.9335060449050087
+   },
+   "hedge_timing": {
+    "adaboost": {
+     "gain_per_hedge": 0.06872171945701358,
+     "standard_error": 0.0086557995769137,
+     "waits": 0.38744343891402716,
+     "gain_when_waiting": 0.17737226277372262,
+     "half_spread": 0.8051470588235294
+    },
+    "book pressure (microprice)": {
+     "gain_per_hedge": 0.06872171945701358,
+     "standard_error": 0.00896672719125406,
+     "waits": 0.40271493212669685,
+     "gain_when_waiting": 0.17064606741573032,
+     "half_spread": 0.8051470588235294
+    },
+    "always wait": {
+     "gain_per_hedge": -0.0001414027149321267,
+     "standard_error": 0.01414904679725587,
+     "waits": 1.0,
+     "gain_when_waiting": -0.0001414027149321267,
+     "half_spread": 0.8051470588235294
+    }
+   }
+  },
+  "market_data4.csv": {
+   "adaboost": {
+    "n": 3538,
+    "moved": 0.6237987563595252,
+    "accuracy": 0.602628001812415,
+    "coverage": 1.0,
+    "log_loss": 0.6645590796502663,
+    "brier": 0.2359859516083505,
+    "expected_move_corr": 0.16467988390732594,
+    "when_confident": {
+     "0.55": {
+      "accuracy": 0.6512635379061372,
+      "coverage": 0.6275487086542818
+     },
+     "0.60": {
+      "accuracy": 0.6949152542372882,
+      "coverage": 0.2940643407340281
+     },
+     "0.65": {
+      "accuracy": 0.7758620689655172,
+      "coverage": 0.07884005437245128
+     }
+    },
+    "reliability": [
+     {
+      "band": "0.00-0.35",
+      "n": 120,
+      "predicted": 0.3254024486560272,
+      "observed": 0.23333333333333334
+     },
+     {
+      "band": "0.35-0.40",
+      "n": 296,
+      "predicted": 0.37851353098917484,
+      "observed": 0.36486486486486486
+     },
+     {
+      "band": "0.40-0.45",
+      "n": 420,
+      "predicted": 0.424018654624649,
+      "observed": 0.3952380952380952
+     },
+     {
+      "band": "0.45-0.50",
+      "n": 415,
+      "predicted": 0.4754274334622274,
+      "observed": 0.5108433734939759
+     },
+     {
+      "band": "0.50-0.55",
+      "n": 407,
+      "predicted": 0.524419798343014,
+      "observed": 0.5528255528255528
+     },
+     {
+      "band": "0.55-0.60",
+      "n": 316,
+      "predicted": 0.5744736120727706,
+      "observed": 0.6234177215189873
+     },
+     {
+      "band": "0.60-0.65",
+      "n": 179,
+      "predicted": 0.6220049333837816,
+      "observed": 0.7150837988826816
+     },
+     {
+      "band": "0.65-1.00",
+      "n": 54,
+      "predicted": 0.6698098833467179,
+      "observed": 0.7962962962962963
+     }
+    ],
+    "by_rounds": {
+     "1": 0.5953783416402356,
+     "5": 0.589941096511101,
+     "10": 0.5944721341187131,
+     "25": 0.6017217942908926,
+     "50": 0.600362483008609,
+     "100": 0.6039873130946987,
+     "150": 0.6008155867693702,
+     "200": 0.6044404168554599
+    }
+   },
+   "momentum: last 4 updates": {
+    "accuracy": 0.4868282402528978,
+    "coverage": 0.8599909379247848
+   },
+   "momentum: above/below EMA16": {
+    "accuracy": 0.47983688264612595,
+    "coverage": 1.0
+   },
+   "mean reversion: fade last move": {
+    "accuracy": 0.5429769392033543,
+    "coverage": 0.6483914816492977
+   },
+   "mean reversion: fade EMA16 gap": {
+    "accuracy": 0.520163117353874,
+    "coverage": 1.0
+   },
+   "order-flow momentum: OFI EMA": {
+    "accuracy": 0.505210693248754,
+    "coverage": 1.0
+   },
+   "book imbalance: top level": {
+    "accuracy": 0.5928799634869922,
+    "coverage": 0.9927503398278206
+   },
+   "hedge_timing": {
+    "adaboost": {
+     "gain_per_hedge": 0.06458451102317693,
+     "standard_error": 0.007878569632711795,
+     "waits": 0.3780384397964952,
+     "gain_when_waiting": 0.1708411214953271,
+     "half_spread": 0.6536178631995477
+    },
+    "book pressure (microprice)": {
+     "gain_per_hedge": 0.06006218202374223,
+     "standard_error": 0.007916494310397837,
+     "waits": 0.37577727529677785,
+     "gain_when_waiting": 0.15983452425723957,
+     "half_spread": 0.6536178631995477
+    },
+    "always wait": {
+     "gain_per_hedge": 0.0,
+     "standard_error": 0.012804468016318332,
+     "waits": 1.0,
+     "gain_when_waiting": 0.0,
+     "half_spread": 0.6536178631995477
+    }
+   }
+  }
+ },
+ "full_model": {
+  "rounds": 200,
+  "platt": [
+   1.7915680842770358,
+   -0.011932197500205667
+  ],
+  "move_scale_ticks": 0.7650808415545861,
+  "payoff_ratio": 1.0095488295431754,
+  "momentum_scale": 0.33039556852570445,
+  "feature_importance": [
+   {
+    "feature": "micro",
+    "weight": 0.1267997975663671
+   },
+   {
+    "feature": "dimb1",
+    "weight": 0.09880580745727706
+   },
+   {
+    "feature": "lask1",
+    "weight": 0.07723147340969766
+   },
+   {
+    "feature": "mr16",
+    "weight": 0.0749941807971583
+   },
+   {
+    "feature": "lbid1",
+    "weight": 0.07017006783589465
+   },
+   {
+    "feature": "ofi",
+    "weight": 0.07008393391245535
+   },
+   {
+    "feature": "wmid5",
+    "weight": 0.06249338270246864
+   },
+   {
+    "feature": "ofi_ema",
+    "weight": 0.05843018924562649
+   },
+   {
+    "feature": "imb1",
+    "weight": 0.05760913989801065
+   },
+   {
+    "feature": "mr64",
+    "weight": 0.05025214734922349
+   },
+   {
+    "feature": "imb5",
+    "weight": 0.04710132046230723
+   },
+   {
+    "feature": "imb2",
+    "weight": 0.04499286221388015
+   },
+   {
+    "feature": "ret2",
+    "weight": 0.02622003868829643
+   },
+   {
+    "feature": "dbid",
+    "weight": 0.025049767352945486
+   },
+   {
+    "feature": "ret1",
+    "weight": 0.024886205521006472
+   },
+   {
+    "feature": "vol",
+    "weight": 0.022477045356839392
+   },
+   {
+    "feature": "ret8",
+    "weight": 0.020318078284805925
+   },
+   {
+    "feature": "ret4",
+    "weight": 0.01577527326220113
+   },
+   {
+    "feature": "imb3",
+    "weight": 0.007915922968915084
+   },
+   {
+    "feature": "tint",
+    "weight": 0.006693627449452874
+   },
+   {
+    "feature": "tflow_ema",
+    "weight": 0.006141422051081657
+   },
+   {
+    "feature": "tvwap",
+    "weight": 0.005558316214088834
+   }
+  ]
+ },
+ "hedge_timing": {
+  "defer_ticks": 0.05,
+  "half_spread": 0.7786256567352774,
+  "signals": {
+   "adaboost": {
+    "gain_per_hedge": 0.06070784648381247,
+    "min": 0.04946297343131713,
+    "max": 0.06872171945701358,
+    "standard_error": 0.004420814581162942,
+    "waits": 0.3862899156923282,
+    "gain_when_waiting": 0.157235960177753
+   },
+   "book pressure (microprice)": {
+    "gain_per_hedge": 0.05968325631987804,
+    "min": 0.04903900508762012,
+    "max": 0.06872171945701358,
+    "standard_error": 0.004500699210543303,
+    "waits": 0.3933935436591474,
+    "gain_when_waiting": 0.1519999426395203
+   },
+   "always wait": {
+    "gain_per_hedge": -3.535067873303168e-05,
+    "min": -0.0001414027149321267,
+    "max": 0.0,
+    "standard_error": 0.007151662270206826,
+    "waits": 1.0,
+    "gain_when_waiting": -3.535067873303168e-05
+   }
+  }
+ }
+}

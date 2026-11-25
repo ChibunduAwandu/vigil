@@ -1,0 +1,9 @@
+* text=auto
+*.sh text eol=lf
+*.py text eol=lf
+*.sol text eol=lf
+# Exchange CSV bytes are evidence: preserve their original CRLF line endings.
+*.csv -text whitespace=cr-at-eol
+src/vigil/chain/artifacts/*.json linguist-generated=true
+models/*.json linguist-generated=true
+docs/results/*.json linguist-generated=true

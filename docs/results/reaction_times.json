@@ -1,0 +1,58 @@
+{
+ "example": {
+  "median": 0.000906500000013466,
+  "spread": 0.00031130000000700875,
+  "typical": 0.001263820454713141,
+  "jitter": 0.0002850742857183519,
+  "ticks": 2716,
+  "match": "live-tournament-s3-b"
+ },
+ "preset:baseline": {
+  "median": 0.0007489999999279462,
+  "spread": 0.0002946399999950699,
+  "typical": 0.0006723333684104259,
+  "jitter": 0.0002850742857183519,
+  "ticks": 1343,
+  "match": "live-tournament-s3-b"
+ },
+ "preset:full": {
+  "median": 0.0007719999999835636,
+  "spread": 0.00027629999999874145,
+  "typical": 0.0007221090307603597,
+  "jitter": 0.0002850742857183519,
+  "ticks": 1891,
+  "match": "live-tournament-s3-b"
+ },
+ "preset:inventory": {
+  "median": 0.0006990000000541841,
+  "spread": 0.0002654600000118989,
+  "typical": 0.000632016060008215,
+  "jitter": 0.0002850742857183519,
+  "ticks": 1789,
+  "match": "live-tournament-s3-b"
+ },
+ "preset:kelly": {
+  "median": 0.0008019999999824279,
+  "spread": 0.0002780199999943988,
+  "typical": 0.0007473569235329808,
+  "jitter": 0.0002850742857183519,
+  "ticks": 1904,
+  "match": "live-tournament-s3-b"
+ },
+ "preset:mean_reversion": {
+  "median": 0.0007809999999821571,
+  "spread": 0.0002938000000142437,
+  "typical": 0.0007357971854501299,
+  "jitter": 0.0002850742857183519,
+  "ticks": 1816,
+  "match": "live-tournament-s3-b"
+ },
+ "preset:momentum": {
+  "median": 0.0007780000000252585,
+  "spread": 0.0002760000000071017,
+  "typical": 0.0007140669770937505,
+  "jitter": 0.0002850742857183519,
+  "ticks": 1889,
+  "match": "live-tournament-s3-b"
+ }
+}

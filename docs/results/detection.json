@@ -1,0 +1,690 @@
+{
+ "clean": {
+  "market_data1.csv": {
+   "culprits": [],
+   "culprits_flagged": [],
+   "culprit_controls": [],
+   "honest_alerts": 0,
+   "alerts": {},
+   "discrepancies": 0,
+   "trades_checked": 2216,
+   "exchange": {}
+  },
+  "market_data2.csv": {
+   "culprits": [],
+   "culprits_flagged": [],
+   "culprit_controls": [],
+   "honest_alerts": 0,
+   "alerts": {},
+   "discrepancies": 0,
+   "trades_checked": 2697,
+   "exchange": {}
+  },
+  "market_data3.csv": {
+   "culprits": [],
+   "culprits_flagged": [],
+   "culprit_controls": [],
+   "honest_alerts": 0,
+   "alerts": {},
+   "discrepancies": 0,
+   "trades_checked": 2481,
+   "exchange": {}
+  },
+  "market_data4.csv": {
+   "culprits": [],
+   "culprits_flagged": [],
+   "culprit_controls": [],
+   "honest_alerts": 0,
+   "alerts": {},
+   "discrepancies": 0,
+   "trades_checked": 2713,
+   "exchange": {}
+  }
+ },
+ "wash": {
+  "market_data1.csv": {
+   "culprits": [
+    "WashA",
+    "WashB"
+   ],
+   "culprits_flagged": [
+    "WashA",
+    "WashB"
+   ],
+   "culprit_controls": [
+    "MKT-02"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "WashA:MKT-02": 6,
+    "WashB:MKT-02": 6
+   },
+   "discrepancies": 0,
+   "trades_checked": 1075,
+   "exchange": {}
+  },
+  "market_data2.csv": {
+   "culprits": [
+    "WashA",
+    "WashB"
+   ],
+   "culprits_flagged": [
+    "WashA",
+    "WashB"
+   ],
+   "culprit_controls": [
+    "MKT-02"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "WashA:MKT-02": 6,
+    "WashB:MKT-02": 6
+   },
+   "discrepancies": 0,
+   "trades_checked": 1249,
+   "exchange": {}
+  },
+  "market_data3.csv": {
+   "culprits": [
+    "WashA",
+    "WashB"
+   ],
+   "culprits_flagged": [
+    "WashA",
+    "WashB"
+   ],
+   "culprit_controls": [
+    "MKT-02"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "WashA:MKT-02": 5,
+    "WashB:MKT-02": 5
+   },
+   "discrepancies": 0,
+   "trades_checked": 1184,
+   "exchange": {}
+  },
+  "market_data4.csv": {
+   "culprits": [
+    "WashA",
+    "WashB"
+   ],
+   "culprits_flagged": [
+    "WashA",
+    "WashB"
+   ],
+   "culprit_controls": [
+    "MKT-02",
+    "MKT-04"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "WashA:MKT-02": 7,
+    "WashB:MKT-02": 7,
+    "WashB:MKT-04": 1
+   },
+   "discrepancies": 0,
+   "trades_checked": 1418,
+   "exchange": {}
+  }
+ },
+ "spoofer": {
+  "market_data1.csv": {
+   "culprits": [
+    "Spoofer"
+   ],
+   "culprits_flagged": [
+    "Spoofer"
+   ],
+   "culprit_controls": [
+    "MKT-01"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Spoofer:MKT-01": 5
+   },
+   "discrepancies": 0,
+   "trades_checked": 2206,
+   "exchange": {}
+  },
+  "market_data2.csv": {
+   "culprits": [
+    "Spoofer"
+   ],
+   "culprits_flagged": [
+    "Spoofer"
+   ],
+   "culprit_controls": [
+    "MKT-01"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Spoofer:MKT-01": 4
+   },
+   "discrepancies": 0,
+   "trades_checked": 2704,
+   "exchange": {}
+  },
+  "market_data3.csv": {
+   "culprits": [
+    "Spoofer"
+   ],
+   "culprits_flagged": [
+    "Spoofer"
+   ],
+   "culprit_controls": [
+    "MKT-01"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Spoofer:MKT-01": 4
+   },
+   "discrepancies": 0,
+   "trades_checked": 2489,
+   "exchange": {}
+  },
+  "market_data4.csv": {
+   "culprits": [
+    "Spoofer"
+   ],
+   "culprits_flagged": [
+    "Spoofer"
+   ],
+   "culprit_controls": [
+    "MKT-01"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Spoofer:MKT-01": 3
+   },
+   "discrepancies": 0,
+   "trades_checked": 2659,
+   "exchange": {}
+  }
+ },
+ "layerer": {
+  "market_data1.csv": {
+   "culprits": [
+    "Layerer"
+   ],
+   "culprits_flagged": [
+    "Layerer"
+   ],
+   "culprit_controls": [
+    "MKT-01"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Layerer:MKT-01": 7
+   },
+   "discrepancies": 0,
+   "trades_checked": 2242,
+   "exchange": {}
+  },
+  "market_data2.csv": {
+   "culprits": [
+    "Layerer"
+   ],
+   "culprits_flagged": [
+    "Layerer"
+   ],
+   "culprit_controls": [
+    "MKT-01"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Layerer:MKT-01": 10
+   },
+   "discrepancies": 0,
+   "trades_checked": 2681,
+   "exchange": {}
+  },
+  "market_data3.csv": {
+   "culprits": [
+    "Layerer"
+   ],
+   "culprits_flagged": [
+    "Layerer"
+   ],
+   "culprit_controls": [
+    "MKT-01"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Layerer:MKT-01": 6
+   },
+   "discrepancies": 0,
+   "trades_checked": 2430,
+   "exchange": {}
+  },
+  "market_data4.csv": {
+   "culprits": [
+    "Layerer"
+   ],
+   "culprits_flagged": [
+    "Layerer"
+   ],
+   "culprit_controls": [
+    "MKT-01"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Layerer:MKT-01": 4
+   },
+   "discrepancies": 0,
+   "trades_checked": 2644,
+   "exchange": {}
+  }
+ },
+ "stuffer": {
+  "market_data1.csv": {
+   "culprits": [
+    "Stuffer"
+   ],
+   "culprits_flagged": [
+    "Stuffer"
+   ],
+   "culprit_controls": [
+    "LIM-03",
+    "MKT-03",
+    "MKT-05"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Stuffer:LIM-03": 26,
+    "Stuffer:MKT-03": 14,
+    "Stuffer:MKT-05": 1
+   },
+   "discrepancies": 0,
+   "trades_checked": 2225,
+   "exchange": {}
+  },
+  "market_data2.csv": {
+   "culprits": [
+    "Stuffer"
+   ],
+   "culprits_flagged": [
+    "Stuffer"
+   ],
+   "culprit_controls": [
+    "LIM-03",
+    "MKT-03",
+    "MKT-05"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Stuffer:LIM-03": 27,
+    "Stuffer:MKT-03": 14,
+    "Stuffer:MKT-05": 1
+   },
+   "discrepancies": 0,
+   "trades_checked": 2642,
+   "exchange": {}
+  },
+  "market_data3.csv": {
+   "culprits": [
+    "Stuffer"
+   ],
+   "culprits_flagged": [
+    "Stuffer"
+   ],
+   "culprit_controls": [
+    "LIM-03",
+    "MKT-03",
+    "MKT-05"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Stuffer:LIM-03": 29,
+    "Stuffer:MKT-03": 15,
+    "Stuffer:MKT-05": 1
+   },
+   "discrepancies": 0,
+   "trades_checked": 2533,
+   "exchange": {}
+  },
+  "market_data4.csv": {
+   "culprits": [
+    "Stuffer"
+   ],
+   "culprits_flagged": [
+    "Stuffer"
+   ],
+   "culprit_controls": [
+    "LIM-03",
+    "MKT-03",
+    "MKT-05"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Stuffer:LIM-03": 24,
+    "Stuffer:MKT-03": 13,
+    "Stuffer:MKT-05": 1
+   },
+   "discrepancies": 0,
+   "trades_checked": 2685,
+   "exchange": {}
+  }
+ },
+ "close_marker": {
+  "market_data1.csv": {
+   "culprits": [
+    "CloseMarker"
+   ],
+   "culprits_flagged": [
+    "CloseMarker"
+   ],
+   "culprit_controls": [
+    "MKT-04"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "CloseMarker:MKT-04": 1
+   },
+   "discrepancies": 0,
+   "trades_checked": 2232,
+   "exchange": {}
+  },
+  "market_data2.csv": {
+   "culprits": [
+    "CloseMarker"
+   ],
+   "culprits_flagged": [
+    "CloseMarker"
+   ],
+   "culprit_controls": [
+    "MKT-04"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "CloseMarker:MKT-04": 1
+   },
+   "discrepancies": 0,
+   "trades_checked": 2699,
+   "exchange": {}
+  },
+  "market_data3.csv": {
+   "culprits": [
+    "CloseMarker"
+   ],
+   "culprits_flagged": [
+    "CloseMarker"
+   ],
+   "culprit_controls": [
+    "MKT-04"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "CloseMarker:MKT-04": 1
+   },
+   "discrepancies": 0,
+   "trades_checked": 2524,
+   "exchange": {}
+  },
+  "market_data4.csv": {
+   "culprits": [
+    "CloseMarker"
+   ],
+   "culprits_flagged": [
+    "CloseMarker"
+   ],
+   "culprit_controls": [
+    "MKT-04"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "CloseMarker:MKT-04": 1
+   },
+   "discrepancies": 0,
+   "trades_checked": 2722,
+   "exchange": {}
+  }
+ },
+ "reckless": {
+  "market_data1.csv": {
+   "culprits": [
+    "Reckless"
+   ],
+   "culprits_flagged": [
+    "Reckless"
+   ],
+   "culprit_controls": [
+    "LIM-02"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Reckless:LIM-02": 2
+   },
+   "discrepancies": 0,
+   "trades_checked": 2198,
+   "exchange": {
+    "Reckless": "BREACH"
+   }
+  },
+  "market_data2.csv": {
+   "culprits": [
+    "Reckless"
+   ],
+   "culprits_flagged": [
+    "Reckless"
+   ],
+   "culprit_controls": [
+    "LIM-02"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Reckless:LIM-02": 2
+   },
+   "discrepancies": 0,
+   "trades_checked": 2627,
+   "exchange": {
+    "Reckless": "BREACH"
+   }
+  },
+  "market_data3.csv": {
+   "culprits": [
+    "Reckless"
+   ],
+   "culprits_flagged": [
+    "Reckless"
+   ],
+   "culprit_controls": [
+    "LIM-02"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Reckless:LIM-02": 2
+   },
+   "discrepancies": 0,
+   "trades_checked": 2525,
+   "exchange": {
+    "Reckless": "BREACH"
+   }
+  },
+  "market_data4.csv": {
+   "culprits": [
+    "Reckless"
+   ],
+   "culprits_flagged": [
+    "Reckless"
+   ],
+   "culprit_controls": [
+    "LIM-02"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "Reckless:LIM-02": 2
+   },
+   "discrepancies": 0,
+   "trades_checked": 2622,
+   "exchange": {
+    "Reckless": "BREACH"
+   }
+  }
+ },
+ "limit_breaker": {
+  "market_data1.csv": {
+   "culprits": [
+    "LimitBreaker"
+   ],
+   "culprits_flagged": [
+    "LimitBreaker"
+   ],
+   "culprit_controls": [
+    "LIM-01",
+    "LIM-02"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "LimitBreaker:LIM-01": 1,
+    "LimitBreaker:LIM-02": 2
+   },
+   "discrepancies": 0,
+   "trades_checked": 2160,
+   "exchange": {
+    "LimitBreaker": "BREACH"
+   }
+  },
+  "market_data2.csv": {
+   "culprits": [
+    "LimitBreaker"
+   ],
+   "culprits_flagged": [
+    "LimitBreaker"
+   ],
+   "culprit_controls": [
+    "LIM-01",
+    "LIM-02"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "LimitBreaker:LIM-01": 1,
+    "LimitBreaker:LIM-02": 2
+   },
+   "discrepancies": 0,
+   "trades_checked": 2682,
+   "exchange": {
+    "LimitBreaker": "BREACH"
+   }
+  },
+  "market_data3.csv": {
+   "culprits": [
+    "LimitBreaker"
+   ],
+   "culprits_flagged": [
+    "LimitBreaker"
+   ],
+   "culprit_controls": [
+    "LIM-01",
+    "LIM-02"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "LimitBreaker:LIM-01": 1,
+    "LimitBreaker:LIM-02": 2
+   },
+   "discrepancies": 0,
+   "trades_checked": 2488,
+   "exchange": {
+    "LimitBreaker": "BREACH"
+   }
+  },
+  "market_data4.csv": {
+   "culprits": [
+    "LimitBreaker"
+   ],
+   "culprits_flagged": [
+    "LimitBreaker"
+   ],
+   "culprit_controls": [
+    "LIM-01",
+    "LIM-02"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "LimitBreaker:LIM-01": 1,
+    "LimitBreaker:LIM-02": 2
+   },
+   "discrepancies": 0,
+   "trades_checked": 2767,
+   "exchange": {
+    "LimitBreaker": "BREACH"
+   }
+  }
+ },
+ "fat_finger": {
+  "market_data1.csv": {
+   "culprits": [
+    "FatFinger"
+   ],
+   "culprits_flagged": [
+    "FatFinger"
+   ],
+   "culprit_controls": [
+    "MKT-06"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "FatFinger:MKT-06": 1
+   },
+   "discrepancies": 0,
+   "trades_checked": 2194,
+   "exchange": {}
+  },
+  "market_data2.csv": {
+   "culprits": [
+    "FatFinger"
+   ],
+   "culprits_flagged": [
+    "FatFinger"
+   ],
+   "culprit_controls": [
+    "MKT-06"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "FatFinger:MKT-06": 1
+   },
+   "discrepancies": 0,
+   "trades_checked": 2684,
+   "exchange": {}
+  },
+  "market_data3.csv": {
+   "culprits": [
+    "FatFinger"
+   ],
+   "culprits_flagged": [
+    "FatFinger"
+   ],
+   "culprit_controls": [
+    "MKT-06"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "FatFinger:MKT-06": 1
+   },
+   "discrepancies": 0,
+   "trades_checked": 2488,
+   "exchange": {}
+  },
+  "market_data4.csv": {
+   "culprits": [
+    "FatFinger"
+   ],
+   "culprits_flagged": [
+    "FatFinger"
+   ],
+   "culprit_controls": [
+    "MKT-06"
+   ],
+   "honest_alerts": 0,
+   "alerts": {
+    "FatFinger:MKT-06": 1
+   },
+   "discrepancies": 0,
+   "trades_checked": 2712,
+   "exchange": {}
+  }
+ }
+}

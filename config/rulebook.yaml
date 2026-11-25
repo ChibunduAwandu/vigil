@@ -1,0 +1,395 @@
+# The rulebook: which controls run, how they are tuned, and which regulation each one answers to.
+#
+# Ready Trader Go is a simulator, so nothing traded on it is legally regulated. Each control is
+# modelled on an obligation that a firm trading a real ETF against a real future would carry, and
+# the mapping below records which one. It is an engineering cross-reference, not legal advice.
+#
+# A report embeds the hash of this file, so a finding can always be traced to the exact thresholds
+# that produced it.
+version: 1
+
+regulations:
+  CEA-4c(a)(5):
+    title: Commodity Exchange Act, disruptive practices
+    citation: 7 U.S.C. 6c(a)(5) (added by Dodd-Frank Act section 747)
+    authority: CFTC
+    jurisdiction: US
+    url: https://www.law.cornell.edu/uscode/text/7/6c
+    summary: >-
+      Makes it unlawful to violate bids or offers, to show intentional or reckless disregard for
+      the orderly execution of transactions during the closing period, or to spoof ("bidding or
+      offering with the intent to cancel the bid or offer before execution").
+    watch:
+      agencies: [commodity-futures-trading-commission]
+      terms: [spoofing, disruptive trading practices]
+
+  CEA-4c(a)(1):
+    title: Commodity Exchange Act, wash sales and fictitious trades
+    citation: 7 U.S.C. 6c(a)(1)-(2)
+    authority: CFTC
+    jurisdiction: US
+    url: https://www.law.cornell.edu/uscode/text/7/6c
+    summary: >-
+      Prohibits transactions that are, or are commonly known as, wash sales or accommodation
+      trades, and fictitious sales.
+    watch:
+      agencies: [commodity-futures-trading-commission]
+      terms: [wash trading, wash sale]
+
+  CFTC-180:
+    title: Prohibition on manipulative and deceptive devices and price manipulation
+    citation: 17 CFR 180.1 and 180.2 (under 7 U.S.C. 9)
+    authority: CFTC
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-17/chapter-I/part-180
+    summary: >-
+      Prohibits the use of any manipulative device, scheme or artifice to defraud, and the
+      manipulation or attempted manipulation of the price of any swap, commodity or future.
+    watch:
+      agencies: [commodity-futures-trading-commission]
+      terms: [price manipulation, manipulative device]
+      cfr: [{title: 17, part: 180}]
+
+  CFTC-150:
+    title: Limits on positions
+    citation: 17 CFR Part 150 (under 7 U.S.C. 6a)
+    authority: CFTC
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-17/chapter-I/part-150
+    summary: >-
+      Sets speculative position limits and the aggregation and exemption rules that go with them.
+    watch:
+      agencies: [commodity-futures-trading-commission]
+      terms: [position limits]
+      cfr: [{title: 17, part: 150}]
+
+  CFTC-38.251:
+    title: Electronic trading risk principles for designated contract markets
+    citation: 17 CFR 38.251(e)-(g) and 38.255
+    authority: CFTC
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-17/section-38.251
+    summary: >-
+      Requires a contract market to adopt rules and pre-trade risk controls that prevent, detect
+      and mitigate market disruptions and system anomalies associated with electronic trading.
+    watch:
+      agencies: [commodity-futures-trading-commission]
+      terms: [electronic trading risk principles, pre-trade risk controls]
+      cfr: [{title: 17, part: 38}]
+
+  CFTC-1.31:
+    title: Regulatory records; retention and production
+    citation: 17 CFR 1.31
+    authority: CFTC
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-17/section-1.31
+    summary: >-
+      Requires regulatory records to be kept so that their authenticity and reliability are
+      ensured, and to be produced promptly on request.
+    watch:
+      agencies: [commodity-futures-trading-commission]
+      terms: [regulatory records, records retention]
+
+  SEA-9(a):
+    title: Securities Exchange Act, manipulation of security prices
+    citation: 15 U.S.C. 78i(a)(1)-(2)
+    authority: SEC
+    jurisdiction: US
+    url: https://www.law.cornell.edu/uscode/text/15/78i
+    summary: >-
+      Prohibits wash sales and matched orders entered to create a false or misleading appearance
+      of active trading, and series of transactions that raise or depress a price to induce others
+      to trade.
+    watch:
+      agencies: [securities-and-exchange-commission]
+      terms: [market manipulation, wash sales, marking the close]
+
+  SEC-10b-5:
+    title: Employment of manipulative and deceptive devices
+    citation: 17 CFR 240.10b-5 (under 15 U.S.C. 78j(b))
+    authority: SEC
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-17/section-240.10b-5
+    summary: >-
+      The general anti-fraud rule: prohibits any device, scheme or act that operates as a fraud or
+      deceit in connection with the purchase or sale of a security.
+    watch:
+      agencies: [securities-and-exchange-commission]
+      terms: [manipulative trading]
+
+  SEC-15c3-5:
+    title: Market Access Rule
+    citation: 17 CFR 240.15c3-5
+    authority: SEC
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-17/section-240.15c3-5
+    summary: >-
+      Requires a broker-dealer with market access to maintain risk management controls that
+      prevent orders exceeding pre-set credit or capital thresholds and reject erroneous orders
+      (by price or size), and to review their effectiveness regularly.
+    watch:
+      agencies: [securities-and-exchange-commission]
+      terms: [market access rule, 15c3-5]
+
+  SEC-17a-4:
+    title: Records to be preserved by brokers and dealers
+    citation: 17 CFR 240.17a-4, in particular paragraph (f)
+    authority: SEC
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-17/section-240.17a-4
+    summary: >-
+      Sets retention periods for broker-dealer records. Electronic records must either be kept in
+      a non-rewriteable, non-erasable format or carry a complete time-stamped audit trail that
+      lets the original be recreated if it is modified or deleted.
+    watch:
+      agencies: [securities-and-exchange-commission]
+      terms: [electronic recordkeeping, 17a-4]
+
+  SEC-613:
+    title: Consolidated audit trail
+    citation: 17 CFR 242.613
+    authority: SEC
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-17/section-242.613
+    summary: >-
+      Requires every order event (origination, modification, cancellation, routing, execution) to
+      be recorded and reported to a central repository with synchronised timestamps.
+    watch:
+      agencies: [securities-and-exchange-commission]
+      terms: [consolidated audit trail]
+
+  FINRA-5210:
+    title: Publication of transactions and quotations
+    citation: FINRA Rule 5210, Supplementary Material .02 (self-trades) and .03 (disruptive quoting and trading)
+    authority: FINRA
+    jurisdiction: US
+    url: https://www.finra.org/rules-guidance/rulebooks/finra-rules/5210
+    summary: >-
+      Prohibits publishing quotations or transactions that are not bona fide. The supplementary
+      material covers self-trades from related algorithms and the entry of orders on one side to
+      move the market before trading on the other.
+
+  FINRA-3110:
+    title: Supervision
+    citation: FINRA Rule 3110
+    authority: FINRA
+    jurisdiction: US
+    url: https://www.finra.org/rules-guidance/rulebooks/finra-rules/3110
+    summary: >-
+      Requires a supervisory system, including written procedures and reviews, that is reasonably
+      designed to achieve compliance with securities laws and FINRA rules.
+
+  CME-575:
+    title: Disruptive practices prohibited
+    citation: CME Group Rule 575 (CME Rulebook, chapter 5)
+    authority: CME Group
+    jurisdiction: US (exchange rule)
+    url: https://www.cmegroup.com/rulebook/CME/I/5/5.pdf
+    summary: >-
+      All orders must be entered for the purpose of executing bona fide transactions; prohibits
+      orders entered to mislead, to overload or delay systems, or to disrupt orderly trading.
+
+  CME-534:
+    title: Wash trades prohibited
+    citation: CME Group Rule 534 (CME Rulebook, chapter 5)
+    authority: CME Group
+    jurisdiction: US (exchange rule)
+    url: https://www.cmegroup.com/rulebook/CME/I/5/5.pdf
+    summary: >-
+      Prohibits placing or accepting buy and sell orders in the same product for accounts with
+      common beneficial ownership where the orders are expected to match each other.
+
+  MAR-12:
+    title: Market Abuse Regulation, market manipulation
+    citation: Regulation (EU) No 596/2014, Articles 12 and 15, with Annex II of Delegated Regulation (EU) 2016/522
+    authority: ESMA and national competent authorities
+    jurisdiction: EU
+    url: https://eur-lex.europa.eu/eli/reg/2014/596/oj
+    summary: >-
+      Defines and prohibits market manipulation. The delegated regulation lists the practices
+      that indicate it, among them layering and spoofing, quote stuffing, wash trades, momentum
+      ignition and marking the close.
+
+  MAR-16:
+    title: Market Abuse Regulation, detection and reporting
+    citation: Regulation (EU) No 596/2014, Article 16, with Delegated Regulation (EU) 2016/957
+    authority: ESMA and national competent authorities
+    jurisdiction: EU
+    url: https://eur-lex.europa.eu/eli/reg_del/2016/957/oj
+    summary: >-
+      Requires anyone professionally arranging or executing transactions to maintain effective
+      systems for detecting suspicious orders and transactions and to report them without delay.
+
+  MIFID2-RTS6:
+    title: Organisational requirements for algorithmic trading
+    citation: Directive 2014/65/EU Article 17, with Delegated Regulation (EU) 2017/589 (RTS 6)
+    authority: ESMA and national competent authorities
+    jurisdiction: EU
+    url: https://eur-lex.europa.eu/eli/reg_del/2017/589/oj
+    summary: >-
+      Requires pre-trade controls (price collars, maximum order value and volume, maximum message
+      limits), real-time monitoring, post-trade controls and a kill function for algorithmic
+      trading, plus automated surveillance for market manipulation.
+
+  MIFID2-RTS9:
+    title: Ratio of unexecuted orders to transactions
+    citation: Directive 2014/65/EU Article 48(6), with Delegated Regulation (EU) 2017/566 (RTS 9)
+    authority: ESMA and national competent authorities
+    jurisdiction: EU
+    url: https://eur-lex.europa.eu/eli/reg_del/2017/566/oj
+    summary: >-
+      Requires trading venues to calculate, for each member, the ratio of unexecuted orders to
+      transactions both by number and by volume, and to set maximum ratios.
+
+controls:
+  LIM-01:
+    title: Position limit
+    category: risk limits
+    severity: CRITICAL
+    description: >-
+      The net position in either instrument went beyond the exchange's position limit.
+    parameters: {}
+    regulations: [CFTC-150, SEC-15c3-5, MIFID2-RTS6, CFTC-38.251]
+
+  LIM-02:
+    title: Un-hedged exposure
+    category: risk limits
+    description: >-
+      The combined ETF and future position stayed outside the un-hedged allowance for longer than
+      permitted. A warning is raised when most of the permitted time has been used.
+    severity: CRITICAL
+    parameters:
+      allowance_lots: 10       # unhedged_lots.MAX_UNHEDGED_LOTS
+      time_limit: 60.0         # unhedged_lots.UNHEDGED_LOTS_TIME_LIMIT, seconds
+      warn_fraction: 0.75      # warn once this share of the time limit has elapsed
+    regulations: [SEC-15c3-5, MIFID2-RTS6, CFTC-38.251]
+
+  LIM-03:
+    title: Message rate
+    category: risk limits
+    severity: CRITICAL
+    description: >-
+      Order messages were sent faster than the exchange's throttle allows: the participant reached
+      the limit and the exchange disconnected it. A warning is raised as the rate approaches the
+      limit.
+    parameters:
+      warn_fraction: 0.8
+      warn_cooldown: 30.0      # seconds between warnings for the same participant
+      silence_seconds: 5.0     # reaching the limit and then saying nothing for this long reads as a disconnection
+    regulations: [MIFID2-RTS6, CFTC-38.251, CME-575]
+
+  MKT-01:
+    title: Spoofing and layering
+    category: market conduct
+    severity: HIGH
+    description: >-
+      Large orders were repeatedly shown in the visible part of the book on one side while the
+      participant traded on the other, then withdrawn unexecuted, by cancelling them or amending
+      them down, without being replaced.
+    parameters:
+      min_lots: 40             # smallest block treated as a show of size ...
+      min_order_lots: 10       # ... made up of orders at least this large
+      max_lifetime: 5.0        # seconds; longer-lived orders are not "flashed"
+      max_fill_ratio: 0.1      # the order must have gone (almost) entirely unexecuted
+      visible_levels: 5        # it must have been among this many best price levels: in public view
+      min_opposite_lots: 1     # executed on the other side while it was showing
+      pull_gap: 0.5            # withdrawals on one side this close together, in seconds, are one withdrawal
+      requote_window: 0.3      # a resting same-side order this soon after the withdrawal is a re-quote
+      requote_ratio: 0.5       # ... of as much withdrawn size as it is this fraction of
+      requote_ticks: 15        # ... if priced within this many ticks of what was withdrawn (the honest
+                               #     traders here, simulated and live, never re-quote further than 13)
+      window: 60.0             # seconds over which episodes are counted
+      min_episodes: 3
+      layering_levels: 3       # this many price levels pulled together counts as layering
+    regulations: [CEA-4c(a)(5), CME-575, FINRA-5210, MAR-12, SEC-10b-5]
+
+  MKT-02:
+    title: Wash trading
+    category: market conduct
+    severity: HIGH
+    description: >-
+      Two participants traded with each other in both directions in matching size, and either
+      did most of their business with each other or passed the same lots straight back at a
+      matching price, so that nothing changed hands and no risk was taken.
+    parameters:
+      window: 120.0            # seconds
+      min_round_trip_lots: 30  # lots that went each way between the pair inside the window
+      min_trades_each_way: 2
+      max_imbalance: 0.35      # |A->B - B->A| / (A->B + B->A)
+      min_pair_share: 0.5      # of each participant's volume in the window that is with the other
+      min_returned_lots: 60    # or: this many lots went out and came straight back, roles reversed,
+      min_returned_share: 0.75 # ... making up this share of the pair's volume ...
+      max_return_seconds: 10.0 # ... each within this long ...
+      max_price_gap_ticks: 1.5 # ... at this close a price, relative to fair value
+    regulations: [CEA-4c(a)(1), SEA-9(a), CME-534, FINRA-5210, MAR-12]
+
+  MKT-03:
+    title: Quote stuffing
+    category: market conduct
+    severity: MEDIUM
+    description: >-
+      Bursts of orders were entered and cancelled almost at once with nothing executed, a pattern
+      that loads the exchange and obscures the book without any intent to trade.
+    parameters:
+      burst_messages: 24       # order messages inside one second
+      burst_cancel_ratio: 0.8  # share of the orders entered in the burst cancelled within it
+      max_order_life: 0.5      # seconds
+      window: 60.0
+      min_bursts: 5
+    regulations: [CME-575, MAR-12, MIFID2-RTS6, CEA-4c(a)(5)]
+
+  MKT-04:
+    title: Marking the close
+    category: market conduct
+    severity: HIGH
+    description: >-
+      In the final seconds of the session the participant paid through fair value in a way that
+      moved the closing price in favour of the position it was holding.
+    parameters:
+      closing_window: 30.0     # seconds before the end of the session
+      min_through_ticks: 1.5   # how far through fair value the aggressive trade was priced
+      min_benefit: 25.0        # dollars by which the closing mark of the position improved
+      min_attempt_orders: 3    # this many such orders is an attempt whatever they would have been worth; so is
+                               # one that would have been worth min_benefit had it been the last trade
+    regulations: [CEA-4c(a)(5), SEA-9(a), CFTC-180, MAR-12]
+
+  MKT-05:
+    title: Order-to-trade ratio
+    category: market conduct
+    severity: MEDIUM
+    description: >-
+      The ratio of order messages to executions, counted as MiFID II RTS 9 counts them, was far
+      above what a participant trading in good faith produces.
+    parameters:
+      min_orders: 200          # do not judge a participant on a handful of orders
+      # A market maker here re-quotes several times a second and trades a few times a minute. In
+      # crowded matches on the real exchange the honest traders reached 34 by number and 107 by
+      # volume (the limit by volume first stood at 80, and flagged one of them); the quote stuffer
+      # is above 900 on both. The limits sit between, nearer the honest end.
+      max_ratio_by_number: 150.0
+      max_ratio_by_volume: 400.0
+    regulations: [MIFID2-RTS9, MIFID2-RTS6, CME-575]
+
+  MKT-06:
+    title: Off-market order
+    category: market conduct
+    severity: MEDIUM
+    description: >-
+      An order was priced so far from the market that it is either an error or an attempt to
+      print an unrepresentative price.
+    parameters:
+      collar: 0.03             # fraction of the reference price (the future's mid)
+      executed_severity: HIGH  # when such an order actually traded beyond the collar
+    regulations: [SEC-15c3-5, MIFID2-RTS6, CFTC-38.251]
+
+  REC-01:
+    title: Trade reconciliation
+    category: books and records
+    severity: HIGH
+    description: >-
+      A trade or hedge reported by the exchange is not the one obtained by replaying the order
+      stream through the matching rules, the positions the stream adds up to are not those on the
+      exchange's score board, or the stream is incomplete, out of order or unreadable.
+    parameters:
+      max_alerts: 20
+    regulations: [SEC-17a-4, CFTC-1.31, SEC-613, FINRA-3110]

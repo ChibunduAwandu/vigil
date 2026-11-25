@@ -1,0 +1,38 @@
+.venv/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+*.textClipping
+*.pem
+*.key
+dist/
+build/
+
+# External Optiver exchange and sample data. Install with scripts/bootstrap_rtg.py.
+/pyready_trader_go-2/
+/tests/fixtures/live_capture/market_data.csv
+
+# Toolchains fetched by scripts/bootstrap_tools.sh, and the data of the local broker and chain
+.tools/
+contracts/lib/
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+
+# Everything Vigil generates at run time: reports, run directories, the regulatory register, caches.
+# (The model in models/ and the results in docs/results/ are tracked: they are what the docs describe.)
+/artifacts/
+
+# What Ready Trader Go leaves behind when run by hand
+info.dat
+*.log
+match_events.csv
+score_board.csv
+!tests/fixtures/**/match_events.csv
+!tests/fixtures/**/score_board.csv

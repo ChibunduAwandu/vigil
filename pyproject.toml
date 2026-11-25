@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vigil"
+version = "0.1.0"
+description = "Compliance monitoring for trades executed on Optiver's Ready Trader Go exchange simulator"
+authors = [{name = "Chibundu Awandu"}]
+readme = "README.md"
+requires-python = ">=3.11,<3.14"  # Ready Trader Go relies on asyncio.get_event_loop() creating a loop, which 3.14 removed
+dependencies = [
+    "numpy>=1.24",
+    "pyyaml>=6.0",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+kafka = ["confluent-kafka>=2.5"]
+chain = ["web3>=7.0"]
+dev = ["pytest>=8.0", "ruff>=0.6", "scikit-learn>=1.4"]
+hud = ["PySide6>=6.5"]  # Ready Trader Go's own display (vigil live --hud, vigil replay); over a gigabyte, so not in "all"
+all = ["vigil[kafka,chain,dev]"]
+
+[project.scripts]
+vigil = "vigil.cli:main"
+
+[project.urls]
+Repository = "https://github.com/ChibunduAwandu/vigil"
+Documentation = "https://github.com/ChibunduAwandu/vigil#readme"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+vigil = ["chain/artifacts/*.json", "data/*.yaml", "data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = [
+    "kafka: needs a Kafka broker on 127.0.0.1:9092 (or VIGIL_TEST_KAFKA=host:port)",
+    "chain: needs the Foundry toolchain (anvil) in .tools/ or on PATH",
+    "network: talks to a public API over the internet (set VIGIL_TEST_NETWORK=1)",
+    "live: starts the real Ready Trader Go exchange (set VIGIL_TEST_LIVE=1)",
+    "slow: replays a full 15-minute market data session",
+]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+extend-exclude = ["pyready_trader_go-2", ".tools", "contracts/lib"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["E501", "SIM102", "SIM108"]  # line length is set above; the other two trade clarity for brevity
